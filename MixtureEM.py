@@ -1,8 +1,8 @@
 import numpy as np
-
+from scipy.special import logsumexp
 
 class MixtureEM:
-    def __init__(self, n_clusters=2, n_init=10, max_iter=300, tol=1e-4):
+    def __init__(self, n_clusters=2, n_init=10, max_iter=300, tol=1e-4, params_schema):
         '''
         Abstract class implementing EM algorithm for
         the problem of mixture separation.
@@ -22,24 +22,28 @@ class MixtureEM:
 
         for init_idx in range(n_init):
             # TODO: generate initial parameters
-            l_arg_min, l_min = self.run_EM()
+            NLL_arg_min, NLL_min = self.run_EM(arg_init)
 
-    def run_EM(self):
-        l_prev_min = None
+    def run_EM(self, arg_init):
+        arg_old = arg_init
+        NLL_old_min = None
         for iter_idx in range(max_iter):
-            r = self.E_step()
-            l_cur_arg_min, l_cur_min = self.M_step(r)
+            r = self.E_step(arg_old)
+            arg_new, NLL_new_min = self.M_step(r)
 
-            if l_prev_min is None:
-                l_prev_min = l_cur_min
+            if NLL_old_min is None:
+                NLL_old_min = NLL_new_min
             else:
-                if abs(l_cur_min - l_prev_min) / abs(l_prev_min) < self.tol:
+                if abs(NLL_new_min - NLL_ikd_min) / abs(NLL_old_min) < self.tol:
                     break
         # TODO: raise warning if tolerance is not achieved in max_iter iterations
-        return l_cur_arg_min, l_cur_min
+        return arg_new, NLL_new_min
 
-    def E_step(self):
-        pass
+    def E_step(self, arg_old):
+        numerator_matrix = np.add(arg_old["log_p"], arg_old["log_pi"])
+        denominator_matrix = logsumexp(numerator_matrix, axis=1)[None].T
+        r = np.exp(numerator_matrix - denominator_matrix)
+        return r
 
-    def M_step(self):
+    def M_step(self, r):
         pass

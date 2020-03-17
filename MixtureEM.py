@@ -2,7 +2,7 @@ import numpy as np
 from scipy.special import logsumexp
 
 class MixtureEM:
-    def __init__(self, n_clusters=2, n_init=10, max_iter=300, tol=1e-4):
+    def __init__(self, n_clusters=3, n_init=10, max_iter=300, tol=1e-4):
         '''
         Abstract class implementing EM algorithm for
         the problem of mixture separation.
@@ -42,7 +42,7 @@ class MixtureEM:
         return arg_new, NLL_new_min
 
     def E_step(self, arg_old):
-        numerator_matrix = arg_old["log_p"] + arg_old["log_pi"]
+        numerator_matrix = self.log_p_matrix(arg_old) + arg_old["log_pi"]
         denominator_matrix = logsumexp(numerator_matrix, axis=1)[None].T
         r = np.exp(numerator_matrix - denominator_matrix)
         # TODO: test that this is true probability matrix (rows sum to 1)

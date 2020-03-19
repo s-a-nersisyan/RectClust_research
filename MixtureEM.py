@@ -1,8 +1,9 @@
 import numpy as np
 from scipy.special import logsumexp
+import matplotlib.pyplot as plt
 
 class MixtureEM:
-    def __init__(self, n_clusters=3, n_init=10, max_iter=300, tol=1e-4):
+    def __init__(self, n_clusters=2, n_init=1, max_iter=300, tol=1e-4):
         '''
         Abstract class implementing EM algorithm for
         the problem of mixture separation.
@@ -35,17 +36,26 @@ class MixtureEM:
             r = self.E_step(arg_old)
             arg_new, NLL_new_min = self.M_step(r)
 
-            if NLL_old_min is None:
-                NLL_old_min = NLL_new_min
-            else:
-                if abs(NLL_new_min - NLL_old_min) / abs(NLL_old_min) < self.tol:
-                    break
+            #fig, ax = plt.subplots()
+            #ax.plot(self.X[:, 0], self.X[:, 1], "o")
+            #ax.plot(arg_new["mu"][:, 0], arg_new["mu"][:, 1], "x")
+            #for mu, alpha in zip(arg_new["mu"], arg_new["alpha"]):
+            #    ax.add_artist(plt.Circle(mu, alpha*3/np.sqrt(2), fill=0))
+            ##plt.show()
+            #plt.close()
+
+            if not NLL_old_min is None and abs(NLL_new_min - NLL_old_min) / abs(NLL_old_min) < self.tol:
+                break
+
+            arg_old = arg_new
+            NLL_old_min = NLL_new_min
+
         # TODO: raise warning if tolerance is not achieved in max_iter iterations
         return arg_new, NLL_new_min
 
     def E_step(self, arg_old):
         numerator_matrix = self.log_p_matrix(arg_old) + arg_old["log_pi"]
-        denominator_matrix = logsumexp(numerator_matrix, axis=1)[None].T
+        denominator_matrix = logsumexp(numerator_matrix, axis=1)[:, None]
         r = np.exp(numerator_matrix - denominator_matrix)
         # TODO: test that this is true probability matrix (rows sum to 1)
         return r

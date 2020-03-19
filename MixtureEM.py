@@ -19,8 +19,10 @@ class MixtureEM:
         # TODO: scaling?
         self.X = X
         self.n_samples, self.dim = self.X.shape
+        # Extend X by new axis to fasten computations
+        self.X_ext = np.repeat(self.X[:, None, :], self.n_clusters, axis=1)
 
-        # TODO: select best
+        # TODO: select the best
         for init_idx in range(self.n_init):
             # TODO: generate initial parameters
             arg_init = self.initialize_arg()
@@ -49,4 +51,4 @@ class MixtureEM:
         return r
 
     def M_step(self, r):
-        return self.NLL_minimizer(r)
+        return self.aux_minimizer(r)

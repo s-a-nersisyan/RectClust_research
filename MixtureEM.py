@@ -1,9 +1,8 @@
 import numpy as np
 from scipy.special import logsumexp
-import matplotlib.pyplot as plt
 
 class MixtureEM:
-    def __init__(self, n_clusters=2, n_init=1, max_iter=300, tol=1e-4):
+    def __init__(self, n_clusters=2, n_init=10, max_iter=300, tol=1e-4):
         '''
         Abstract class implementing EM algorithm for
         the problem of mixture separation.
@@ -17,32 +16,34 @@ class MixtureEM:
         '''
         Fit mixture model via EM algorithm given matrix X
         '''
-        # TODO: scaling?
-        self.X = X
-        self.n_samples, self.dim = self.X.shape
-        # Extend X by new axis to fasten computations
-        self.X_ext = np.repeat(self.X[:, None, :], self.n_clusters, axis=1)
-
-        # TODO: select the best
+        NLL_global_min = np.inf  # Global in terms of algorithm initializations
         for init_idx in range(self.n_init):
-            # TODO: generate initial parameters
-            arg_init = self.initialize_arg()
-            NLL_arg_min, NLL_min = self.run_EM(arg_init)
+            arg_init = self.initialize_arg(X)
+            NLL_arg_min, NLL_min = self.run_EM(X, arg_init)
 
-    def run_EM(self, arg_init):
+            if NLL_min < NLL_global_min:
+                NLL_global_arg_min = NLL_arg_min
+                NLL_global_min = NLL_min
+
+        self.NLL_global_arg_min = NLL_global_arg_min
+        self.NLL_global_min = NLL_global_min
+        return NLL_global_arg_min, NLL_global_min
+
+    def predict_proba(self, X):
+        '''
+        Predict posterior probability of each component given the data
+        '''
+        return self.E_step(X, self.NLL_global_arg_min)
+
+    def run_EM(self, X, arg_init):
         arg_old = arg_init
         NLL_old_min = None
         for iter_idx in range(self.max_iter):
-            r = self.E_step(arg_old)
-            arg_new, NLL_new_min = self.M_step(r)
+            r = self.E_step(X, arg_old)
+            arg_new, NLL_new_min = self.M_step(X, r)
 
-            #fig, ax = plt.subplots()
-            #ax.plot(self.X[:, 0], self.X[:, 1], "o")
-            #ax.plot(arg_new["mu"][:, 0], arg_new["mu"][:, 1], "x")
-            #for mu, alpha in zip(arg_new["mu"], arg_new["alpha"]):
-            #    ax.add_artist(plt.Circle(mu, alpha*3/np.sqrt(2), fill=0))
-            ##plt.show()
-            #plt.close()
+            if not NLL_old_min is None and NLL_old_min < NLL_new_min:
+                print("NLL is not decreasing...")
 
             if not NLL_old_min is None and abs(NLL_new_min - NLL_old_min) / abs(NLL_old_min) < self.tol:
                 break
@@ -53,12 +54,12 @@ class MixtureEM:
         # TODO: raise warning if tolerance is not achieved in max_iter iterations
         return arg_new, NLL_new_min
 
-    def E_step(self, arg_old):
-        numerator_matrix = self.log_p_matrix(arg_old) + arg_old["log_pi"]
+    def E_step(self, X, arg):
+        numerator_matrix = self.log_p_matrix(X, arg) + arg["log_pi"]
         denominator_matrix = logsumexp(numerator_matrix, axis=1)[:, None]
         r = np.exp(numerator_matrix - denominator_matrix)
-        # TODO: test that this is true probability matrix (rows sum to 1)
+
         return r
 
-    def M_step(self, r):
-        return self.aux_minimizer(r)
+    def M_step(self, X, r):
+        return self.aux_minimizer(X, r)

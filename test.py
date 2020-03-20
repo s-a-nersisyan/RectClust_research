@@ -4,21 +4,21 @@ from sklearn.mixture import GaussianMixture
 
 from GMM import SphericalGaussianMixtureEM
 
-np.random.seed(1)
+#np.random.seed(1)
 
 X1 = np.random.normal(loc=-3, scale=1, size=50)[:, None]
 Y1 = np.random.normal(loc=-1, scale=1, size=50)[:, None]
 S1 = np.concatenate([X1, Y1], axis=1)
 
-X2 = np.random.normal(loc=2, scale=1.7, size=100)[:, None]
-Y2 = np.random.normal(loc=4, scale=1.7, size=100)[:, None]
+X2 = np.random.normal(loc=2, scale=3.7, size=100)[:, None]
+Y2 = np.random.normal(loc=4, scale=3.7, size=100)[:, None]
 S2 = np.concatenate([X2, Y2], axis=1)
 
 X3 = np.random.normal(loc=0, scale=0.5, size=150)[:, None]
 Y3 = np.random.normal(loc=-5, scale=0.5, size=150)[:, None]
 S3 = np.concatenate([X3, Y3], axis=1)
 
-X = np.concatenate([S1, S2], axis=0)
+X = np.concatenate([S1, S2, S3], axis=0)
 #plt.plot(X[:, 0], X[:, 1], "o")
 #plt.show()
 
@@ -28,5 +28,22 @@ X = np.concatenate([S1, S2], axis=0)
 #print(model.means_)
 #quit()
 
-model = SphericalGaussianMixtureEM()
+model = SphericalGaussianMixtureEM(n_clusters=3)
 model.fit(X)
+r = model.predict_proba(X)
+base_colors = np.repeat(np.array([[1, 0, 0], [0, 1, 0], [0, 0, 1]])[None], len(X), axis=0)
+colors = np.einsum("ik,ikd->id", r, base_colors)
+#print(model.means)
+#print(model.SDs)
+#print(model.weights)
+
+fig, ax = plt.subplots()
+ax.scatter(X[:, 0], X[:, 1], c=colors)
+
+ax.plot(model.means[:, 0], model.means[:, 1], "x")
+for mean, SD in zip(model.means, model.SDs):
+    ax.add_artist(plt.Circle(mean, 3*SD, fill=0))
+
+ax.axis('equal')
+plt.show()
+plt.close()

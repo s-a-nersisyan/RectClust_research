@@ -36,6 +36,9 @@ class MixtureEM:
         return self.E_step(X, self.NLL_global_arg_min)
 
     def run_EM(self, X, arg_init):
+        '''
+        Run cycle of EM algorithm given data and initial parameters
+        '''
         arg_old = arg_init
         NLL_old_min = None
         for iter_idx in range(self.max_iter):
@@ -55,6 +58,9 @@ class MixtureEM:
         return arg_new, NLL_new_min
 
     def E_step(self, X, arg):
+        '''
+        Run E step of EM algorithm
+        '''
         numerator_matrix = self.log_p_matrix(X, arg) + arg["log_pi"]
         denominator_matrix = logsumexp(numerator_matrix, axis=1)[:, None]
         r = np.exp(numerator_matrix - denominator_matrix)
@@ -62,4 +68,7 @@ class MixtureEM:
         return r
 
     def M_step(self, X, r):
+        '''
+        Run M step of EM algorithm
+        '''
         return self.aux_minimizer(X, r)

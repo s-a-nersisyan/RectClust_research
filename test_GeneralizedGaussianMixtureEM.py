@@ -7,17 +7,6 @@ from GGD import GeneralizedGaussianMixtureEM
 
 np.random.seed(1)
 
-#X1 = np.random.normal(loc=-3, scale=1, size=50)[:, None]
-#Y1 = np.random.normal(loc=-1, scale=2, size=50)[:, None]
-#S1 = np.concatenate([X1, Y1], axis=1)
-#
-#X2 = np.random.normal(loc=2, scale=3.7, size=100)[:, None]
-#Y2 = np.random.normal(loc=4, scale=7.7, size=100)[:, None]
-#S2 = np.concatenate([X2, Y2], axis=1)
-#
-#X3 = np.random.normal(loc=0, scale=3, size=350)[:, None]
-#Y3 = np.random.normal(loc=-5, scale=0.2, size=350)[:, None]
-#S3 = np.concatenate([X3, Y3], axis=1)
 
 X1 = np.random.uniform(low=-3, high=1, size=50)[:, None]
 Y1 = np.random.uniform(low=-1, high=2, size=50)[:, None]
@@ -32,6 +21,7 @@ Y3 = np.random.uniform(low=-5, high=0.2, size=350)[:, None]
 S3 = np.concatenate([X3, Y3], axis=1)
 
 X = np.concatenate([S1, S2, S3], axis=0)
+X = np.concatenate([X, [[-7, 0]]])
 #plt.plot(X[:, 0], X[:, 1], "o")
 #plt.show()
 
@@ -41,7 +31,7 @@ X = np.concatenate([S1, S2, S3], axis=0)
 #print(model.means_)
 #quit()
 
-model = GeneralizedGaussianMixtureEM(beta=30, n_clusters=3)
+model = GeneralizedGaussianMixtureEM(beta=20, n_clusters=3)
 model.fit(X)
 r = model.predict_proba(X)
 base_colors = np.repeat(np.array([[1, 0, 0], [0, 1, 0], [0, 0, 1]])[None], len(X), axis=0)

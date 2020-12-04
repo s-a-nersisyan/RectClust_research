@@ -65,12 +65,6 @@ class GeneralizedGaussianMixtureEM(MixtureEM):
             for j in range(n_features):
                 mu[k, j] = minimize_scalar(lambda t: self.m(t, k, j, X, r)).x
 
-        # Perform several Newton iterations
-        #iternum = 1
-        #for k in range(self.n_clusters):
-        #    for j in range(n_features):
-        #mu
-
         # Finally, alpha
         alpha_numerator = np.einsum("ik,ikj->kj", r, np.abs(X_ext - mu)**self.beta)
         alpha_denominator = r_sum.T

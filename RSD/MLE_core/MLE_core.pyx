@@ -1,10 +1,11 @@
-import cython
+cimport cython
 
 import numpy as np
 cimport numpy as np
 
 from libc.math cimport abs, sqrt, log, M_PI, INFINITY
 
+# Import math functions to work with complex numbers
 cdef extern from "complex.h":
     np.complex128_t csqrt(np.complex128_t)
     np.complex128_t ccos(np.complex128_t)
@@ -13,13 +14,14 @@ cdef extern from "complex.h":
 
 
 @cython.cdivision(True)
-cdef (np.complex128_t, np.complex128_t) single_quadratic(
+cdef (np.complex128_t, np.complex128_t) solve_quadratic_equation(
     np.complex128_t a0,
     np.complex128_t b0,
     np.complex128_t c0
 ):
     '''
-    Solve the equation a0*x^2 + b0*x + c0
+    Solve the quadratic equation
+    a0*x^2 + b0*x + c0
     '''
     # a0 -> 1
     cdef np.complex128_t a = b0 / a0
@@ -33,7 +35,7 @@ cdef (np.complex128_t, np.complex128_t) single_quadratic(
 
 
 @cython.cdivision(True)
-cdef np.complex128_t cubic_root(np.complex128_t x):
+cdef np.complex128_t signed_cubic_root(np.complex128_t x):
     '''
     Find cubic root of x with correct sign
     '''
@@ -44,14 +46,15 @@ cdef np.complex128_t cubic_root(np.complex128_t x):
 
 
 @cython.cdivision(True)
-cdef np.complex128_t single_cubic_one(
+cdef np.complex128_t cubic_equation_real_root(
     np.complex128_t a0,
     np.complex128_t b0,
     np.complex128_t c0,
     np.complex128_t d0
 ):
     '''
-    Find real root of the cubic equation a0*x^3 + b0*x^2 + c0*x + d0
+    Find real root of the cubic equation
+    a0*x^3 + b0*x^2 + c0*x + d0
     '''
     # a0 -> 1
     cdef np.complex128_t a = b0 / a0
@@ -66,7 +69,7 @@ cdef np.complex128_t single_cubic_one(
     
     cdef np.complex128_t j, k, m, sqrt_h
     if f == g and g == h and h == 0:
-        return -cubic_root(c)
+        return -signed_cubic_root(c)
     elif h.real <= 0:
         j = csqrt(-f)
         k = cacos(-0.5*g / (j*j*j))
@@ -74,11 +77,11 @@ cdef np.complex128_t single_cubic_one(
         return 2*j*m - a13
     else:
         sqrt_h = csqrt(h)
-        return cubic_root(-0.5*g + sqrt_h) + cubic_root(-0.5*g - sqrt_h) - a13
+        return signed_cubic_root(-0.5*g + sqrt_h) + signed_cubic_root(-0.5*g - sqrt_h) - a13
 
 
 @cython.cdivision(True)
-cdef (np.complex128_t, np.complex128_t, np.complex128_t, np.complex128_t) single_quartic(
+cdef (np.complex128_t, np.complex128_t, np.complex128_t, np.complex128_t) solve_quartic_equation(
     np.complex128_t a0, 
     np.complex128_t b0, 
     np.complex128_t c0, 
@@ -86,7 +89,8 @@ cdef (np.complex128_t, np.complex128_t, np.complex128_t, np.complex128_t) single
     np.complex128_t e0
 ):
     '''
-    Solve the equation a0*x^4 + b0*x^3 + c0*x^2 + d0*x + e0
+    Solve the quartic equation 
+    a0*x^4 + b0*x^3 + c0*x^2 + d0*x + e0
     '''
     # a0 -> 1
     cdef np.complex128_t a = b0 / a0
@@ -104,7 +108,7 @@ cdef (np.complex128_t, np.complex128_t, np.complex128_t, np.complex128_t) single
     cdef np.complex128_t r = 3*a02*a02 - b*a02 + c*a0 - d
 
     # One root of the cubic equation
-    cdef np.complex128_t z0 = single_cubic_one(1, p, r, p*r - 0.5*q*q)
+    cdef np.complex128_t z0 = cubic_equation_real_root(1, p, r, p*r - 0.5*q*q)
 
     # Additional variables
     cdef np.complex128_t s = csqrt(2*p + 2*z0.real)
@@ -117,21 +121,21 @@ cdef (np.complex128_t, np.complex128_t, np.complex128_t, np.complex128_t) single
     # Compute roots of quadratic equations
     cdef np.complex128_t r0, r1, r2, r3
     
-    r0, r1 = single_quadratic(1, s, z0 + t)
-    r2, r3 = single_quadratic(1, -s, z0 - t)
+    r0, r1 = solve_quadratic_equation(1, s, z0 + t)
+    r2, r3 = solve_quadratic_equation(1, -s, z0 - t)
     
     return (r0 - a0, r1 - a0, r2 - a0, r3 - a0)
 
 
 @cython.cdivision(True)
-cdef (np.float64_t, np.float64_t, np.float64_t, np.float64_t) optimize_local(
+cdef (np.float64_t, np.float64_t, np.float64_t, np.float64_t) optimize_NLL_on_segment(
     np.float64_t r_sum, np.float64_t r_l, np.float64_t r_h,
     np.float64_t x_l, np.float64_t x_h,
     np.float64_t x_sq_l, np.float64_t x_sq_h,
     np.float64_t l_cur, np.float64_t l_next
 ):
     '''
-    Compute minimum log-likelihood on given segment
+    Minimize negative log-likelihood on a given segment
     '''
     cdef np.float64_t a = 1 / r_l + 1 / r_h
     cdef np.float64_t b = x_h / r_h - x_l / r_l
@@ -141,9 +145,9 @@ cdef (np.float64_t, np.float64_t, np.float64_t, np.float64_t) optimize_local(
     cdef np.float64_t t_next = r_l * l_next - x_l
 
     cdef np.complex128_t r0, r1, r2, r3
-    r0, r1, r2, r3 = single_quartic(r_sum * a**2, -2 * M_PI * b, 2 * c * (r_sum * a - M_PI), 0, r_sum * c**2)
+    r0, r1, r2, r3 = solve_quartic_equation(r_sum * a**2, -2 * M_PI * b, 2 * c * (r_sum * a - M_PI), 0, r_sum * c**2)
     cdef np.complex128_t critical_t[6]
-    # Boundary + roots of derivative
+    # Boundary + roots of the derivative
     critical_t[:] = [t_cur, t_next, r0, r1, r2, r3]
     
     cdef int i = 0
@@ -186,33 +190,45 @@ cdef (np.float64_t, np.float64_t, np.float64_t, np.float64_t) optimize_local(
 @cython.cdivision(True)
 @cython.boundscheck(False)
 @cython.wraparound(False)
-def traverse_extremal_chain(
+def minimize_NLL(
         np.ndarray[np.float64_t, ndim=1] data, 
         np.ndarray[np.float64_t, ndim=1] weights
     ):
     '''
-    Traverse the polygonal chain containing MLE extremum
-    and calculate coefficients required for finding extremum.
-    Note: input data vector should be already sorted (ascending)
+    Fast minimization of RSD negative log-likelihood.
+    Briefly:
+        - Traverse the polygonal chain containing the global minimum;
+        - Find local minimum on each segment of the chain;
+        - Take the global minimum.
+    Note: input data vector should be already sorted (ascending).
     '''
+    # Total number of points
     cdef long int N = data.shape[0]
+    # Summary weight
     cdef np.float64_t r_sum = np.sum(weights)
     
-    cdef long int i = 0
+    # Region indexers (u is a number of l axis, v is a number of h axis)
     cdef long int u = 0
     cdef long int v = N - 1
+    # Global counter
+    cdef long int i = 0
     
+    # Coordinates of current segment's left-top point
     cdef np.float64_t l_cur = data[0]
     cdef np.float64_t h_cur = data[0]
+    # Coordinates of current segment's bottom-right point (or left-top coordinates for the next segment)
     cdef np.float64_t l_next
     cdef np.float64_t h_next
-
+    
+    # Sum of weights for l and h
     cdef np.float64_t r_l = weights[0]
     cdef np.float64_t r_h = weights[N - 1]
-
+    
+    # Weighted sum of x's for l and h
     cdef np.float64_t x_l = weights[0] * data[0]
     cdef np.float64_t x_h = weights[N - 1] * data[N - 1]
-
+    
+    # Weighted sum of x squares for l and h
     cdef np.float64_t x_sq_l = weights[0] * data[0]**2
     cdef np.float64_t x_sq_h = weights[N - 1] * data[N - 1]**2
     
@@ -233,7 +249,7 @@ def traverse_extremal_chain(
             h_next = l_next
         
         # Then, find local minimum on current segment
-        l_loc_min, h_loc_min, s_loc_min, NLL_loc_min = optimize_local(
+        l_loc_min, h_loc_min, s_loc_min, NLL_loc_min = optimize_NLL_on_segment(
             r_sum, r_l, r_h,
             x_l, x_h,
             x_sq_l, x_sq_h,

@@ -9,58 +9,48 @@ import seaborn as sns
 
 
 # Sample parameters
-low, high, scale = 0, 0, 17
+low, high, scale = -5, 5, 1
 N = 1000000
 
-print(np.mean(np.array([np.sqrt(N) * (norm.fit(norm.rvs(loc=low, scale=scale, size=N))[1] - scale) for i in range(100)])**2))
-print(scale ** 2 / 2)
-quit()
-#print(np.var([np.sqrt(N) * (norm.fit(RSD.rvs(low=low, high=high, scale=scale, size=N))[1] - scale) for i in range(100)]) / scale**2)
+C = 1 / (np.sqrt(2 * np.pi) * scale + high - low)
 
-for i in range(100):
-    sample = norm.rvs(loc=low, scale=scale, size=N)
+E_ll = C * (np.sqrt(np.pi / 2) / scale - C)
+E_lh = C**2
+E_ls = C * (np.sqrt(2 * np.pi) * C - 2 / scale)
+E_hh = C * (np.sqrt(np.pi / 2) / scale - C)
+E_hs = - C * (np.sqrt(2 * np.pi) * C - 2 / scale)
+E_ss = C * ( 3 * np.sqrt(2 * np.pi) / scale - 2 * np.pi * C)
+
+inf_matrix = np.array([
+    [E_ll, E_lh, E_ls],
+    [E_lh, E_hh, E_hs],
+    [E_ls, E_hs, E_ss],
+])
+asympt_var_matrix = np.linalg.inv(inf_matrix)
+print(asympt_var_matrix)
+
+err_l, err_h, err_s = [], [], []
+for i in range(1000):
+    sample = RSD.rvs(low=low, high=high, scale=scale, size=N, random_state=i**3)
     low_MLE, high_MLE, scale_MLE, NLL_min = RSD.fit(sample)
-    
-    print(RSD.NLL(sample, low, high, scale), RSD.NLL(sample, low_MLE, high_MLE, scale_MLE))
-    
-    #print(NLL_min)
-    #print(RSD.NLL(sample, low, high, scale))
-    #print(high_MLE - low_MLE)
+    err_l.append(np.sqrt(N) * (low_MLE - low))
+    err_h.append(np.sqrt(N) * (high_MLE - high))
+    err_s.append(np.sqrt(N) * (scale_MLE - scale))
 
-quit()
+err_l = np.array(err_l)
+err_h = np.array(err_h)
+err_s = np.array(err_s)
 
-print(np.var([np.sqrt(N) * (RSD.fit(norm.rvs(loc=low, scale=scale, size=N))[2] - scale) for i in range(100)]) / scale**2)
-
-print(np.var([np.sqrt(N) * (RSD.fit(RSD.rvs(low=low, high=high, scale=scale, size=N))[2] - scale) for i in range(100)]) / scale**2)
-print(np.var([np.sqrt(N) * (RSD.fit(norm.rvs(loc=low, scale=scale, size=N))[2] - scale) for i in range(100)]) / scale**2)
-
-print(scale ** 2 / 2)
-
-
-quit()
-# First, test that MLE error decreases with sqrt(N) rate
-low_err, high_err, scale_err = [], [], []
-Ns = np.logspace(10, 20, 1000, base=2)
-for N in Ns:
-    low_MLE, high_MLE, scale_MLE, NNL_min = RSD.fit(sample)
-    low_err.append(abs(low_MLE - low))
-    high_err.append(abs(high_MLE - high))
-    scale_err.append(abs(scale_MLE - scale))
-
-low_err = np.array(low_err)
-high_err = np.array(high_err)
-scale_err = np.array(scale_err)
-
-sns.scatterplot(x=np.log2(Ns), y=np.log2(low_err))
-plt.savefig("N_vs_low_err_{}_{}_{}.pdf".format(low, high, scale))
+sns.histplot(err_l, kde=True)
+plt.savefig("distr_low.pdf")
 plt.close()
-sns.scatterplot(x=np.log2(Ns), y=np.log2(high_err))
-plt.savefig("N_vs_high_err_{}_{}_{}.pdf".format(low, high, scale))
+sns.histplot(err_h, kde=True)
+plt.savefig("distr_high.pdf")
 plt.close()
-sns.scatterplot(x=np.log2(Ns), y=np.log2(scale_err))
-plt.savefig("N_vs_scale_err_{}_{}_{}.pdf".format(low, high, scale))
+sns.histplot(err_s, kde=True)
+plt.savefig("distr_scale.pdf")
 plt.close()
 
-print("N vs low_err: ", linregress(np.log2(Ns), np.log2(low_err)))
-print("N vs high_err: ", linregress(np.log2(Ns), np.log2(high_err)))
-print("N vs scale_err: ", linregress(np.log2(Ns), np.log2(scale_err)))
+print(np.mean(err_l), np.var(err_l), np.mean(err_l**2))
+print(np.mean(err_h), np.var(err_h), np.mean(err_h**2))
+print(np.mean(err_s), np.var(err_s), np.mean(err_s**2))

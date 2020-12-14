@@ -46,6 +46,10 @@ class RSD:
         '''
         Generate random sample
         '''
+        
+        if np.isclose(scale, 0):
+            return stats.uniform.rvs(low, high - low, size=size, random_state=random_state)
+
         # C is a weight under Gaussian part
         C = 1 / (1 + (high - low) / np.sqrt(2*np.pi) / scale)
 

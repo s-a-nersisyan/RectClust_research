@@ -1,7 +1,7 @@
 import numpy as np
 from scipy import stats
 
-from MLE_core.MLE_core import minimize_NLL
+from core_cython.MLE import minimize_NLL
 
 
 class RSD:
@@ -58,8 +58,11 @@ class RSD:
         loc = stats.bernoulli.rvs(C, size=size, random_state=random_state)
         sample[loc == 0] = stats.uniform.rvs(low, high - low, size=np.sum(loc == 0), random_state=random_state)
         sample[loc == 1] = stats.norm.rvs(0, scale, size=np.sum(loc == 1), random_state=random_state)
-        sample[(loc == 1) & (sample >= 0)] += high
-        sample[(loc == 1) & (sample < 0)] += low
+        
+        mask_greater_0 = (loc == 1) & (sample >= 0)
+        mask_less_0 = (loc == 1) & (sample < 0)
+        sample[mask_greater_0] += high
+        sample[mask_less_0] += low
 
         return sample
 
@@ -74,7 +77,9 @@ class RSD:
             weights = np.ones(len(data))
 
         if not already_sorted:
-            data = np.sort(data)
+            order = np.argsort(data)
+            data = data[order]
+            weights = weights[order]
 
         return minimize_NLL(data, weights)
 
@@ -86,6 +91,7 @@ class RSD:
         r_sum = np.sum(weights)
 
         if np.isclose(scale, 0):
+            # FIXME
             return r_sum * np.log(high - low)
         else:
             result = r_sum * np.log(np.sqrt(2*np.pi) * scale + high - low)

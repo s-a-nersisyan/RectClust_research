@@ -4,12 +4,12 @@
 {
     "distutils": {
         "depends": [],
-        "name": "MLE_core",
+        "name": "MLE",
         "sources": [
-            "MLE_core.pyx"
+            "MLE.pyx"
         ]
     },
-    "module_name": "MLE_core"
+    "module_name": "MLE"
 }
 END: Cython Metadata */
 
@@ -615,8 +615,8 @@ static CYTHON_INLINE float __PYX_NAN() {
   #endif
 #endif
 
-#define __PYX_HAVE__MLE_core
-#define __PYX_HAVE_API__MLE_core
+#define __PYX_HAVE__MLE
+#define __PYX_HAVE_API__MLE
 /* Early includes */
 #include <string.h>
 #include <stdio.h>
@@ -857,7 +857,7 @@ static const char *__pyx_filename;
 
 
 static const char *__pyx_f[] = {
-  "MLE_core.pyx",
+  "MLE.pyx",
   "__init__.pxd",
   "type.pxd",
 };
@@ -1150,12 +1150,12 @@ typedef npy_clongdouble __pyx_t_5numpy_clongdouble_t;
 typedef npy_cdouble __pyx_t_5numpy_complex_t;
 struct __pyx_ctuple___dunderpyx_t_double_complex__and___dunderpyx_t_double_complex;
 typedef struct __pyx_ctuple___dunderpyx_t_double_complex__and___dunderpyx_t_double_complex __pyx_ctuple___dunderpyx_t_double_complex__and___dunderpyx_t_double_complex;
-struct __pyx_ctuple_46248____dunderpyx_t_double_complex__and___dunderpyx_t_double_complex__and___dunderpyx_t_double_complex__and___dunderpyx_t_double_complex__etc;
-typedef struct __pyx_ctuple_46248____dunderpyx_t_double_complex__and___dunderpyx_t_double_complex__and___dunderpyx_t_double_complex__and___dunderpyx_t_double_complex__etc __pyx_ctuple_46248____dunderpyx_t_double_complex__and___dunderpyx_t_double_complex__and___dunderpyx_t_double_complex__and___dunderpyx_t_double_complex__etc;
-struct __pyx_ctuple_8fc71____dunderpyx_t_5numpy_float64_t__and___dunderpyx_t_5numpy_float64_t__and___dunderpyx_t_5numpy_float64_t__and___dunderpyx_t_5numpy_float64_t__etc;
-typedef struct __pyx_ctuple_8fc71____dunderpyx_t_5numpy_float64_t__and___dunderpyx_t_5numpy_float64_t__and___dunderpyx_t_5numpy_float64_t__and___dunderpyx_t_5numpy_float64_t__etc __pyx_ctuple_8fc71____dunderpyx_t_5numpy_float64_t__and___dunderpyx_t_5numpy_float64_t__and___dunderpyx_t_5numpy_float64_t__and___dunderpyx_t_5numpy_float64_t__etc;
+struct __pyx_ctuple_ffa06____dunderpyx_t_double_complex__and___dunderpyx_t_double_complex__and___dunderpyx_t_double_complex__and___dunderpyx_t_double_complex__etc;
+typedef struct __pyx_ctuple_ffa06____dunderpyx_t_double_complex__and___dunderpyx_t_double_complex__and___dunderpyx_t_double_complex__and___dunderpyx_t_double_complex__etc __pyx_ctuple_ffa06____dunderpyx_t_double_complex__and___dunderpyx_t_double_complex__and___dunderpyx_t_double_complex__and___dunderpyx_t_double_complex__etc;
+struct __pyx_ctuple_bde00____dunderpyx_t_5numpy_float64_t__and___dunderpyx_t_5numpy_float64_t__and___dunderpyx_t_5numpy_float64_t__and___dunderpyx_t_5numpy_float64_t__etc;
+typedef struct __pyx_ctuple_bde00____dunderpyx_t_5numpy_float64_t__and___dunderpyx_t_5numpy_float64_t__and___dunderpyx_t_5numpy_float64_t__and___dunderpyx_t_5numpy_float64_t__etc __pyx_ctuple_bde00____dunderpyx_t_5numpy_float64_t__and___dunderpyx_t_5numpy_float64_t__and___dunderpyx_t_5numpy_float64_t__and___dunderpyx_t_5numpy_float64_t__etc;
 
-/* "MLE_core.pyx":17
+/* "MLE.pyx":17
  * 
  * @cython.cdivision(True)
  * cdef (np.complex128_t, np.complex128_t) solve_quadratic_equation(             # <<<<<<<<<<<<<<
@@ -1167,28 +1167,28 @@ struct __pyx_ctuple___dunderpyx_t_double_complex__and___dunderpyx_t_double_compl
   __pyx_t_double_complex f1;
 };
 
-/* "MLE_core.pyx":84
+/* "MLE.pyx":84
  * 
  * @cython.cdivision(True)
  * cdef (np.complex128_t, np.complex128_t, np.complex128_t, np.complex128_t) solve_quartic_equation(             # <<<<<<<<<<<<<<
  *     np.complex128_t a0,
  *     np.complex128_t b0,
  */
-struct __pyx_ctuple_46248____dunderpyx_t_double_complex__and___dunderpyx_t_double_complex__and___dunderpyx_t_double_complex__and___dunderpyx_t_double_complex__etc {
+struct __pyx_ctuple_ffa06____dunderpyx_t_double_complex__and___dunderpyx_t_double_complex__and___dunderpyx_t_double_complex__and___dunderpyx_t_double_complex__etc {
   __pyx_t_double_complex f0;
   __pyx_t_double_complex f1;
   __pyx_t_double_complex f2;
   __pyx_t_double_complex f3;
 };
 
-/* "MLE_core.pyx":131
+/* "MLE.pyx":131
  * 
  * @cython.cdivision(True)
  * cdef (np.float64_t, np.float64_t, np.float64_t, np.float64_t) optimize_NLL_on_segment(             # <<<<<<<<<<<<<<
  *     np.float64_t r_sum, np.float64_t r_l, np.float64_t r_h,
  *     np.float64_t x_l, np.float64_t x_h,
  */
-struct __pyx_ctuple_8fc71____dunderpyx_t_5numpy_float64_t__and___dunderpyx_t_5numpy_float64_t__and___dunderpyx_t_5numpy_float64_t__and___dunderpyx_t_5numpy_float64_t__etc {
+struct __pyx_ctuple_bde00____dunderpyx_t_5numpy_float64_t__and___dunderpyx_t_5numpy_float64_t__and___dunderpyx_t_5numpy_float64_t__and___dunderpyx_t_5numpy_float64_t__etc {
   __pyx_t_5numpy_float64_t f0;
   __pyx_t_5numpy_float64_t f1;
   __pyx_t_5numpy_float64_t f2;
@@ -1271,6 +1271,47 @@ static PyObject *__Pyx_GetBuiltinName(PyObject *name);
 
 /* IncludeStringH.proto */
 #include <string.h>
+
+/* PyThreadStateGet.proto */
+#if CYTHON_FAST_THREAD_STATE
+#define __Pyx_PyThreadState_declare  PyThreadState *__pyx_tstate;
+#define __Pyx_PyThreadState_assign  __pyx_tstate = __Pyx_PyThreadState_Current;
+#define __Pyx_PyErr_Occurred()  __pyx_tstate->curexc_type
+#else
+#define __Pyx_PyThreadState_declare
+#define __Pyx_PyThreadState_assign
+#define __Pyx_PyErr_Occurred()  PyErr_Occurred()
+#endif
+
+/* PyErrFetchRestore.proto */
+#if CYTHON_FAST_THREAD_STATE
+#define __Pyx_PyErr_Clear() __Pyx_ErrRestore(NULL, NULL, NULL)
+#define __Pyx_ErrRestoreWithState(type, value, tb)  __Pyx_ErrRestoreInState(PyThreadState_GET(), type, value, tb)
+#define __Pyx_ErrFetchWithState(type, value, tb)    __Pyx_ErrFetchInState(PyThreadState_GET(), type, value, tb)
+#define __Pyx_ErrRestore(type, value, tb)  __Pyx_ErrRestoreInState(__pyx_tstate, type, value, tb)
+#define __Pyx_ErrFetch(type, value, tb)    __Pyx_ErrFetchInState(__pyx_tstate, type, value, tb)
+static CYTHON_INLINE void __Pyx_ErrRestoreInState(PyThreadState *tstate, PyObject *type, PyObject *value, PyObject *tb);
+static CYTHON_INLINE void __Pyx_ErrFetchInState(PyThreadState *tstate, PyObject **type, PyObject **value, PyObject **tb);
+#if CYTHON_COMPILING_IN_CPYTHON
+#define __Pyx_PyErr_SetNone(exc) (Py_INCREF(exc), __Pyx_ErrRestore((exc), NULL, NULL))
+#else
+#define __Pyx_PyErr_SetNone(exc) PyErr_SetNone(exc)
+#endif
+#else
+#define __Pyx_PyErr_Clear() PyErr_Clear()
+#define __Pyx_PyErr_SetNone(exc) PyErr_SetNone(exc)
+#define __Pyx_ErrRestoreWithState(type, value, tb)  PyErr_Restore(type, value, tb)
+#define __Pyx_ErrFetchWithState(type, value, tb)  PyErr_Fetch(type, value, tb)
+#define __Pyx_ErrRestoreInState(tstate, type, value, tb)  PyErr_Restore(type, value, tb)
+#define __Pyx_ErrFetchInState(tstate, type, value, tb)  PyErr_Fetch(type, value, tb)
+#define __Pyx_ErrRestore(type, value, tb)  PyErr_Restore(type, value, tb)
+#define __Pyx_ErrFetch(type, value, tb)  PyErr_Fetch(type, value, tb)
+#endif
+
+/* WriteUnraisableException.proto */
+static void __Pyx_WriteUnraisable(const char *name, int clineno,
+                                  int lineno, const char *filename,
+                                  int full_traceback, int nogil);
 
 /* RaiseArgTupleInvalid.proto */
 static void __Pyx_RaiseArgtupleInvalid(const char* func_name, int exact,
@@ -1407,42 +1448,6 @@ static CYTHON_INLINE PyObject* __Pyx_PyObject_CallMethO(PyObject *func, PyObject
 static CYTHON_INLINE PyObject* __Pyx_PyObject_CallOneArg(PyObject *func, PyObject *arg);
 
 #define __Pyx_BufPtrStrided1d(type, buf, i0, s0) (type)((char*)buf + i0 * s0)
-/* PyThreadStateGet.proto */
-#if CYTHON_FAST_THREAD_STATE
-#define __Pyx_PyThreadState_declare  PyThreadState *__pyx_tstate;
-#define __Pyx_PyThreadState_assign  __pyx_tstate = __Pyx_PyThreadState_Current;
-#define __Pyx_PyErr_Occurred()  __pyx_tstate->curexc_type
-#else
-#define __Pyx_PyThreadState_declare
-#define __Pyx_PyThreadState_assign
-#define __Pyx_PyErr_Occurred()  PyErr_Occurred()
-#endif
-
-/* PyErrFetchRestore.proto */
-#if CYTHON_FAST_THREAD_STATE
-#define __Pyx_PyErr_Clear() __Pyx_ErrRestore(NULL, NULL, NULL)
-#define __Pyx_ErrRestoreWithState(type, value, tb)  __Pyx_ErrRestoreInState(PyThreadState_GET(), type, value, tb)
-#define __Pyx_ErrFetchWithState(type, value, tb)    __Pyx_ErrFetchInState(PyThreadState_GET(), type, value, tb)
-#define __Pyx_ErrRestore(type, value, tb)  __Pyx_ErrRestoreInState(__pyx_tstate, type, value, tb)
-#define __Pyx_ErrFetch(type, value, tb)    __Pyx_ErrFetchInState(__pyx_tstate, type, value, tb)
-static CYTHON_INLINE void __Pyx_ErrRestoreInState(PyThreadState *tstate, PyObject *type, PyObject *value, PyObject *tb);
-static CYTHON_INLINE void __Pyx_ErrFetchInState(PyThreadState *tstate, PyObject **type, PyObject **value, PyObject **tb);
-#if CYTHON_COMPILING_IN_CPYTHON
-#define __Pyx_PyErr_SetNone(exc) (Py_INCREF(exc), __Pyx_ErrRestore((exc), NULL, NULL))
-#else
-#define __Pyx_PyErr_SetNone(exc) PyErr_SetNone(exc)
-#endif
-#else
-#define __Pyx_PyErr_Clear() PyErr_Clear()
-#define __Pyx_PyErr_SetNone(exc) PyErr_SetNone(exc)
-#define __Pyx_ErrRestoreWithState(type, value, tb)  PyErr_Restore(type, value, tb)
-#define __Pyx_ErrFetchWithState(type, value, tb)  PyErr_Fetch(type, value, tb)
-#define __Pyx_ErrRestoreInState(tstate, type, value, tb)  PyErr_Restore(type, value, tb)
-#define __Pyx_ErrFetchInState(tstate, type, value, tb)  PyErr_Fetch(type, value, tb)
-#define __Pyx_ErrRestore(type, value, tb)  PyErr_Restore(type, value, tb)
-#define __Pyx_ErrFetch(type, value, tb)  PyErr_Fetch(type, value, tb)
-#endif
-
 /* GetTopmostException.proto */
 #if CYTHON_USE_EXC_INFO_STACK
 static _PyErr_StackItem * __Pyx_PyErr_GetTopmostException(PyThreadState *tstate);
@@ -1606,6 +1611,13 @@ typedef struct {
         PyComplex_FromDoubles((double)__Pyx_CREAL(z),\
                               (double)__Pyx_CIMAG(z))
 
+/* Print.proto */
+static int __Pyx_Print(PyObject*, PyObject *, int);
+#if CYTHON_COMPILING_IN_PYPY || PY_MAJOR_VERSION >= 3
+static PyObject* __pyx_print = 0;
+static PyObject* __pyx_print_kwargs = 0;
+#endif
+
 /* Arithmetic.proto */
 #if CYTHON_CCOMPLEX
     #define __Pyx_c_eq_float(a, b)   ((a)==(b))
@@ -1646,6 +1658,9 @@ typedef struct {
 
 /* CIntFromPy.proto */
 static CYTHON_INLINE int __Pyx_PyInt_As_int(PyObject *);
+
+/* PrintOne.proto */
+static int __Pyx_PrintOne(PyObject* stream, PyObject *o);
 
 /* CIntToPy.proto */
 static CYTHON_INLINE PyObject* __Pyx_PyInt_From_long(long value);
@@ -1705,37 +1720,42 @@ static PyTypeObject *__pyx_ptype_5numpy_ufunc = 0;
 
 /* Module declarations from 'libc.math' */
 
-/* Module declarations from 'MLE_core' */
-static __pyx_ctuple___dunderpyx_t_double_complex__and___dunderpyx_t_double_complex __pyx_f_8MLE_core_solve_quadratic_equation(__pyx_t_double_complex, __pyx_t_double_complex, __pyx_t_double_complex); /*proto*/
-static __pyx_t_double_complex __pyx_f_8MLE_core_signed_cubic_root(__pyx_t_double_complex); /*proto*/
-static __pyx_t_double_complex __pyx_f_8MLE_core_cubic_equation_real_root(__pyx_t_double_complex, __pyx_t_double_complex, __pyx_t_double_complex, __pyx_t_double_complex); /*proto*/
-static __pyx_ctuple_46248____dunderpyx_t_double_complex__and___dunderpyx_t_double_complex__and___dunderpyx_t_double_complex__and___dunderpyx_t_double_complex__etc __pyx_f_8MLE_core_solve_quartic_equation(__pyx_t_double_complex, __pyx_t_double_complex, __pyx_t_double_complex, __pyx_t_double_complex, __pyx_t_double_complex); /*proto*/
-static __pyx_ctuple_8fc71____dunderpyx_t_5numpy_float64_t__and___dunderpyx_t_5numpy_float64_t__and___dunderpyx_t_5numpy_float64_t__and___dunderpyx_t_5numpy_float64_t__etc __pyx_f_8MLE_core_optimize_NLL_on_segment(__pyx_t_5numpy_float64_t, __pyx_t_5numpy_float64_t, __pyx_t_5numpy_float64_t, __pyx_t_5numpy_float64_t, __pyx_t_5numpy_float64_t, __pyx_t_5numpy_float64_t, __pyx_t_5numpy_float64_t, __pyx_t_5numpy_float64_t, __pyx_t_5numpy_float64_t); /*proto*/
+/* Module declarations from 'MLE' */
+static __pyx_ctuple___dunderpyx_t_double_complex__and___dunderpyx_t_double_complex __pyx_f_3MLE_solve_quadratic_equation(__pyx_t_double_complex, __pyx_t_double_complex, __pyx_t_double_complex); /*proto*/
+static __pyx_t_double_complex __pyx_f_3MLE_signed_cubic_root(__pyx_t_double_complex); /*proto*/
+static __pyx_t_double_complex __pyx_f_3MLE_cubic_equation_real_root(__pyx_t_double_complex, __pyx_t_double_complex, __pyx_t_double_complex, __pyx_t_double_complex); /*proto*/
+static __pyx_ctuple_ffa06____dunderpyx_t_double_complex__and___dunderpyx_t_double_complex__and___dunderpyx_t_double_complex__and___dunderpyx_t_double_complex__etc __pyx_f_3MLE_solve_quartic_equation(__pyx_t_double_complex, __pyx_t_double_complex, __pyx_t_double_complex, __pyx_t_double_complex, __pyx_t_double_complex); /*proto*/
+static __pyx_ctuple_bde00____dunderpyx_t_5numpy_float64_t__and___dunderpyx_t_5numpy_float64_t__and___dunderpyx_t_5numpy_float64_t__and___dunderpyx_t_5numpy_float64_t__etc __pyx_f_3MLE_optimize_NLL_on_segment(__pyx_t_5numpy_float64_t, __pyx_t_5numpy_float64_t, __pyx_t_5numpy_float64_t, __pyx_t_5numpy_float64_t, __pyx_t_5numpy_float64_t, __pyx_t_5numpy_float64_t, __pyx_t_5numpy_float64_t, __pyx_t_5numpy_float64_t, __pyx_t_5numpy_float64_t, long); /*proto*/
 static __Pyx_TypeInfo __Pyx_TypeInfo_nn___pyx_t_5numpy_float64_t = { "float64_t", NULL, sizeof(__pyx_t_5numpy_float64_t), { 0 }, 0, 'R', 0, 0 };
-#define __Pyx_MODULE_NAME "MLE_core"
-extern int __pyx_module_is_main_MLE_core;
-int __pyx_module_is_main_MLE_core = 0;
+#define __Pyx_MODULE_NAME "MLE"
+extern int __pyx_module_is_main_MLE;
+int __pyx_module_is_main_MLE = 0;
 
-/* Implementation of 'MLE_core' */
+/* Implementation of 'MLE' */
 static PyObject *__pyx_builtin_range;
 static PyObject *__pyx_builtin_ImportError;
+static const char __pyx_k_[] = "##########################";
 static const char __pyx_k_N[] = "N";
 static const char __pyx_k_i[] = "i";
 static const char __pyx_k_u[] = "u";
 static const char __pyx_k_v[] = "v";
 static const char __pyx_k_np[] = "np";
+static const char __pyx_k_MLE[] = "MLE";
+static const char __pyx_k_end[] = "end";
 static const char __pyx_k_r_h[] = "r_h";
 static const char __pyx_k_r_l[] = "r_l";
 static const char __pyx_k_sum[] = "sum";
 static const char __pyx_k_x_h[] = "x_h";
 static const char __pyx_k_x_l[] = "x_l";
 static const char __pyx_k_data[] = "data";
+static const char __pyx_k_file[] = "file";
 static const char __pyx_k_main[] = "__main__";
 static const char __pyx_k_name[] = "__name__";
 static const char __pyx_k_test[] = "__test__";
 static const char __pyx_k_h_cur[] = "h_cur";
 static const char __pyx_k_l_cur[] = "l_cur";
 static const char __pyx_k_numpy[] = "numpy";
+static const char __pyx_k_print[] = "print";
 static const char __pyx_k_r_sum[] = "r_sum";
 static const char __pyx_k_range[] = "range";
 static const char __pyx_k_h_next[] = "h_next";
@@ -1743,8 +1763,8 @@ static const char __pyx_k_import[] = "__import__";
 static const char __pyx_k_l_next[] = "l_next";
 static const char __pyx_k_x_sq_h[] = "x_sq_h";
 static const char __pyx_k_x_sq_l[] = "x_sq_l";
+static const char __pyx_k_MLE_pyx[] = "MLE.pyx";
 static const char __pyx_k_weights[] = "weights";
-static const char __pyx_k_MLE_core[] = "MLE_core";
 static const char __pyx_k_h_loc_min[] = "h_loc_min";
 static const char __pyx_k_l_loc_min[] = "l_loc_min";
 static const char __pyx_k_s_loc_min[] = "s_loc_min";
@@ -1753,20 +1773,22 @@ static const char __pyx_k_l_glob_min[] = "l_glob_min";
 static const char __pyx_k_s_glob_min[] = "s_glob_min";
 static const char __pyx_k_ImportError[] = "ImportError";
 static const char __pyx_k_NLL_loc_min[] = "NLL_loc_min";
-static const char __pyx_k_MLE_core_pyx[] = "MLE_core.pyx";
 static const char __pyx_k_NLL_glob_min[] = "NLL_glob_min";
 static const char __pyx_k_minimize_NLL[] = "minimize_NLL";
 static const char __pyx_k_cline_in_traceback[] = "cline_in_traceback";
 static const char __pyx_k_numpy_core_multiarray_failed_to[] = "numpy.core.multiarray failed to import";
 static const char __pyx_k_numpy_core_umath_failed_to_impor[] = "numpy.core.umath failed to import";
+static PyObject *__pyx_kp_s_;
 static PyObject *__pyx_n_s_ImportError;
-static PyObject *__pyx_n_s_MLE_core;
-static PyObject *__pyx_kp_s_MLE_core_pyx;
+static PyObject *__pyx_n_s_MLE;
+static PyObject *__pyx_kp_s_MLE_pyx;
 static PyObject *__pyx_n_s_N;
 static PyObject *__pyx_n_s_NLL_glob_min;
 static PyObject *__pyx_n_s_NLL_loc_min;
 static PyObject *__pyx_n_s_cline_in_traceback;
 static PyObject *__pyx_n_s_data;
+static PyObject *__pyx_n_s_end;
+static PyObject *__pyx_n_s_file;
 static PyObject *__pyx_n_s_h_cur;
 static PyObject *__pyx_n_s_h_glob_min;
 static PyObject *__pyx_n_s_h_loc_min;
@@ -1784,6 +1806,7 @@ static PyObject *__pyx_n_s_np;
 static PyObject *__pyx_n_s_numpy;
 static PyObject *__pyx_kp_s_numpy_core_multiarray_failed_to;
 static PyObject *__pyx_kp_s_numpy_core_umath_failed_to_impor;
+static PyObject *__pyx_n_s_print;
 static PyObject *__pyx_n_s_r_h;
 static PyObject *__pyx_n_s_r_l;
 static PyObject *__pyx_n_s_r_sum;
@@ -1799,14 +1822,14 @@ static PyObject *__pyx_n_s_x_h;
 static PyObject *__pyx_n_s_x_l;
 static PyObject *__pyx_n_s_x_sq_h;
 static PyObject *__pyx_n_s_x_sq_l;
-static PyObject *__pyx_pf_8MLE_core_minimize_NLL(CYTHON_UNUSED PyObject *__pyx_self, PyArrayObject *__pyx_v_data, PyArrayObject *__pyx_v_weights); /* proto */
-static PyObject *__pyx_tuple_;
+static PyObject *__pyx_pf_3MLE_minimize_NLL(CYTHON_UNUSED PyObject *__pyx_self, PyArrayObject *__pyx_v_data, PyArrayObject *__pyx_v_weights); /* proto */
 static PyObject *__pyx_tuple__2;
 static PyObject *__pyx_tuple__3;
-static PyObject *__pyx_codeobj__4;
+static PyObject *__pyx_tuple__4;
+static PyObject *__pyx_codeobj__5;
 /* Late includes */
 
-/* "MLE_core.pyx":17
+/* "MLE.pyx":17
  * 
  * @cython.cdivision(True)
  * cdef (np.complex128_t, np.complex128_t) solve_quadratic_equation(             # <<<<<<<<<<<<<<
@@ -1814,7 +1837,7 @@ static PyObject *__pyx_codeobj__4;
  *     np.complex128_t b0,
  */
 
-static __pyx_ctuple___dunderpyx_t_double_complex__and___dunderpyx_t_double_complex __pyx_f_8MLE_core_solve_quadratic_equation(__pyx_t_double_complex __pyx_v_a0, __pyx_t_double_complex __pyx_v_b0, __pyx_t_double_complex __pyx_v_c0) {
+static __pyx_ctuple___dunderpyx_t_double_complex__and___dunderpyx_t_double_complex __pyx_f_3MLE_solve_quadratic_equation(__pyx_t_double_complex __pyx_v_a0, __pyx_t_double_complex __pyx_v_b0, __pyx_t_double_complex __pyx_v_c0) {
   __pyx_t_double_complex __pyx_v_a;
   __pyx_t_double_complex __pyx_v_b;
   __pyx_t_double_complex __pyx_v_delta;
@@ -1824,7 +1847,7 @@ static __pyx_ctuple___dunderpyx_t_double_complex__and___dunderpyx_t_double_compl
   __pyx_ctuple___dunderpyx_t_double_complex__and___dunderpyx_t_double_complex __pyx_t_1;
   __Pyx_RefNannySetupContext("solve_quadratic_equation", 0);
 
-  /* "MLE_core.pyx":27
+  /* "MLE.pyx":27
  *     '''
  *     # a0 -> 1
  *     cdef np.complex128_t a = b0 / a0             # <<<<<<<<<<<<<<
@@ -1833,7 +1856,7 @@ static __pyx_ctuple___dunderpyx_t_double_complex__and___dunderpyx_t_double_compl
  */
   __pyx_v_a = __Pyx_c_quot_double(__pyx_v_b0, __pyx_v_a0);
 
-  /* "MLE_core.pyx":28
+  /* "MLE.pyx":28
  *     # a0 -> 1
  *     cdef np.complex128_t a = b0 / a0
  *     cdef np.complex128_t b = c0 / a0             # <<<<<<<<<<<<<<
@@ -1842,7 +1865,7 @@ static __pyx_ctuple___dunderpyx_t_double_complex__and___dunderpyx_t_double_compl
  */
   __pyx_v_b = __Pyx_c_quot_double(__pyx_v_c0, __pyx_v_a0);
 
-  /* "MLE_core.pyx":30
+  /* "MLE.pyx":30
  *     cdef np.complex128_t b = c0 / a0
  * 
  *     a0 = -0.5*a             # <<<<<<<<<<<<<<
@@ -1851,7 +1874,7 @@ static __pyx_ctuple___dunderpyx_t_double_complex__and___dunderpyx_t_double_compl
  */
   __pyx_v_a0 = __Pyx_c_prod_double(__pyx_t_double_complex_from_parts(-0.5, 0), __pyx_v_a);
 
-  /* "MLE_core.pyx":31
+  /* "MLE.pyx":31
  * 
  *     a0 = -0.5*a
  *     cdef np.complex128_t delta = a0*a0 - b             # <<<<<<<<<<<<<<
@@ -1860,7 +1883,7 @@ static __pyx_ctuple___dunderpyx_t_double_complex__and___dunderpyx_t_double_compl
  */
   __pyx_v_delta = __Pyx_c_diff_double(__Pyx_c_prod_double(__pyx_v_a0, __pyx_v_a0), __pyx_v_b);
 
-  /* "MLE_core.pyx":32
+  /* "MLE.pyx":32
  *     a0 = -0.5*a
  *     cdef np.complex128_t delta = a0*a0 - b
  *     cdef np.complex128_t sqrt_delta = csqrt(delta)             # <<<<<<<<<<<<<<
@@ -1869,7 +1892,7 @@ static __pyx_ctuple___dunderpyx_t_double_complex__and___dunderpyx_t_double_compl
  */
   __pyx_v_sqrt_delta = csqrt(__pyx_v_delta);
 
-  /* "MLE_core.pyx":34
+  /* "MLE.pyx":34
  *     cdef np.complex128_t sqrt_delta = csqrt(delta)
  * 
  *     return (a0 - sqrt_delta, a0 + sqrt_delta)             # <<<<<<<<<<<<<<
@@ -1881,7 +1904,7 @@ static __pyx_ctuple___dunderpyx_t_double_complex__and___dunderpyx_t_double_compl
   __pyx_r = __pyx_t_1;
   goto __pyx_L0;
 
-  /* "MLE_core.pyx":17
+  /* "MLE.pyx":17
  * 
  * @cython.cdivision(True)
  * cdef (np.complex128_t, np.complex128_t) solve_quadratic_equation(             # <<<<<<<<<<<<<<
@@ -1895,7 +1918,7 @@ static __pyx_ctuple___dunderpyx_t_double_complex__and___dunderpyx_t_double_compl
   return __pyx_r;
 }
 
-/* "MLE_core.pyx":38
+/* "MLE.pyx":38
  * 
  * @cython.cdivision(True)
  * cdef np.complex128_t signed_cubic_root(np.complex128_t x):             # <<<<<<<<<<<<<<
@@ -1903,13 +1926,13 @@ static __pyx_ctuple___dunderpyx_t_double_complex__and___dunderpyx_t_double_compl
  *     Find cubic root of x with correct sign
  */
 
-static __pyx_t_double_complex __pyx_f_8MLE_core_signed_cubic_root(__pyx_t_double_complex __pyx_v_x) {
+static __pyx_t_double_complex __pyx_f_3MLE_signed_cubic_root(__pyx_t_double_complex __pyx_v_x) {
   __pyx_t_double_complex __pyx_r;
   __Pyx_RefNannyDeclarations
   int __pyx_t_1;
   __Pyx_RefNannySetupContext("signed_cubic_root", 0);
 
-  /* "MLE_core.pyx":42
+  /* "MLE.pyx":42
  *     Find cubic root of x with correct sign
  *     '''
  *     if x.real >= 0:             # <<<<<<<<<<<<<<
@@ -1919,7 +1942,7 @@ static __pyx_t_double_complex __pyx_f_8MLE_core_signed_cubic_root(__pyx_t_double
   __pyx_t_1 = ((__Pyx_CREAL(__pyx_v_x) >= 0.0) != 0);
   if (__pyx_t_1) {
 
-    /* "MLE_core.pyx":43
+    /* "MLE.pyx":43
  *     '''
  *     if x.real >= 0:
  *         return cpow(x, 1.0 / 3.0)             # <<<<<<<<<<<<<<
@@ -1929,7 +1952,7 @@ static __pyx_t_double_complex __pyx_f_8MLE_core_signed_cubic_root(__pyx_t_double
     __pyx_r = cpow(__pyx_v_x, __pyx_t_double_complex_from_parts((1.0 / 3.0), 0));
     goto __pyx_L0;
 
-    /* "MLE_core.pyx":42
+    /* "MLE.pyx":42
  *     Find cubic root of x with correct sign
  *     '''
  *     if x.real >= 0:             # <<<<<<<<<<<<<<
@@ -1938,7 +1961,7 @@ static __pyx_t_double_complex __pyx_f_8MLE_core_signed_cubic_root(__pyx_t_double
  */
   }
 
-  /* "MLE_core.pyx":45
+  /* "MLE.pyx":45
  *         return cpow(x, 1.0 / 3.0)
  *     else:
  *         return -cpow(-x, 1.0 / 3.0)             # <<<<<<<<<<<<<<
@@ -1950,7 +1973,7 @@ static __pyx_t_double_complex __pyx_f_8MLE_core_signed_cubic_root(__pyx_t_double
     goto __pyx_L0;
   }
 
-  /* "MLE_core.pyx":38
+  /* "MLE.pyx":38
  * 
  * @cython.cdivision(True)
  * cdef np.complex128_t signed_cubic_root(np.complex128_t x):             # <<<<<<<<<<<<<<
@@ -1964,7 +1987,7 @@ static __pyx_t_double_complex __pyx_f_8MLE_core_signed_cubic_root(__pyx_t_double
   return __pyx_r;
 }
 
-/* "MLE_core.pyx":49
+/* "MLE.pyx":49
  * 
  * @cython.cdivision(True)
  * cdef np.complex128_t cubic_equation_real_root(             # <<<<<<<<<<<<<<
@@ -1972,7 +1995,7 @@ static __pyx_t_double_complex __pyx_f_8MLE_core_signed_cubic_root(__pyx_t_double
  *     np.complex128_t b0,
  */
 
-static __pyx_t_double_complex __pyx_f_8MLE_core_cubic_equation_real_root(__pyx_t_double_complex __pyx_v_a0, __pyx_t_double_complex __pyx_v_b0, __pyx_t_double_complex __pyx_v_c0, __pyx_t_double_complex __pyx_v_d0) {
+static __pyx_t_double_complex __pyx_f_3MLE_cubic_equation_real_root(__pyx_t_double_complex __pyx_v_a0, __pyx_t_double_complex __pyx_v_b0, __pyx_t_double_complex __pyx_v_c0, __pyx_t_double_complex __pyx_v_d0) {
   __pyx_t_double_complex __pyx_v_a;
   __pyx_t_double_complex __pyx_v_b;
   __pyx_t_double_complex __pyx_v_c;
@@ -1991,7 +2014,7 @@ static __pyx_t_double_complex __pyx_f_8MLE_core_cubic_equation_real_root(__pyx_t
   int __pyx_t_2;
   __Pyx_RefNannySetupContext("cubic_equation_real_root", 0);
 
-  /* "MLE_core.pyx":60
+  /* "MLE.pyx":60
  *     '''
  *     # a0 -> 1
  *     cdef np.complex128_t a = b0 / a0             # <<<<<<<<<<<<<<
@@ -2000,7 +2023,7 @@ static __pyx_t_double_complex __pyx_f_8MLE_core_cubic_equation_real_root(__pyx_t
  */
   __pyx_v_a = __Pyx_c_quot_double(__pyx_v_b0, __pyx_v_a0);
 
-  /* "MLE_core.pyx":61
+  /* "MLE.pyx":61
  *     # a0 -> 1
  *     cdef np.complex128_t a = b0 / a0
  *     cdef np.complex128_t b = c0 / a0             # <<<<<<<<<<<<<<
@@ -2009,7 +2032,7 @@ static __pyx_t_double_complex __pyx_f_8MLE_core_cubic_equation_real_root(__pyx_t
  */
   __pyx_v_b = __Pyx_c_quot_double(__pyx_v_c0, __pyx_v_a0);
 
-  /* "MLE_core.pyx":62
+  /* "MLE.pyx":62
  *     cdef np.complex128_t a = b0 / a0
  *     cdef np.complex128_t b = c0 / a0
  *     cdef np.complex128_t c = d0 / a0             # <<<<<<<<<<<<<<
@@ -2018,7 +2041,7 @@ static __pyx_t_double_complex __pyx_f_8MLE_core_cubic_equation_real_root(__pyx_t
  */
   __pyx_v_c = __Pyx_c_quot_double(__pyx_v_d0, __pyx_v_a0);
 
-  /* "MLE_core.pyx":64
+  /* "MLE.pyx":64
  *     cdef np.complex128_t c = d0 / a0
  * 
  *     cdef np.complex128_t a13 = a / 3.0             # <<<<<<<<<<<<<<
@@ -2027,7 +2050,7 @@ static __pyx_t_double_complex __pyx_f_8MLE_core_cubic_equation_real_root(__pyx_t
  */
   __pyx_v_a13 = __Pyx_c_quot_double(__pyx_v_a, __pyx_t_double_complex_from_parts(3.0, 0));
 
-  /* "MLE_core.pyx":65
+  /* "MLE.pyx":65
  * 
  *     cdef np.complex128_t a13 = a / 3.0
  *     cdef np.complex128_t a2 = a13*a13             # <<<<<<<<<<<<<<
@@ -2036,7 +2059,7 @@ static __pyx_t_double_complex __pyx_f_8MLE_core_cubic_equation_real_root(__pyx_t
  */
   __pyx_v_a2 = __Pyx_c_prod_double(__pyx_v_a13, __pyx_v_a13);
 
-  /* "MLE_core.pyx":66
+  /* "MLE.pyx":66
  *     cdef np.complex128_t a13 = a / 3.0
  *     cdef np.complex128_t a2 = a13*a13
  *     cdef np.complex128_t f = b / 3.0 - a2             # <<<<<<<<<<<<<<
@@ -2045,7 +2068,7 @@ static __pyx_t_double_complex __pyx_f_8MLE_core_cubic_equation_real_root(__pyx_t
  */
   __pyx_v_f = __Pyx_c_diff_double(__Pyx_c_quot_double(__pyx_v_b, __pyx_t_double_complex_from_parts(3.0, 0)), __pyx_v_a2);
 
-  /* "MLE_core.pyx":67
+  /* "MLE.pyx":67
  *     cdef np.complex128_t a2 = a13*a13
  *     cdef np.complex128_t f = b / 3.0 - a2
  *     cdef np.complex128_t g = a13 * (2*a2 - b) + c             # <<<<<<<<<<<<<<
@@ -2054,7 +2077,7 @@ static __pyx_t_double_complex __pyx_f_8MLE_core_cubic_equation_real_root(__pyx_t
  */
   __pyx_v_g = __Pyx_c_sum_double(__Pyx_c_prod_double(__pyx_v_a13, __Pyx_c_diff_double(__Pyx_c_prod_double(__pyx_t_double_complex_from_parts(2, 0), __pyx_v_a2), __pyx_v_b)), __pyx_v_c);
 
-  /* "MLE_core.pyx":68
+  /* "MLE.pyx":68
  *     cdef np.complex128_t f = b / 3.0 - a2
  *     cdef np.complex128_t g = a13 * (2*a2 - b) + c
  *     cdef np.complex128_t h = 0.25*g*g + f*f*f             # <<<<<<<<<<<<<<
@@ -2063,7 +2086,7 @@ static __pyx_t_double_complex __pyx_f_8MLE_core_cubic_equation_real_root(__pyx_t
  */
   __pyx_v_h = __Pyx_c_sum_double(__Pyx_c_prod_double(__Pyx_c_prod_double(__pyx_t_double_complex_from_parts(0.25, 0), __pyx_v_g), __pyx_v_g), __Pyx_c_prod_double(__Pyx_c_prod_double(__pyx_v_f, __pyx_v_f), __pyx_v_f));
 
-  /* "MLE_core.pyx":71
+  /* "MLE.pyx":71
  * 
  *     cdef np.complex128_t j, k, m, sqrt_h
  *     if f == g and g == h and h == 0:             # <<<<<<<<<<<<<<
@@ -2087,17 +2110,17 @@ static __pyx_t_double_complex __pyx_f_8MLE_core_cubic_equation_real_root(__pyx_t
   __pyx_L4_bool_binop_done:;
   if (__pyx_t_1) {
 
-    /* "MLE_core.pyx":72
+    /* "MLE.pyx":72
  *     cdef np.complex128_t j, k, m, sqrt_h
  *     if f == g and g == h and h == 0:
  *         return -signed_cubic_root(c)             # <<<<<<<<<<<<<<
  *     elif h.real <= 0:
  *         j = csqrt(-f)
  */
-    __pyx_r = __Pyx_c_neg_double(__pyx_f_8MLE_core_signed_cubic_root(__pyx_v_c));
+    __pyx_r = __Pyx_c_neg_double(__pyx_f_3MLE_signed_cubic_root(__pyx_v_c));
     goto __pyx_L0;
 
-    /* "MLE_core.pyx":71
+    /* "MLE.pyx":71
  * 
  *     cdef np.complex128_t j, k, m, sqrt_h
  *     if f == g and g == h and h == 0:             # <<<<<<<<<<<<<<
@@ -2106,7 +2129,7 @@ static __pyx_t_double_complex __pyx_f_8MLE_core_cubic_equation_real_root(__pyx_t
  */
   }
 
-  /* "MLE_core.pyx":73
+  /* "MLE.pyx":73
  *     if f == g and g == h and h == 0:
  *         return -signed_cubic_root(c)
  *     elif h.real <= 0:             # <<<<<<<<<<<<<<
@@ -2116,7 +2139,7 @@ static __pyx_t_double_complex __pyx_f_8MLE_core_cubic_equation_real_root(__pyx_t
   __pyx_t_1 = ((__Pyx_CREAL(__pyx_v_h) <= 0.0) != 0);
   if (__pyx_t_1) {
 
-    /* "MLE_core.pyx":74
+    /* "MLE.pyx":74
  *         return -signed_cubic_root(c)
  *     elif h.real <= 0:
  *         j = csqrt(-f)             # <<<<<<<<<<<<<<
@@ -2125,7 +2148,7 @@ static __pyx_t_double_complex __pyx_f_8MLE_core_cubic_equation_real_root(__pyx_t
  */
     __pyx_v_j = csqrt(__Pyx_c_neg_double(__pyx_v_f));
 
-    /* "MLE_core.pyx":75
+    /* "MLE.pyx":75
  *     elif h.real <= 0:
  *         j = csqrt(-f)
  *         k = cacos(-0.5*g / (j*j*j))             # <<<<<<<<<<<<<<
@@ -2134,7 +2157,7 @@ static __pyx_t_double_complex __pyx_f_8MLE_core_cubic_equation_real_root(__pyx_t
  */
     __pyx_v_k = cacos(__Pyx_c_quot_double(__Pyx_c_prod_double(__pyx_t_double_complex_from_parts(-0.5, 0), __pyx_v_g), __Pyx_c_prod_double(__Pyx_c_prod_double(__pyx_v_j, __pyx_v_j), __pyx_v_j)));
 
-    /* "MLE_core.pyx":76
+    /* "MLE.pyx":76
  *         j = csqrt(-f)
  *         k = cacos(-0.5*g / (j*j*j))
  *         m = ccos(k / 3.0)             # <<<<<<<<<<<<<<
@@ -2143,7 +2166,7 @@ static __pyx_t_double_complex __pyx_f_8MLE_core_cubic_equation_real_root(__pyx_t
  */
     __pyx_v_m = ccos(__Pyx_c_quot_double(__pyx_v_k, __pyx_t_double_complex_from_parts(3.0, 0)));
 
-    /* "MLE_core.pyx":77
+    /* "MLE.pyx":77
  *         k = cacos(-0.5*g / (j*j*j))
  *         m = ccos(k / 3.0)
  *         return 2*j*m - a13             # <<<<<<<<<<<<<<
@@ -2153,7 +2176,7 @@ static __pyx_t_double_complex __pyx_f_8MLE_core_cubic_equation_real_root(__pyx_t
     __pyx_r = __Pyx_c_diff_double(__Pyx_c_prod_double(__Pyx_c_prod_double(__pyx_t_double_complex_from_parts(2, 0), __pyx_v_j), __pyx_v_m), __pyx_v_a13);
     goto __pyx_L0;
 
-    /* "MLE_core.pyx":73
+    /* "MLE.pyx":73
  *     if f == g and g == h and h == 0:
  *         return -signed_cubic_root(c)
  *     elif h.real <= 0:             # <<<<<<<<<<<<<<
@@ -2162,7 +2185,7 @@ static __pyx_t_double_complex __pyx_f_8MLE_core_cubic_equation_real_root(__pyx_t
  */
   }
 
-  /* "MLE_core.pyx":79
+  /* "MLE.pyx":79
  *         return 2*j*m - a13
  *     else:
  *         sqrt_h = csqrt(h)             # <<<<<<<<<<<<<<
@@ -2172,18 +2195,18 @@ static __pyx_t_double_complex __pyx_f_8MLE_core_cubic_equation_real_root(__pyx_t
   /*else*/ {
     __pyx_v_sqrt_h = csqrt(__pyx_v_h);
 
-    /* "MLE_core.pyx":80
+    /* "MLE.pyx":80
  *     else:
  *         sqrt_h = csqrt(h)
  *         return signed_cubic_root(-0.5*g + sqrt_h) + signed_cubic_root(-0.5*g - sqrt_h) - a13             # <<<<<<<<<<<<<<
  * 
  * 
  */
-    __pyx_r = __Pyx_c_diff_double(__Pyx_c_sum_double(__pyx_f_8MLE_core_signed_cubic_root(__Pyx_c_sum_double(__Pyx_c_prod_double(__pyx_t_double_complex_from_parts(-0.5, 0), __pyx_v_g), __pyx_v_sqrt_h)), __pyx_f_8MLE_core_signed_cubic_root(__Pyx_c_diff_double(__Pyx_c_prod_double(__pyx_t_double_complex_from_parts(-0.5, 0), __pyx_v_g), __pyx_v_sqrt_h))), __pyx_v_a13);
+    __pyx_r = __Pyx_c_diff_double(__Pyx_c_sum_double(__pyx_f_3MLE_signed_cubic_root(__Pyx_c_sum_double(__Pyx_c_prod_double(__pyx_t_double_complex_from_parts(-0.5, 0), __pyx_v_g), __pyx_v_sqrt_h)), __pyx_f_3MLE_signed_cubic_root(__Pyx_c_diff_double(__Pyx_c_prod_double(__pyx_t_double_complex_from_parts(-0.5, 0), __pyx_v_g), __pyx_v_sqrt_h))), __pyx_v_a13);
     goto __pyx_L0;
   }
 
-  /* "MLE_core.pyx":49
+  /* "MLE.pyx":49
  * 
  * @cython.cdivision(True)
  * cdef np.complex128_t cubic_equation_real_root(             # <<<<<<<<<<<<<<
@@ -2197,7 +2220,7 @@ static __pyx_t_double_complex __pyx_f_8MLE_core_cubic_equation_real_root(__pyx_t
   return __pyx_r;
 }
 
-/* "MLE_core.pyx":84
+/* "MLE.pyx":84
  * 
  * @cython.cdivision(True)
  * cdef (np.complex128_t, np.complex128_t, np.complex128_t, np.complex128_t) solve_quartic_equation(             # <<<<<<<<<<<<<<
@@ -2205,7 +2228,7 @@ static __pyx_t_double_complex __pyx_f_8MLE_core_cubic_equation_real_root(__pyx_t
  *     np.complex128_t b0,
  */
 
-static __pyx_ctuple_46248____dunderpyx_t_double_complex__and___dunderpyx_t_double_complex__and___dunderpyx_t_double_complex__and___dunderpyx_t_double_complex__etc __pyx_f_8MLE_core_solve_quartic_equation(__pyx_t_double_complex __pyx_v_a0, __pyx_t_double_complex __pyx_v_b0, __pyx_t_double_complex __pyx_v_c0, __pyx_t_double_complex __pyx_v_d0, __pyx_t_double_complex __pyx_v_e0) {
+static __pyx_ctuple_ffa06____dunderpyx_t_double_complex__and___dunderpyx_t_double_complex__and___dunderpyx_t_double_complex__and___dunderpyx_t_double_complex__etc __pyx_f_3MLE_solve_quartic_equation(__pyx_t_double_complex __pyx_v_a0, __pyx_t_double_complex __pyx_v_b0, __pyx_t_double_complex __pyx_v_c0, __pyx_t_double_complex __pyx_v_d0, __pyx_t_double_complex __pyx_v_e0) {
   __pyx_t_double_complex __pyx_v_a;
   __pyx_t_double_complex __pyx_v_b;
   __pyx_t_double_complex __pyx_v_c;
@@ -2221,16 +2244,16 @@ static __pyx_ctuple_46248____dunderpyx_t_double_complex__and___dunderpyx_t_doubl
   __pyx_t_double_complex __pyx_v_r1;
   __pyx_t_double_complex __pyx_v_r2;
   __pyx_t_double_complex __pyx_v_r3;
-  __pyx_ctuple_46248____dunderpyx_t_double_complex__and___dunderpyx_t_double_complex__and___dunderpyx_t_double_complex__and___dunderpyx_t_double_complex__etc __pyx_r;
+  __pyx_ctuple_ffa06____dunderpyx_t_double_complex__and___dunderpyx_t_double_complex__and___dunderpyx_t_double_complex__and___dunderpyx_t_double_complex__etc __pyx_r;
   __Pyx_RefNannyDeclarations
   int __pyx_t_1;
   __pyx_ctuple___dunderpyx_t_double_complex__and___dunderpyx_t_double_complex __pyx_t_2;
   __pyx_t_double_complex __pyx_t_3;
   __pyx_t_double_complex __pyx_t_4;
-  __pyx_ctuple_46248____dunderpyx_t_double_complex__and___dunderpyx_t_double_complex__and___dunderpyx_t_double_complex__and___dunderpyx_t_double_complex__etc __pyx_t_5;
+  __pyx_ctuple_ffa06____dunderpyx_t_double_complex__and___dunderpyx_t_double_complex__and___dunderpyx_t_double_complex__and___dunderpyx_t_double_complex__etc __pyx_t_5;
   __Pyx_RefNannySetupContext("solve_quartic_equation", 0);
 
-  /* "MLE_core.pyx":96
+  /* "MLE.pyx":96
  *     '''
  *     # a0 -> 1
  *     cdef np.complex128_t a = b0 / a0             # <<<<<<<<<<<<<<
@@ -2239,7 +2262,7 @@ static __pyx_ctuple_46248____dunderpyx_t_double_complex__and___dunderpyx_t_doubl
  */
   __pyx_v_a = __Pyx_c_quot_double(__pyx_v_b0, __pyx_v_a0);
 
-  /* "MLE_core.pyx":97
+  /* "MLE.pyx":97
  *     # a0 -> 1
  *     cdef np.complex128_t a = b0 / a0
  *     cdef np.complex128_t b = c0 / a0             # <<<<<<<<<<<<<<
@@ -2248,7 +2271,7 @@ static __pyx_ctuple_46248____dunderpyx_t_double_complex__and___dunderpyx_t_doubl
  */
   __pyx_v_b = __Pyx_c_quot_double(__pyx_v_c0, __pyx_v_a0);
 
-  /* "MLE_core.pyx":98
+  /* "MLE.pyx":98
  *     cdef np.complex128_t a = b0 / a0
  *     cdef np.complex128_t b = c0 / a0
  *     cdef np.complex128_t c = d0 / a0             # <<<<<<<<<<<<<<
@@ -2257,7 +2280,7 @@ static __pyx_ctuple_46248____dunderpyx_t_double_complex__and___dunderpyx_t_doubl
  */
   __pyx_v_c = __Pyx_c_quot_double(__pyx_v_d0, __pyx_v_a0);
 
-  /* "MLE_core.pyx":99
+  /* "MLE.pyx":99
  *     cdef np.complex128_t b = c0 / a0
  *     cdef np.complex128_t c = d0 / a0
  *     cdef np.complex128_t d = e0 / a0             # <<<<<<<<<<<<<<
@@ -2266,7 +2289,7 @@ static __pyx_ctuple_46248____dunderpyx_t_double_complex__and___dunderpyx_t_doubl
  */
   __pyx_v_d = __Pyx_c_quot_double(__pyx_v_e0, __pyx_v_a0);
 
-  /* "MLE_core.pyx":102
+  /* "MLE.pyx":102
  * 
  *     # Some repeating variables
  *     a0 = 0.25*a             # <<<<<<<<<<<<<<
@@ -2275,7 +2298,7 @@ static __pyx_ctuple_46248____dunderpyx_t_double_complex__and___dunderpyx_t_doubl
  */
   __pyx_v_a0 = __Pyx_c_prod_double(__pyx_t_double_complex_from_parts(0.25, 0), __pyx_v_a);
 
-  /* "MLE_core.pyx":103
+  /* "MLE.pyx":103
  *     # Some repeating variables
  *     a0 = 0.25*a
  *     cdef np.complex128_t a02 = a0*a0             # <<<<<<<<<<<<<<
@@ -2284,7 +2307,7 @@ static __pyx_ctuple_46248____dunderpyx_t_double_complex__and___dunderpyx_t_doubl
  */
   __pyx_v_a02 = __Pyx_c_prod_double(__pyx_v_a0, __pyx_v_a0);
 
-  /* "MLE_core.pyx":106
+  /* "MLE.pyx":106
  * 
  *     # Coefficients of subsidiary cubic euqtion
  *     cdef np.complex128_t p = 3*a02 - 0.5*b             # <<<<<<<<<<<<<<
@@ -2293,7 +2316,7 @@ static __pyx_ctuple_46248____dunderpyx_t_double_complex__and___dunderpyx_t_doubl
  */
   __pyx_v_p = __Pyx_c_diff_double(__Pyx_c_prod_double(__pyx_t_double_complex_from_parts(3, 0), __pyx_v_a02), __Pyx_c_prod_double(__pyx_t_double_complex_from_parts(0.5, 0), __pyx_v_b));
 
-  /* "MLE_core.pyx":107
+  /* "MLE.pyx":107
  *     # Coefficients of subsidiary cubic euqtion
  *     cdef np.complex128_t p = 3*a02 - 0.5*b
  *     cdef np.complex128_t q = a*a02 - b*a0 + 0.5*c             # <<<<<<<<<<<<<<
@@ -2302,7 +2325,7 @@ static __pyx_ctuple_46248____dunderpyx_t_double_complex__and___dunderpyx_t_doubl
  */
   __pyx_v_q = __Pyx_c_sum_double(__Pyx_c_diff_double(__Pyx_c_prod_double(__pyx_v_a, __pyx_v_a02), __Pyx_c_prod_double(__pyx_v_b, __pyx_v_a0)), __Pyx_c_prod_double(__pyx_t_double_complex_from_parts(0.5, 0), __pyx_v_c));
 
-  /* "MLE_core.pyx":108
+  /* "MLE.pyx":108
  *     cdef np.complex128_t p = 3*a02 - 0.5*b
  *     cdef np.complex128_t q = a*a02 - b*a0 + 0.5*c
  *     cdef np.complex128_t r = 3*a02*a02 - b*a02 + c*a0 - d             # <<<<<<<<<<<<<<
@@ -2311,16 +2334,16 @@ static __pyx_ctuple_46248____dunderpyx_t_double_complex__and___dunderpyx_t_doubl
  */
   __pyx_v_r = __Pyx_c_diff_double(__Pyx_c_sum_double(__Pyx_c_diff_double(__Pyx_c_prod_double(__Pyx_c_prod_double(__pyx_t_double_complex_from_parts(3, 0), __pyx_v_a02), __pyx_v_a02), __Pyx_c_prod_double(__pyx_v_b, __pyx_v_a02)), __Pyx_c_prod_double(__pyx_v_c, __pyx_v_a0)), __pyx_v_d);
 
-  /* "MLE_core.pyx":111
+  /* "MLE.pyx":111
  * 
  *     # One root of the cubic equation
  *     cdef np.complex128_t z0 = cubic_equation_real_root(1, p, r, p*r - 0.5*q*q)             # <<<<<<<<<<<<<<
  * 
  *     # Additional variables
  */
-  __pyx_v_z0 = __pyx_f_8MLE_core_cubic_equation_real_root(__pyx_t_double_complex_from_parts(1, 0), __pyx_v_p, __pyx_v_r, __Pyx_c_diff_double(__Pyx_c_prod_double(__pyx_v_p, __pyx_v_r), __Pyx_c_prod_double(__Pyx_c_prod_double(__pyx_t_double_complex_from_parts(0.5, 0), __pyx_v_q), __pyx_v_q)));
+  __pyx_v_z0 = __pyx_f_3MLE_cubic_equation_real_root(__pyx_t_double_complex_from_parts(1, 0), __pyx_v_p, __pyx_v_r, __Pyx_c_diff_double(__Pyx_c_prod_double(__pyx_v_p, __pyx_v_r), __Pyx_c_prod_double(__Pyx_c_prod_double(__pyx_t_double_complex_from_parts(0.5, 0), __pyx_v_q), __pyx_v_q)));
 
-  /* "MLE_core.pyx":114
+  /* "MLE.pyx":114
  * 
  *     # Additional variables
  *     cdef np.complex128_t s = csqrt(2*p + 2*z0.real)             # <<<<<<<<<<<<<<
@@ -2329,7 +2352,7 @@ static __pyx_ctuple_46248____dunderpyx_t_double_complex__and___dunderpyx_t_doubl
  */
   __pyx_v_s = csqrt(__Pyx_c_sum_double(__Pyx_c_prod_double(__pyx_t_double_complex_from_parts(2, 0), __pyx_v_p), __pyx_t_double_complex_from_parts((2.0 * __Pyx_CREAL(__pyx_v_z0)), 0)));
 
-  /* "MLE_core.pyx":116
+  /* "MLE.pyx":116
  *     cdef np.complex128_t s = csqrt(2*p + 2*z0.real)
  *     cdef np.complex128_t t
  *     if s == 0:             # <<<<<<<<<<<<<<
@@ -2339,7 +2362,7 @@ static __pyx_ctuple_46248____dunderpyx_t_double_complex__and___dunderpyx_t_doubl
   __pyx_t_1 = ((__Pyx_c_eq_double(__pyx_v_s, __pyx_t_double_complex_from_parts(0, 0))) != 0);
   if (__pyx_t_1) {
 
-    /* "MLE_core.pyx":117
+    /* "MLE.pyx":117
  *     cdef np.complex128_t t
  *     if s == 0:
  *         t = z0*z0 + r             # <<<<<<<<<<<<<<
@@ -2348,7 +2371,7 @@ static __pyx_ctuple_46248____dunderpyx_t_double_complex__and___dunderpyx_t_doubl
  */
     __pyx_v_t = __Pyx_c_sum_double(__Pyx_c_prod_double(__pyx_v_z0, __pyx_v_z0), __pyx_v_r);
 
-    /* "MLE_core.pyx":116
+    /* "MLE.pyx":116
  *     cdef np.complex128_t s = csqrt(2*p + 2*z0.real)
  *     cdef np.complex128_t t
  *     if s == 0:             # <<<<<<<<<<<<<<
@@ -2358,7 +2381,7 @@ static __pyx_ctuple_46248____dunderpyx_t_double_complex__and___dunderpyx_t_doubl
     goto __pyx_L3;
   }
 
-  /* "MLE_core.pyx":119
+  /* "MLE.pyx":119
  *         t = z0*z0 + r
  *     else:
  *         t = -q / s             # <<<<<<<<<<<<<<
@@ -2370,33 +2393,33 @@ static __pyx_ctuple_46248____dunderpyx_t_double_complex__and___dunderpyx_t_doubl
   }
   __pyx_L3:;
 
-  /* "MLE_core.pyx":124
+  /* "MLE.pyx":124
  *     cdef np.complex128_t r0, r1, r2, r3
  * 
  *     r0, r1 = solve_quadratic_equation(1, s, z0 + t)             # <<<<<<<<<<<<<<
  *     r2, r3 = solve_quadratic_equation(1, -s, z0 - t)
  * 
  */
-  __pyx_t_2 = __pyx_f_8MLE_core_solve_quadratic_equation(__pyx_t_double_complex_from_parts(1, 0), __pyx_v_s, __Pyx_c_sum_double(__pyx_v_z0, __pyx_v_t));
+  __pyx_t_2 = __pyx_f_3MLE_solve_quadratic_equation(__pyx_t_double_complex_from_parts(1, 0), __pyx_v_s, __Pyx_c_sum_double(__pyx_v_z0, __pyx_v_t));
   __pyx_t_3 = __pyx_t_2.f0;
   __pyx_t_4 = __pyx_t_2.f1;
   __pyx_v_r0 = __pyx_t_3;
   __pyx_v_r1 = __pyx_t_4;
 
-  /* "MLE_core.pyx":125
+  /* "MLE.pyx":125
  * 
  *     r0, r1 = solve_quadratic_equation(1, s, z0 + t)
  *     r2, r3 = solve_quadratic_equation(1, -s, z0 - t)             # <<<<<<<<<<<<<<
  * 
  *     return (r0 - a0, r1 - a0, r2 - a0, r3 - a0)
  */
-  __pyx_t_2 = __pyx_f_8MLE_core_solve_quadratic_equation(__pyx_t_double_complex_from_parts(1, 0), __Pyx_c_neg_double(__pyx_v_s), __Pyx_c_diff_double(__pyx_v_z0, __pyx_v_t));
+  __pyx_t_2 = __pyx_f_3MLE_solve_quadratic_equation(__pyx_t_double_complex_from_parts(1, 0), __Pyx_c_neg_double(__pyx_v_s), __Pyx_c_diff_double(__pyx_v_z0, __pyx_v_t));
   __pyx_t_4 = __pyx_t_2.f0;
   __pyx_t_3 = __pyx_t_2.f1;
   __pyx_v_r2 = __pyx_t_4;
   __pyx_v_r3 = __pyx_t_3;
 
-  /* "MLE_core.pyx":127
+  /* "MLE.pyx":127
  *     r2, r3 = solve_quadratic_equation(1, -s, z0 - t)
  * 
  *     return (r0 - a0, r1 - a0, r2 - a0, r3 - a0)             # <<<<<<<<<<<<<<
@@ -2410,7 +2433,7 @@ static __pyx_ctuple_46248____dunderpyx_t_double_complex__and___dunderpyx_t_doubl
   __pyx_r = __pyx_t_5;
   goto __pyx_L0;
 
-  /* "MLE_core.pyx":84
+  /* "MLE.pyx":84
  * 
  * @cython.cdivision(True)
  * cdef (np.complex128_t, np.complex128_t, np.complex128_t, np.complex128_t) solve_quartic_equation(             # <<<<<<<<<<<<<<
@@ -2424,7 +2447,7 @@ static __pyx_ctuple_46248____dunderpyx_t_double_complex__and___dunderpyx_t_doubl
   return __pyx_r;
 }
 
-/* "MLE_core.pyx":131
+/* "MLE.pyx":131
  * 
  * @cython.cdivision(True)
  * cdef (np.float64_t, np.float64_t, np.float64_t, np.float64_t) optimize_NLL_on_segment(             # <<<<<<<<<<<<<<
@@ -2432,7 +2455,7 @@ static __pyx_ctuple_46248____dunderpyx_t_double_complex__and___dunderpyx_t_doubl
  *     np.float64_t x_l, np.float64_t x_h,
  */
 
-static __pyx_ctuple_8fc71____dunderpyx_t_5numpy_float64_t__and___dunderpyx_t_5numpy_float64_t__and___dunderpyx_t_5numpy_float64_t__and___dunderpyx_t_5numpy_float64_t__etc __pyx_f_8MLE_core_optimize_NLL_on_segment(__pyx_t_5numpy_float64_t __pyx_v_r_sum, __pyx_t_5numpy_float64_t __pyx_v_r_l, __pyx_t_5numpy_float64_t __pyx_v_r_h, __pyx_t_5numpy_float64_t __pyx_v_x_l, __pyx_t_5numpy_float64_t __pyx_v_x_h, __pyx_t_5numpy_float64_t __pyx_v_x_sq_l, __pyx_t_5numpy_float64_t __pyx_v_x_sq_h, __pyx_t_5numpy_float64_t __pyx_v_l_cur, __pyx_t_5numpy_float64_t __pyx_v_l_next) {
+static __pyx_ctuple_bde00____dunderpyx_t_5numpy_float64_t__and___dunderpyx_t_5numpy_float64_t__and___dunderpyx_t_5numpy_float64_t__and___dunderpyx_t_5numpy_float64_t__etc __pyx_f_3MLE_optimize_NLL_on_segment(__pyx_t_5numpy_float64_t __pyx_v_r_sum, __pyx_t_5numpy_float64_t __pyx_v_r_l, __pyx_t_5numpy_float64_t __pyx_v_r_h, __pyx_t_5numpy_float64_t __pyx_v_x_l, __pyx_t_5numpy_float64_t __pyx_v_x_h, __pyx_t_5numpy_float64_t __pyx_v_x_sq_l, __pyx_t_5numpy_float64_t __pyx_v_x_sq_h, __pyx_t_5numpy_float64_t __pyx_v_l_cur, __pyx_t_5numpy_float64_t __pyx_v_l_next, long __pyx_v_iternum) {
   __pyx_t_5numpy_float64_t __pyx_v_a;
   __pyx_t_5numpy_float64_t __pyx_v_b;
   __pyx_t_5numpy_float64_t __pyx_v_c;
@@ -2452,9 +2475,9 @@ static __pyx_ctuple_8fc71____dunderpyx_t_5numpy_float64_t__and___dunderpyx_t_5nu
   __pyx_t_5numpy_float64_t __pyx_v_NLL_loc_min;
   __pyx_t_5numpy_float64_t __pyx_v_l_loc_min;
   __pyx_t_5numpy_float64_t __pyx_v_h_loc_min;
-  __pyx_ctuple_8fc71____dunderpyx_t_5numpy_float64_t__and___dunderpyx_t_5numpy_float64_t__and___dunderpyx_t_5numpy_float64_t__and___dunderpyx_t_5numpy_float64_t__etc __pyx_r;
+  __pyx_ctuple_bde00____dunderpyx_t_5numpy_float64_t__and___dunderpyx_t_5numpy_float64_t__and___dunderpyx_t_5numpy_float64_t__and___dunderpyx_t_5numpy_float64_t__etc __pyx_r;
   __Pyx_RefNannyDeclarations
-  __pyx_ctuple_46248____dunderpyx_t_double_complex__and___dunderpyx_t_double_complex__and___dunderpyx_t_double_complex__and___dunderpyx_t_double_complex__etc __pyx_t_1;
+  __pyx_ctuple_ffa06____dunderpyx_t_double_complex__and___dunderpyx_t_double_complex__and___dunderpyx_t_double_complex__and___dunderpyx_t_double_complex__etc __pyx_t_1;
   __pyx_t_double_complex __pyx_t_2;
   __pyx_t_double_complex __pyx_t_3;
   __pyx_t_double_complex __pyx_t_4;
@@ -2464,10 +2487,16 @@ static __pyx_ctuple_8fc71____dunderpyx_t_5numpy_float64_t__and___dunderpyx_t_5nu
   int __pyx_t_8;
   double __pyx_t_9;
   int __pyx_t_10;
-  __pyx_ctuple_8fc71____dunderpyx_t_5numpy_float64_t__and___dunderpyx_t_5numpy_float64_t__and___dunderpyx_t_5numpy_float64_t__and___dunderpyx_t_5numpy_float64_t__etc __pyx_t_11;
+  PyObject *__pyx_t_11 = NULL;
+  PyObject *__pyx_t_12 = NULL;
+  PyObject *__pyx_t_13 = NULL;
+  __pyx_ctuple_bde00____dunderpyx_t_5numpy_float64_t__and___dunderpyx_t_5numpy_float64_t__and___dunderpyx_t_5numpy_float64_t__and___dunderpyx_t_5numpy_float64_t__etc __pyx_t_14;
+  int __pyx_lineno = 0;
+  const char *__pyx_filename = NULL;
+  int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("optimize_NLL_on_segment", 0);
 
-  /* "MLE_core.pyx":140
+  /* "MLE.pyx":141
  *     Minimize negative log-likelihood on a given segment
  *     '''
  *     cdef np.float64_t a = 1 / r_l + 1 / r_h             # <<<<<<<<<<<<<<
@@ -2476,7 +2505,7 @@ static __pyx_ctuple_8fc71____dunderpyx_t_5numpy_float64_t__and___dunderpyx_t_5nu
  */
   __pyx_v_a = ((1.0 / __pyx_v_r_l) + (1.0 / __pyx_v_r_h));
 
-  /* "MLE_core.pyx":141
+  /* "MLE.pyx":142
  *     '''
  *     cdef np.float64_t a = 1 / r_l + 1 / r_h
  *     cdef np.float64_t b = x_h / r_h - x_l / r_l             # <<<<<<<<<<<<<<
@@ -2485,17 +2514,17 @@ static __pyx_ctuple_8fc71____dunderpyx_t_5numpy_float64_t__and___dunderpyx_t_5nu
  */
   __pyx_v_b = ((__pyx_v_x_h / __pyx_v_r_h) - (__pyx_v_x_l / __pyx_v_r_l));
 
-  /* "MLE_core.pyx":142
+  /* "MLE.pyx":143
  *     cdef np.float64_t a = 1 / r_l + 1 / r_h
  *     cdef np.float64_t b = x_h / r_h - x_l / r_l
  *     cdef np.float64_t c = x_sq_l + x_sq_h - x_l**2 / r_l - x_h**2 / r_h             # <<<<<<<<<<<<<<
  * 
- *     cdef np.float64_t t_cur = r_l * l_cur - x_l
+ *     # TODO: think about this!
  */
   __pyx_v_c = (((__pyx_v_x_sq_l + __pyx_v_x_sq_h) - (pow(__pyx_v_x_l, 2.0) / __pyx_v_r_l)) - (pow(__pyx_v_x_h, 2.0) / __pyx_v_r_h));
 
-  /* "MLE_core.pyx":144
- *     cdef np.float64_t c = x_sq_l + x_sq_h - x_l**2 / r_l - x_h**2 / r_h
+  /* "MLE.pyx":154
+ *     #r0, r1, r2, r3 = solve_quartic_equation(r_sum * a1**2, -2 * M_PI * b1, 2 * c1 * (r_sum * a1 - M_PI*r_l*r_h), 0, r_sum * c1**2)
  * 
  *     cdef np.float64_t t_cur = r_l * l_cur - x_l             # <<<<<<<<<<<<<<
  *     cdef np.float64_t t_next = r_l * l_next - x_l
@@ -2503,7 +2532,7 @@ static __pyx_ctuple_8fc71____dunderpyx_t_5numpy_float64_t__and___dunderpyx_t_5nu
  */
   __pyx_v_t_cur = ((__pyx_v_r_l * __pyx_v_l_cur) - __pyx_v_x_l);
 
-  /* "MLE_core.pyx":145
+  /* "MLE.pyx":155
  * 
  *     cdef np.float64_t t_cur = r_l * l_cur - x_l
  *     cdef np.float64_t t_next = r_l * l_next - x_l             # <<<<<<<<<<<<<<
@@ -2512,14 +2541,14 @@ static __pyx_ctuple_8fc71____dunderpyx_t_5numpy_float64_t__and___dunderpyx_t_5nu
  */
   __pyx_v_t_next = ((__pyx_v_r_l * __pyx_v_l_next) - __pyx_v_x_l);
 
-  /* "MLE_core.pyx":148
+  /* "MLE.pyx":158
  * 
  *     cdef np.complex128_t r0, r1, r2, r3
  *     r0, r1, r2, r3 = solve_quartic_equation(r_sum * a**2, -2 * M_PI * b, 2 * c * (r_sum * a - M_PI), 0, r_sum * c**2)             # <<<<<<<<<<<<<<
+ * 
  *     cdef np.complex128_t critical_t[6]
- *     # Boundary + roots of the derivative
  */
-  __pyx_t_1 = __pyx_f_8MLE_core_solve_quartic_equation(__pyx_t_double_complex_from_parts((__pyx_v_r_sum * pow(__pyx_v_a, 2.0)), 0), __pyx_t_double_complex_from_parts(((-2.0 * M_PI) * __pyx_v_b), 0), __pyx_t_double_complex_from_parts(((2.0 * __pyx_v_c) * ((__pyx_v_r_sum * __pyx_v_a) - M_PI)), 0), __pyx_t_double_complex_from_parts(0, 0), __pyx_t_double_complex_from_parts((__pyx_v_r_sum * pow(__pyx_v_c, 2.0)), 0));
+  __pyx_t_1 = __pyx_f_3MLE_solve_quartic_equation(__pyx_t_double_complex_from_parts((__pyx_v_r_sum * pow(__pyx_v_a, 2.0)), 0), __pyx_t_double_complex_from_parts(((-2.0 * M_PI) * __pyx_v_b), 0), __pyx_t_double_complex_from_parts(((2.0 * __pyx_v_c) * ((__pyx_v_r_sum * __pyx_v_a) - M_PI)), 0), __pyx_t_double_complex_from_parts(0, 0), __pyx_t_double_complex_from_parts((__pyx_v_r_sum * pow(__pyx_v_c, 2.0)), 0));
   __pyx_t_2 = __pyx_t_1.f0;
   __pyx_t_3 = __pyx_t_1.f1;
   __pyx_t_4 = __pyx_t_1.f2;
@@ -2529,7 +2558,7 @@ static __pyx_ctuple_8fc71____dunderpyx_t_5numpy_float64_t__and___dunderpyx_t_5nu
   __pyx_v_r2 = __pyx_t_4;
   __pyx_v_r3 = __pyx_t_5;
 
-  /* "MLE_core.pyx":151
+  /* "MLE.pyx":162
  *     cdef np.complex128_t critical_t[6]
  *     # Boundary + roots of the derivative
  *     critical_t[:] = [t_cur, t_next, r0, r1, r2, r3]             # <<<<<<<<<<<<<<
@@ -2544,7 +2573,7 @@ static __pyx_ctuple_8fc71____dunderpyx_t_5numpy_float64_t__and___dunderpyx_t_5nu
   __pyx_t_6[5] = __pyx_v_r3;
   memcpy(&(__pyx_v_critical_t[0]), __pyx_t_6, sizeof(__pyx_v_critical_t[0]) * (6));
 
-  /* "MLE_core.pyx":153
+  /* "MLE.pyx":164
  *     critical_t[:] = [t_cur, t_next, r0, r1, r2, r3]
  * 
  *     cdef int i = 0             # <<<<<<<<<<<<<<
@@ -2553,7 +2582,7 @@ static __pyx_ctuple_8fc71____dunderpyx_t_5numpy_float64_t__and___dunderpyx_t_5nu
  */
   __pyx_v_i = 0;
 
-  /* "MLE_core.pyx":158
+  /* "MLE.pyx":169
  *     # Local minimum variables
  *     cdef np.float64_t t_loc_min, s_loc_min, NLL_loc_min
  *     NLL_loc_min = INFINITY             # <<<<<<<<<<<<<<
@@ -2562,7 +2591,7 @@ static __pyx_ctuple_8fc71____dunderpyx_t_5numpy_float64_t__and___dunderpyx_t_5nu
  */
   __pyx_v_NLL_loc_min = INFINITY;
 
-  /* "MLE_core.pyx":159
+  /* "MLE.pyx":170
  *     cdef np.float64_t t_loc_min, s_loc_min, NLL_loc_min
  *     NLL_loc_min = INFINITY
  *     for i in range(6):             # <<<<<<<<<<<<<<
@@ -2572,7 +2601,7 @@ static __pyx_ctuple_8fc71____dunderpyx_t_5numpy_float64_t__and___dunderpyx_t_5nu
   for (__pyx_t_7 = 0; __pyx_t_7 < 6; __pyx_t_7+=1) {
     __pyx_v_i = __pyx_t_7;
 
-    /* "MLE_core.pyx":161
+    /* "MLE.pyx":172
  *     for i in range(6):
  *         # We do not want complex roots
  *         if abs(critical_t[i].imag) > 1e-8:             # <<<<<<<<<<<<<<
@@ -2582,7 +2611,7 @@ static __pyx_ctuple_8fc71____dunderpyx_t_5numpy_float64_t__and___dunderpyx_t_5nu
     __pyx_t_8 = ((fabs(__Pyx_CIMAG((__pyx_v_critical_t[__pyx_v_i]))) > 1e-8) != 0);
     if (__pyx_t_8) {
 
-      /* "MLE_core.pyx":162
+      /* "MLE.pyx":173
  *         # We do not want complex roots
  *         if abs(critical_t[i].imag) > 1e-8:
  *             continue             # <<<<<<<<<<<<<<
@@ -2591,7 +2620,7 @@ static __pyx_ctuple_8fc71____dunderpyx_t_5numpy_float64_t__and___dunderpyx_t_5nu
  */
       goto __pyx_L3_continue;
 
-      /* "MLE_core.pyx":161
+      /* "MLE.pyx":172
  *     for i in range(6):
  *         # We do not want complex roots
  *         if abs(critical_t[i].imag) > 1e-8:             # <<<<<<<<<<<<<<
@@ -2600,7 +2629,7 @@ static __pyx_ctuple_8fc71____dunderpyx_t_5numpy_float64_t__and___dunderpyx_t_5nu
  */
     }
 
-    /* "MLE_core.pyx":164
+    /* "MLE.pyx":175
  *             continue
  * 
  *         t = critical_t[i].real             # <<<<<<<<<<<<<<
@@ -2610,7 +2639,7 @@ static __pyx_ctuple_8fc71____dunderpyx_t_5numpy_float64_t__and___dunderpyx_t_5nu
     __pyx_t_9 = __Pyx_CREAL((__pyx_v_critical_t[__pyx_v_i]));
     __pyx_v_t = __pyx_t_9;
 
-    /* "MLE_core.pyx":166
+    /* "MLE.pyx":177
  *         t = critical_t[i].real
  *         # Roots should lie within [t_cur, t_next] interval
  *         if t < t_cur or t > t_next:             # <<<<<<<<<<<<<<
@@ -2628,16 +2657,16 @@ static __pyx_ctuple_8fc71____dunderpyx_t_5numpy_float64_t__and___dunderpyx_t_5nu
     __pyx_L7_bool_binop_done:;
     if (__pyx_t_8) {
 
-      /* "MLE_core.pyx":167
+      /* "MLE.pyx":178
  *         # Roots should lie within [t_cur, t_next] interval
  *         if t < t_cur or t > t_next:
  *             continue             # <<<<<<<<<<<<<<
  * 
- *         if abs(t) < 1e-8:
+ *         if iternum == 0 and i == 0:
  */
       goto __pyx_L3_continue;
 
-      /* "MLE_core.pyx":166
+      /* "MLE.pyx":177
  *         t = critical_t[i].real
  *         # Roots should lie within [t_cur, t_next] interval
  *         if t < t_cur or t > t_next:             # <<<<<<<<<<<<<<
@@ -2646,90 +2675,144 @@ static __pyx_ctuple_8fc71____dunderpyx_t_5numpy_float64_t__and___dunderpyx_t_5nu
  */
     }
 
-    /* "MLE_core.pyx":169
+    /* "MLE.pyx":180
  *             continue
  * 
- *         if abs(t) < 1e-8:             # <<<<<<<<<<<<<<
+ *         if iternum == 0 and i == 0:             # <<<<<<<<<<<<<<
  *             s = 0
- *         else:
+ *             NLL = r_sum * log(b)
  */
-    __pyx_t_8 = ((fabs(__pyx_v_t) < 1e-8) != 0);
+    __pyx_t_10 = ((__pyx_v_iternum == 0) != 0);
+    if (__pyx_t_10) {
+    } else {
+      __pyx_t_8 = __pyx_t_10;
+      goto __pyx_L10_bool_binop_done;
+    }
+    __pyx_t_10 = ((__pyx_v_i == 0) != 0);
+    __pyx_t_8 = __pyx_t_10;
+    __pyx_L10_bool_binop_done:;
     if (__pyx_t_8) {
 
-      /* "MLE_core.pyx":170
+      /* "MLE.pyx":181
  * 
- *         if abs(t) < 1e-8:
+ *         if iternum == 0 and i == 0:
  *             s = 0             # <<<<<<<<<<<<<<
+ *             NLL = r_sum * log(b)
  *         else:
- *             s = (a * t**2 + c) / (sqrt(2*M_PI) * t)
  */
       __pyx_v_s = 0.0;
 
-      /* "MLE_core.pyx":169
+      /* "MLE.pyx":182
+ *         if iternum == 0 and i == 0:
+ *             s = 0
+ *             NLL = r_sum * log(b)             # <<<<<<<<<<<<<<
+ *         else:
+ *             s = cubic_equation_real_root(
+ */
+      __pyx_v_NLL = (__pyx_v_r_sum * log(__pyx_v_b));
+
+      /* "MLE.pyx":180
  *             continue
  * 
- *         if abs(t) < 1e-8:             # <<<<<<<<<<<<<<
+ *         if iternum == 0 and i == 0:             # <<<<<<<<<<<<<<
  *             s = 0
- *         else:
+ *             NLL = r_sum * log(b)
  */
       goto __pyx_L9;
     }
 
-    /* "MLE_core.pyx":172
- *             s = 0
+    /* "MLE.pyx":184
+ *             NLL = r_sum * log(b)
  *         else:
- *             s = (a * t**2 + c) / (sqrt(2*M_PI) * t)             # <<<<<<<<<<<<<<
- * 
- *         if abs(s) < 1e-8:
+ *             s = cubic_equation_real_root(             # <<<<<<<<<<<<<<
+ *                 sqrt(2*M_PI) * r_sum,
+ *                 0,
  */
     /*else*/ {
-      __pyx_v_s = (((__pyx_v_a * pow(__pyx_v_t, 2.0)) + __pyx_v_c) / (sqrt((2.0 * M_PI)) * __pyx_v_t));
-    }
-    __pyx_L9:;
 
-    /* "MLE_core.pyx":174
- *             s = (a * t**2 + c) / (sqrt(2*M_PI) * t)
+      /* "MLE.pyx":189
+ *                 -sqrt(2*M_PI) * (a*t**2  + c),
+ *                 (a*t - b) * (a*t**2 + c)
+ *             ).real             # <<<<<<<<<<<<<<
  * 
- *         if abs(s) < 1e-8:             # <<<<<<<<<<<<<<
- *             NLL = r_sum * log(-a*t + b)
- *         else:
+ *             if s < 0:
  */
-    __pyx_t_8 = ((fabs(__pyx_v_s) < 1e-8) != 0);
-    if (__pyx_t_8) {
+      __pyx_t_9 = __Pyx_CREAL(__pyx_f_3MLE_cubic_equation_real_root(__pyx_t_double_complex_from_parts((sqrt((2.0 * M_PI)) * __pyx_v_r_sum), 0), __pyx_t_double_complex_from_parts(0, 0), __pyx_t_double_complex_from_parts(((-sqrt((2.0 * M_PI))) * ((__pyx_v_a * pow(__pyx_v_t, 2.0)) + __pyx_v_c)), 0), __pyx_t_double_complex_from_parts((((__pyx_v_a * __pyx_v_t) - __pyx_v_b) * ((__pyx_v_a * pow(__pyx_v_t, 2.0)) + __pyx_v_c)), 0)));
+      __pyx_v_s = __pyx_t_9;
 
-      /* "MLE_core.pyx":175
+      /* "MLE.pyx":191
+ *             ).real
  * 
- *         if abs(s) < 1e-8:
- *             NLL = r_sum * log(-a*t + b)             # <<<<<<<<<<<<<<
- *         else:
- *             NLL = r_sum * log(sqrt(2*M_PI) * s - a*t + b) + (a * t**2 + c) / (2 * s**2)
+ *             if s < 0:             # <<<<<<<<<<<<<<
+ *                 NLL = INFINITY
+ *             else:
  */
-      __pyx_v_NLL = (__pyx_v_r_sum * log((((-__pyx_v_a) * __pyx_v_t) + __pyx_v_b)));
+      __pyx_t_8 = ((__pyx_v_s < 0.0) != 0);
+      if (__pyx_t_8) {
 
-      /* "MLE_core.pyx":174
- *             s = (a * t**2 + c) / (sqrt(2*M_PI) * t)
+        /* "MLE.pyx":192
  * 
- *         if abs(s) < 1e-8:             # <<<<<<<<<<<<<<
- *             NLL = r_sum * log(-a*t + b)
- *         else:
+ *             if s < 0:
+ *                 NLL = INFINITY             # <<<<<<<<<<<<<<
+ *             else:
+ *                 if s < 1e-6:
  */
-      goto __pyx_L10;
-    }
+        __pyx_v_NLL = INFINITY;
 
-    /* "MLE_core.pyx":177
- *             NLL = r_sum * log(-a*t + b)
- *         else:
- *             NLL = r_sum * log(sqrt(2*M_PI) * s - a*t + b) + (a * t**2 + c) / (2 * s**2)             # <<<<<<<<<<<<<<
+        /* "MLE.pyx":191
+ *             ).real
+ * 
+ *             if s < 0:             # <<<<<<<<<<<<<<
+ *                 NLL = INFINITY
+ *             else:
+ */
+        goto __pyx_L12;
+      }
+
+      /* "MLE.pyx":194
+ *                 NLL = INFINITY
+ *             else:
+ *                 if s < 1e-6:             # <<<<<<<<<<<<<<
+ *                     s = 1e-6
+ *                 NLL = r_sum * log(sqrt(2*M_PI) * s - a*t + b) + (a * t**2 + c) / (2 * s**2)
+ */
+      /*else*/ {
+        __pyx_t_8 = ((__pyx_v_s < 1e-6) != 0);
+        if (__pyx_t_8) {
+
+          /* "MLE.pyx":195
+ *             else:
+ *                 if s < 1e-6:
+ *                     s = 1e-6             # <<<<<<<<<<<<<<
+ *                 NLL = r_sum * log(sqrt(2*M_PI) * s - a*t + b) + (a * t**2 + c) / (2 * s**2)
+ * 
+ */
+          __pyx_v_s = 1e-6;
+
+          /* "MLE.pyx":194
+ *                 NLL = INFINITY
+ *             else:
+ *                 if s < 1e-6:             # <<<<<<<<<<<<<<
+ *                     s = 1e-6
+ *                 NLL = r_sum * log(sqrt(2*M_PI) * s - a*t + b) + (a * t**2 + c) / (2 * s**2)
+ */
+        }
+
+        /* "MLE.pyx":196
+ *                 if s < 1e-6:
+ *                     s = 1e-6
+ *                 NLL = r_sum * log(sqrt(2*M_PI) * s - a*t + b) + (a * t**2 + c) / (2 * s**2)             # <<<<<<<<<<<<<<
  * 
  *         if NLL < NLL_loc_min:
  */
-    /*else*/ {
-      __pyx_v_NLL = ((__pyx_v_r_sum * log((((sqrt((2.0 * M_PI)) * __pyx_v_s) - (__pyx_v_a * __pyx_v_t)) + __pyx_v_b))) + (((__pyx_v_a * pow(__pyx_v_t, 2.0)) + __pyx_v_c) / (2.0 * pow(__pyx_v_s, 2.0))));
+        __pyx_v_NLL = ((__pyx_v_r_sum * log((((sqrt((2.0 * M_PI)) * __pyx_v_s) - (__pyx_v_a * __pyx_v_t)) + __pyx_v_b))) + (((__pyx_v_a * pow(__pyx_v_t, 2.0)) + __pyx_v_c) / (2.0 * pow(__pyx_v_s, 2.0))));
+      }
+      __pyx_L12:;
     }
-    __pyx_L10:;
+    __pyx_L9:;
 
-    /* "MLE_core.pyx":179
- *             NLL = r_sum * log(sqrt(2*M_PI) * s - a*t + b) + (a * t**2 + c) / (2 * s**2)
+    /* "MLE.pyx":198
+ *                 NLL = r_sum * log(sqrt(2*M_PI) * s - a*t + b) + (a * t**2 + c) / (2 * s**2)
  * 
  *         if NLL < NLL_loc_min:             # <<<<<<<<<<<<<<
  *             t_loc_min = t
@@ -2738,7 +2821,7 @@ static __pyx_ctuple_8fc71____dunderpyx_t_5numpy_float64_t__and___dunderpyx_t_5nu
     __pyx_t_8 = ((__pyx_v_NLL < __pyx_v_NLL_loc_min) != 0);
     if (__pyx_t_8) {
 
-      /* "MLE_core.pyx":180
+      /* "MLE.pyx":199
  * 
  *         if NLL < NLL_loc_min:
  *             t_loc_min = t             # <<<<<<<<<<<<<<
@@ -2747,7 +2830,7 @@ static __pyx_ctuple_8fc71____dunderpyx_t_5numpy_float64_t__and___dunderpyx_t_5nu
  */
       __pyx_v_t_loc_min = __pyx_v_t;
 
-      /* "MLE_core.pyx":181
+      /* "MLE.pyx":200
  *         if NLL < NLL_loc_min:
  *             t_loc_min = t
  *             s_loc_min = s             # <<<<<<<<<<<<<<
@@ -2756,7 +2839,7 @@ static __pyx_ctuple_8fc71____dunderpyx_t_5numpy_float64_t__and___dunderpyx_t_5nu
  */
       __pyx_v_s_loc_min = __pyx_v_s;
 
-      /* "MLE_core.pyx":182
+      /* "MLE.pyx":201
  *             t_loc_min = t
  *             s_loc_min = s
  *             NLL_loc_min = NLL             # <<<<<<<<<<<<<<
@@ -2765,8 +2848,8 @@ static __pyx_ctuple_8fc71____dunderpyx_t_5numpy_float64_t__and___dunderpyx_t_5nu
  */
       __pyx_v_NLL_loc_min = __pyx_v_NLL;
 
-      /* "MLE_core.pyx":179
- *             NLL = r_sum * log(sqrt(2*M_PI) * s - a*t + b) + (a * t**2 + c) / (2 * s**2)
+      /* "MLE.pyx":198
+ *                 NLL = r_sum * log(sqrt(2*M_PI) * s - a*t + b) + (a * t**2 + c) / (2 * s**2)
  * 
  *         if NLL < NLL_loc_min:             # <<<<<<<<<<<<<<
  *             t_loc_min = t
@@ -2776,39 +2859,154 @@ static __pyx_ctuple_8fc71____dunderpyx_t_5numpy_float64_t__and___dunderpyx_t_5nu
     __pyx_L3_continue:;
   }
 
-  /* "MLE_core.pyx":184
+  /* "MLE.pyx":203
  *             NLL_loc_min = NLL
  * 
  *     cdef np.float64_t l_loc_min = (t_loc_min + x_l) / r_l             # <<<<<<<<<<<<<<
  *     cdef np.float64_t h_loc_min = (x_l + x_h - r_l * l_loc_min) / r_h
- * 
+ *     if l_loc_min == -8.285968798588563 and h_loc_min == -9.930992198979034:
  */
   __pyx_v_l_loc_min = ((__pyx_v_t_loc_min + __pyx_v_x_l) / __pyx_v_r_l);
 
-  /* "MLE_core.pyx":185
+  /* "MLE.pyx":204
  * 
  *     cdef np.float64_t l_loc_min = (t_loc_min + x_l) / r_l
  *     cdef np.float64_t h_loc_min = (x_l + x_h - r_l * l_loc_min) / r_h             # <<<<<<<<<<<<<<
- * 
- *     return (l_loc_min, h_loc_min, s_loc_min, NLL_loc_min)
+ *     if l_loc_min == -8.285968798588563 and h_loc_min == -9.930992198979034:
+ *         print("##########################")
  */
   __pyx_v_h_loc_min = (((__pyx_v_x_l + __pyx_v_x_h) - (__pyx_v_r_l * __pyx_v_l_loc_min)) / __pyx_v_r_h);
 
-  /* "MLE_core.pyx":187
+  /* "MLE.pyx":205
+ *     cdef np.float64_t l_loc_min = (t_loc_min + x_l) / r_l
  *     cdef np.float64_t h_loc_min = (x_l + x_h - r_l * l_loc_min) / r_h
+ *     if l_loc_min == -8.285968798588563 and h_loc_min == -9.930992198979034:             # <<<<<<<<<<<<<<
+ *         print("##########################")
+ *         print(t_loc_min, s_loc_min)
+ */
+  __pyx_t_10 = ((__pyx_v_l_loc_min == -8.285968798588563) != 0);
+  if (__pyx_t_10) {
+  } else {
+    __pyx_t_8 = __pyx_t_10;
+    goto __pyx_L16_bool_binop_done;
+  }
+  __pyx_t_10 = ((__pyx_v_h_loc_min == -9.930992198979034) != 0);
+  __pyx_t_8 = __pyx_t_10;
+  __pyx_L16_bool_binop_done:;
+  if (__pyx_t_8) {
+
+    /* "MLE.pyx":206
+ *     cdef np.float64_t h_loc_min = (x_l + x_h - r_l * l_loc_min) / r_h
+ *     if l_loc_min == -8.285968798588563 and h_loc_min == -9.930992198979034:
+ *         print("##########################")             # <<<<<<<<<<<<<<
+ *         print(t_loc_min, s_loc_min)
+ *         print(sqrt(2*M_PI) * s_loc_min)
+ */
+    if (__Pyx_PrintOne(0, __pyx_kp_s_) < 0) __PYX_ERR(0, 206, __pyx_L1_error)
+
+    /* "MLE.pyx":207
+ *     if l_loc_min == -8.285968798588563 and h_loc_min == -9.930992198979034:
+ *         print("##########################")
+ *         print(t_loc_min, s_loc_min)             # <<<<<<<<<<<<<<
+ *         print(sqrt(2*M_PI) * s_loc_min)
+ *         print(a * t_loc_min)
+ */
+    __pyx_t_11 = PyFloat_FromDouble(__pyx_v_t_loc_min); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 207, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_11);
+    __pyx_t_12 = PyFloat_FromDouble(__pyx_v_s_loc_min); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 207, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_12);
+    __pyx_t_13 = PyTuple_New(2); if (unlikely(!__pyx_t_13)) __PYX_ERR(0, 207, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_13);
+    __Pyx_GIVEREF(__pyx_t_11);
+    PyTuple_SET_ITEM(__pyx_t_13, 0, __pyx_t_11);
+    __Pyx_GIVEREF(__pyx_t_12);
+    PyTuple_SET_ITEM(__pyx_t_13, 1, __pyx_t_12);
+    __pyx_t_11 = 0;
+    __pyx_t_12 = 0;
+    if (__Pyx_PrintOne(0, __pyx_t_13) < 0) __PYX_ERR(0, 207, __pyx_L1_error)
+    __Pyx_DECREF(__pyx_t_13); __pyx_t_13 = 0;
+
+    /* "MLE.pyx":208
+ *         print("##########################")
+ *         print(t_loc_min, s_loc_min)
+ *         print(sqrt(2*M_PI) * s_loc_min)             # <<<<<<<<<<<<<<
+ *         print(a * t_loc_min)
+ *         print(b)
+ */
+    __pyx_t_13 = PyFloat_FromDouble((sqrt((2.0 * M_PI)) * __pyx_v_s_loc_min)); if (unlikely(!__pyx_t_13)) __PYX_ERR(0, 208, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_13);
+    if (__Pyx_PrintOne(0, __pyx_t_13) < 0) __PYX_ERR(0, 208, __pyx_L1_error)
+    __Pyx_DECREF(__pyx_t_13); __pyx_t_13 = 0;
+
+    /* "MLE.pyx":209
+ *         print(t_loc_min, s_loc_min)
+ *         print(sqrt(2*M_PI) * s_loc_min)
+ *         print(a * t_loc_min)             # <<<<<<<<<<<<<<
+ *         print(b)
+ *         print(sqrt(2*M_PI) * s_loc_min - a*t_loc_min + b)
+ */
+    __pyx_t_13 = PyFloat_FromDouble((__pyx_v_a * __pyx_v_t_loc_min)); if (unlikely(!__pyx_t_13)) __PYX_ERR(0, 209, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_13);
+    if (__Pyx_PrintOne(0, __pyx_t_13) < 0) __PYX_ERR(0, 209, __pyx_L1_error)
+    __Pyx_DECREF(__pyx_t_13); __pyx_t_13 = 0;
+
+    /* "MLE.pyx":210
+ *         print(sqrt(2*M_PI) * s_loc_min)
+ *         print(a * t_loc_min)
+ *         print(b)             # <<<<<<<<<<<<<<
+ *         print(sqrt(2*M_PI) * s_loc_min - a*t_loc_min + b)
+ *         print("##########################")
+ */
+    __pyx_t_13 = PyFloat_FromDouble(__pyx_v_b); if (unlikely(!__pyx_t_13)) __PYX_ERR(0, 210, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_13);
+    if (__Pyx_PrintOne(0, __pyx_t_13) < 0) __PYX_ERR(0, 210, __pyx_L1_error)
+    __Pyx_DECREF(__pyx_t_13); __pyx_t_13 = 0;
+
+    /* "MLE.pyx":211
+ *         print(a * t_loc_min)
+ *         print(b)
+ *         print(sqrt(2*M_PI) * s_loc_min - a*t_loc_min + b)             # <<<<<<<<<<<<<<
+ *         print("##########################")
+ * 
+ */
+    __pyx_t_13 = PyFloat_FromDouble((((sqrt((2.0 * M_PI)) * __pyx_v_s_loc_min) - (__pyx_v_a * __pyx_v_t_loc_min)) + __pyx_v_b)); if (unlikely(!__pyx_t_13)) __PYX_ERR(0, 211, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_13);
+    if (__Pyx_PrintOne(0, __pyx_t_13) < 0) __PYX_ERR(0, 211, __pyx_L1_error)
+    __Pyx_DECREF(__pyx_t_13); __pyx_t_13 = 0;
+
+    /* "MLE.pyx":212
+ *         print(b)
+ *         print(sqrt(2*M_PI) * s_loc_min - a*t_loc_min + b)
+ *         print("##########################")             # <<<<<<<<<<<<<<
+ * 
+ * 
+ */
+    if (__Pyx_PrintOne(0, __pyx_kp_s_) < 0) __PYX_ERR(0, 212, __pyx_L1_error)
+
+    /* "MLE.pyx":205
+ *     cdef np.float64_t l_loc_min = (t_loc_min + x_l) / r_l
+ *     cdef np.float64_t h_loc_min = (x_l + x_h - r_l * l_loc_min) / r_h
+ *     if l_loc_min == -8.285968798588563 and h_loc_min == -9.930992198979034:             # <<<<<<<<<<<<<<
+ *         print("##########################")
+ *         print(t_loc_min, s_loc_min)
+ */
+  }
+
+  /* "MLE.pyx":215
+ * 
  * 
  *     return (l_loc_min, h_loc_min, s_loc_min, NLL_loc_min)             # <<<<<<<<<<<<<<
  * 
  * 
  */
-  __pyx_t_11.f0 = __pyx_v_l_loc_min;
-  __pyx_t_11.f1 = __pyx_v_h_loc_min;
-  __pyx_t_11.f2 = __pyx_v_s_loc_min;
-  __pyx_t_11.f3 = __pyx_v_NLL_loc_min;
-  __pyx_r = __pyx_t_11;
+  __pyx_t_14.f0 = __pyx_v_l_loc_min;
+  __pyx_t_14.f1 = __pyx_v_h_loc_min;
+  __pyx_t_14.f2 = __pyx_v_s_loc_min;
+  __pyx_t_14.f3 = __pyx_v_NLL_loc_min;
+  __pyx_r = __pyx_t_14;
   goto __pyx_L0;
 
-  /* "MLE_core.pyx":131
+  /* "MLE.pyx":131
  * 
  * @cython.cdivision(True)
  * cdef (np.float64_t, np.float64_t, np.float64_t, np.float64_t) optimize_NLL_on_segment(             # <<<<<<<<<<<<<<
@@ -2817,12 +3015,18 @@ static __pyx_ctuple_8fc71____dunderpyx_t_5numpy_float64_t__and___dunderpyx_t_5nu
  */
 
   /* function exit code */
+  __pyx_L1_error:;
+  __Pyx_XDECREF(__pyx_t_11);
+  __Pyx_XDECREF(__pyx_t_12);
+  __Pyx_XDECREF(__pyx_t_13);
+  __Pyx_WriteUnraisable("MLE.optimize_NLL_on_segment", __pyx_clineno, __pyx_lineno, __pyx_filename, 1, 0);
+  __Pyx_pretend_to_initialize(&__pyx_r);
   __pyx_L0:;
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-/* "MLE_core.pyx":193
+/* "MLE.pyx":221
  * @cython.boundscheck(False)
  * @cython.wraparound(False)
  * def minimize_NLL(             # <<<<<<<<<<<<<<
@@ -2831,10 +3035,10 @@ static __pyx_ctuple_8fc71____dunderpyx_t_5numpy_float64_t__and___dunderpyx_t_5nu
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_8MLE_core_1minimize_NLL(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static char __pyx_doc_8MLE_core_minimize_NLL[] = "\n    Fast minimization of RSD negative log-likelihood.\n    Briefly:\n        - Traverse the polygonal chain containing the global minimum;\n        - Find local minimum on each segment of the chain;\n        - Take the global minimum.\n    Note: input data vector should be already sorted (ascending).\n    ";
-static PyMethodDef __pyx_mdef_8MLE_core_1minimize_NLL = {"minimize_NLL", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_8MLE_core_1minimize_NLL, METH_VARARGS|METH_KEYWORDS, __pyx_doc_8MLE_core_minimize_NLL};
-static PyObject *__pyx_pw_8MLE_core_1minimize_NLL(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_3MLE_1minimize_NLL(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static char __pyx_doc_3MLE_minimize_NLL[] = "\n    Fast minimization of RSD negative log-likelihood.\n    Briefly:\n        - Traverse the polygonal chain containing the global minimum;\n        - Find local minimum on each segment of the chain;\n        - Take the global minimum.\n    Note: input data vector should be already sorted (ascending).\n    ";
+static PyMethodDef __pyx_mdef_3MLE_1minimize_NLL = {"minimize_NLL", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_3MLE_1minimize_NLL, METH_VARARGS|METH_KEYWORDS, __pyx_doc_3MLE_minimize_NLL};
+static PyObject *__pyx_pw_3MLE_1minimize_NLL(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   PyArrayObject *__pyx_v_data = 0;
   PyArrayObject *__pyx_v_weights = 0;
   int __pyx_lineno = 0;
@@ -2866,11 +3070,11 @@ static PyObject *__pyx_pw_8MLE_core_1minimize_NLL(PyObject *__pyx_self, PyObject
         case  1:
         if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_weights)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("minimize_NLL", 1, 2, 2, 1); __PYX_ERR(0, 193, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("minimize_NLL", 1, 2, 2, 1); __PYX_ERR(0, 221, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "minimize_NLL") < 0)) __PYX_ERR(0, 193, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "minimize_NLL") < 0)) __PYX_ERR(0, 221, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 2) {
       goto __pyx_L5_argtuple_error;
@@ -2883,15 +3087,15 @@ static PyObject *__pyx_pw_8MLE_core_1minimize_NLL(PyObject *__pyx_self, PyObject
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("minimize_NLL", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 193, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("minimize_NLL", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 221, __pyx_L3_error)
   __pyx_L3_error:;
-  __Pyx_AddTraceback("MLE_core.minimize_NLL", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("MLE.minimize_NLL", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_data), __pyx_ptype_5numpy_ndarray, 1, "data", 0))) __PYX_ERR(0, 194, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_weights), __pyx_ptype_5numpy_ndarray, 1, "weights", 0))) __PYX_ERR(0, 195, __pyx_L1_error)
-  __pyx_r = __pyx_pf_8MLE_core_minimize_NLL(__pyx_self, __pyx_v_data, __pyx_v_weights);
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_data), __pyx_ptype_5numpy_ndarray, 1, "data", 0))) __PYX_ERR(0, 222, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_weights), __pyx_ptype_5numpy_ndarray, 1, "weights", 0))) __PYX_ERR(0, 223, __pyx_L1_error)
+  __pyx_r = __pyx_pf_3MLE_minimize_NLL(__pyx_self, __pyx_v_data, __pyx_v_weights);
 
   /* function exit code */
   goto __pyx_L0;
@@ -2902,7 +3106,7 @@ static PyObject *__pyx_pw_8MLE_core_1minimize_NLL(PyObject *__pyx_self, PyObject
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_8MLE_core_minimize_NLL(CYTHON_UNUSED PyObject *__pyx_self, PyArrayObject *__pyx_v_data, PyArrayObject *__pyx_v_weights) {
+static PyObject *__pyx_pf_3MLE_minimize_NLL(CYTHON_UNUSED PyObject *__pyx_self, PyArrayObject *__pyx_v_data, PyArrayObject *__pyx_v_weights) {
   long __pyx_v_N;
   __pyx_t_5numpy_float64_t __pyx_v_r_sum;
   long __pyx_v_u;
@@ -2941,7 +3145,7 @@ static PyObject *__pyx_pf_8MLE_core_minimize_NLL(CYTHON_UNUSED PyObject *__pyx_s
   int __pyx_t_7;
   __pyx_t_5numpy_float64_t __pyx_t_8;
   __pyx_t_5numpy_float64_t __pyx_t_9;
-  __pyx_ctuple_8fc71____dunderpyx_t_5numpy_float64_t__and___dunderpyx_t_5numpy_float64_t__and___dunderpyx_t_5numpy_float64_t__and___dunderpyx_t_5numpy_float64_t__etc __pyx_t_10;
+  __pyx_ctuple_bde00____dunderpyx_t_5numpy_float64_t__and___dunderpyx_t_5numpy_float64_t__and___dunderpyx_t_5numpy_float64_t__and___dunderpyx_t_5numpy_float64_t__etc __pyx_t_10;
   __pyx_t_5numpy_float64_t __pyx_t_11;
   PyObject *__pyx_t_12 = NULL;
   PyObject *__pyx_t_13 = NULL;
@@ -2959,16 +3163,16 @@ static PyObject *__pyx_pf_8MLE_core_minimize_NLL(CYTHON_UNUSED PyObject *__pyx_s
   __pyx_pybuffernd_weights.rcbuffer = &__pyx_pybuffer_weights;
   {
     __Pyx_BufFmt_StackElem __pyx_stack[1];
-    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_data.rcbuffer->pybuffer, (PyObject*)__pyx_v_data, &__Pyx_TypeInfo_nn___pyx_t_5numpy_float64_t, PyBUF_FORMAT| PyBUF_STRIDES, 1, 0, __pyx_stack) == -1)) __PYX_ERR(0, 193, __pyx_L1_error)
+    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_data.rcbuffer->pybuffer, (PyObject*)__pyx_v_data, &__Pyx_TypeInfo_nn___pyx_t_5numpy_float64_t, PyBUF_FORMAT| PyBUF_STRIDES, 1, 0, __pyx_stack) == -1)) __PYX_ERR(0, 221, __pyx_L1_error)
   }
   __pyx_pybuffernd_data.diminfo[0].strides = __pyx_pybuffernd_data.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_data.diminfo[0].shape = __pyx_pybuffernd_data.rcbuffer->pybuffer.shape[0];
   {
     __Pyx_BufFmt_StackElem __pyx_stack[1];
-    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_weights.rcbuffer->pybuffer, (PyObject*)__pyx_v_weights, &__Pyx_TypeInfo_nn___pyx_t_5numpy_float64_t, PyBUF_FORMAT| PyBUF_STRIDES, 1, 0, __pyx_stack) == -1)) __PYX_ERR(0, 193, __pyx_L1_error)
+    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_weights.rcbuffer->pybuffer, (PyObject*)__pyx_v_weights, &__Pyx_TypeInfo_nn___pyx_t_5numpy_float64_t, PyBUF_FORMAT| PyBUF_STRIDES, 1, 0, __pyx_stack) == -1)) __PYX_ERR(0, 221, __pyx_L1_error)
   }
   __pyx_pybuffernd_weights.diminfo[0].strides = __pyx_pybuffernd_weights.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_weights.diminfo[0].shape = __pyx_pybuffernd_weights.rcbuffer->pybuffer.shape[0];
 
-  /* "MLE_core.pyx":206
+  /* "MLE.pyx":234
  *     '''
  *     # Total number of points
  *     cdef long int N = data.shape[0]             # <<<<<<<<<<<<<<
@@ -2977,16 +3181,16 @@ static PyObject *__pyx_pf_8MLE_core_minimize_NLL(CYTHON_UNUSED PyObject *__pyx_s
  */
   __pyx_v_N = (__pyx_v_data->dimensions[0]);
 
-  /* "MLE_core.pyx":208
+  /* "MLE.pyx":236
  *     cdef long int N = data.shape[0]
  *     # Summary weight
  *     cdef np.float64_t r_sum = np.sum(weights)             # <<<<<<<<<<<<<<
  * 
  *     # Region indexers (u is a number of l axis, v is a number of h axis)
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_np); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 208, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_np); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 236, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_sum); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 208, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_sum); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 236, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_t_2 = NULL;
@@ -3001,14 +3205,14 @@ static PyObject *__pyx_pf_8MLE_core_minimize_NLL(CYTHON_UNUSED PyObject *__pyx_s
   }
   __pyx_t_1 = (__pyx_t_2) ? __Pyx_PyObject_Call2Args(__pyx_t_3, __pyx_t_2, ((PyObject *)__pyx_v_weights)) : __Pyx_PyObject_CallOneArg(__pyx_t_3, ((PyObject *)__pyx_v_weights));
   __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 208, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 236, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_4 = __pyx_PyFloat_AsDouble(__pyx_t_1); if (unlikely((__pyx_t_4 == ((npy_float64)-1)) && PyErr_Occurred())) __PYX_ERR(0, 208, __pyx_L1_error)
+  __pyx_t_4 = __pyx_PyFloat_AsDouble(__pyx_t_1); if (unlikely((__pyx_t_4 == ((npy_float64)-1)) && PyErr_Occurred())) __PYX_ERR(0, 236, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_v_r_sum = __pyx_t_4;
 
-  /* "MLE_core.pyx":211
+  /* "MLE.pyx":239
  * 
  *     # Region indexers (u is a number of l axis, v is a number of h axis)
  *     cdef long int u = 0             # <<<<<<<<<<<<<<
@@ -3017,7 +3221,7 @@ static PyObject *__pyx_pf_8MLE_core_minimize_NLL(CYTHON_UNUSED PyObject *__pyx_s
  */
   __pyx_v_u = 0;
 
-  /* "MLE_core.pyx":212
+  /* "MLE.pyx":240
  *     # Region indexers (u is a number of l axis, v is a number of h axis)
  *     cdef long int u = 0
  *     cdef long int v = N - 1             # <<<<<<<<<<<<<<
@@ -3026,7 +3230,7 @@ static PyObject *__pyx_pf_8MLE_core_minimize_NLL(CYTHON_UNUSED PyObject *__pyx_s
  */
   __pyx_v_v = (__pyx_v_N - 1);
 
-  /* "MLE_core.pyx":214
+  /* "MLE.pyx":242
  *     cdef long int v = N - 1
  *     # Global counter
  *     cdef long int i = 0             # <<<<<<<<<<<<<<
@@ -3035,7 +3239,7 @@ static PyObject *__pyx_pf_8MLE_core_minimize_NLL(CYTHON_UNUSED PyObject *__pyx_s
  */
   __pyx_v_i = 0;
 
-  /* "MLE_core.pyx":217
+  /* "MLE.pyx":245
  * 
  *     # Coordinates of current segment's left-top point
  *     cdef np.float64_t l_cur = data[0]             # <<<<<<<<<<<<<<
@@ -3045,7 +3249,7 @@ static PyObject *__pyx_pf_8MLE_core_minimize_NLL(CYTHON_UNUSED PyObject *__pyx_s
   __pyx_t_5 = 0;
   __pyx_v_l_cur = (*__Pyx_BufPtrStrided1d(__pyx_t_5numpy_float64_t *, __pyx_pybuffernd_data.rcbuffer->pybuffer.buf, __pyx_t_5, __pyx_pybuffernd_data.diminfo[0].strides));
 
-  /* "MLE_core.pyx":218
+  /* "MLE.pyx":246
  *     # Coordinates of current segment's left-top point
  *     cdef np.float64_t l_cur = data[0]
  *     cdef np.float64_t h_cur = data[0]             # <<<<<<<<<<<<<<
@@ -3055,7 +3259,7 @@ static PyObject *__pyx_pf_8MLE_core_minimize_NLL(CYTHON_UNUSED PyObject *__pyx_s
   __pyx_t_5 = 0;
   __pyx_v_h_cur = (*__Pyx_BufPtrStrided1d(__pyx_t_5numpy_float64_t *, __pyx_pybuffernd_data.rcbuffer->pybuffer.buf, __pyx_t_5, __pyx_pybuffernd_data.diminfo[0].strides));
 
-  /* "MLE_core.pyx":224
+  /* "MLE.pyx":252
  * 
  *     # Sum of weights for l and h
  *     cdef np.float64_t r_l = weights[0]             # <<<<<<<<<<<<<<
@@ -3065,7 +3269,7 @@ static PyObject *__pyx_pf_8MLE_core_minimize_NLL(CYTHON_UNUSED PyObject *__pyx_s
   __pyx_t_5 = 0;
   __pyx_v_r_l = (*__Pyx_BufPtrStrided1d(__pyx_t_5numpy_float64_t *, __pyx_pybuffernd_weights.rcbuffer->pybuffer.buf, __pyx_t_5, __pyx_pybuffernd_weights.diminfo[0].strides));
 
-  /* "MLE_core.pyx":225
+  /* "MLE.pyx":253
  *     # Sum of weights for l and h
  *     cdef np.float64_t r_l = weights[0]
  *     cdef np.float64_t r_h = weights[N - 1]             # <<<<<<<<<<<<<<
@@ -3075,7 +3279,7 @@ static PyObject *__pyx_pf_8MLE_core_minimize_NLL(CYTHON_UNUSED PyObject *__pyx_s
   __pyx_t_5 = (__pyx_v_N - 1);
   __pyx_v_r_h = (*__Pyx_BufPtrStrided1d(__pyx_t_5numpy_float64_t *, __pyx_pybuffernd_weights.rcbuffer->pybuffer.buf, __pyx_t_5, __pyx_pybuffernd_weights.diminfo[0].strides));
 
-  /* "MLE_core.pyx":228
+  /* "MLE.pyx":256
  * 
  *     # Weighted sum of x's for l and h
  *     cdef np.float64_t x_l = weights[0] * data[0]             # <<<<<<<<<<<<<<
@@ -3086,7 +3290,7 @@ static PyObject *__pyx_pf_8MLE_core_minimize_NLL(CYTHON_UNUSED PyObject *__pyx_s
   __pyx_t_6 = 0;
   __pyx_v_x_l = ((*__Pyx_BufPtrStrided1d(__pyx_t_5numpy_float64_t *, __pyx_pybuffernd_weights.rcbuffer->pybuffer.buf, __pyx_t_5, __pyx_pybuffernd_weights.diminfo[0].strides)) * (*__Pyx_BufPtrStrided1d(__pyx_t_5numpy_float64_t *, __pyx_pybuffernd_data.rcbuffer->pybuffer.buf, __pyx_t_6, __pyx_pybuffernd_data.diminfo[0].strides)));
 
-  /* "MLE_core.pyx":229
+  /* "MLE.pyx":257
  *     # Weighted sum of x's for l and h
  *     cdef np.float64_t x_l = weights[0] * data[0]
  *     cdef np.float64_t x_h = weights[N - 1] * data[N - 1]             # <<<<<<<<<<<<<<
@@ -3097,7 +3301,7 @@ static PyObject *__pyx_pf_8MLE_core_minimize_NLL(CYTHON_UNUSED PyObject *__pyx_s
   __pyx_t_5 = (__pyx_v_N - 1);
   __pyx_v_x_h = ((*__Pyx_BufPtrStrided1d(__pyx_t_5numpy_float64_t *, __pyx_pybuffernd_weights.rcbuffer->pybuffer.buf, __pyx_t_6, __pyx_pybuffernd_weights.diminfo[0].strides)) * (*__Pyx_BufPtrStrided1d(__pyx_t_5numpy_float64_t *, __pyx_pybuffernd_data.rcbuffer->pybuffer.buf, __pyx_t_5, __pyx_pybuffernd_data.diminfo[0].strides)));
 
-  /* "MLE_core.pyx":232
+  /* "MLE.pyx":260
  * 
  *     # Weighted sum of x squares for l and h
  *     cdef np.float64_t x_sq_l = weights[0] * data[0]**2             # <<<<<<<<<<<<<<
@@ -3108,7 +3312,7 @@ static PyObject *__pyx_pf_8MLE_core_minimize_NLL(CYTHON_UNUSED PyObject *__pyx_s
   __pyx_t_6 = 0;
   __pyx_v_x_sq_l = ((*__Pyx_BufPtrStrided1d(__pyx_t_5numpy_float64_t *, __pyx_pybuffernd_weights.rcbuffer->pybuffer.buf, __pyx_t_5, __pyx_pybuffernd_weights.diminfo[0].strides)) * pow((*__Pyx_BufPtrStrided1d(__pyx_t_5numpy_float64_t *, __pyx_pybuffernd_data.rcbuffer->pybuffer.buf, __pyx_t_6, __pyx_pybuffernd_data.diminfo[0].strides)), 2.0));
 
-  /* "MLE_core.pyx":233
+  /* "MLE.pyx":261
  *     # Weighted sum of x squares for l and h
  *     cdef np.float64_t x_sq_l = weights[0] * data[0]**2
  *     cdef np.float64_t x_sq_h = weights[N - 1] * data[N - 1]**2             # <<<<<<<<<<<<<<
@@ -3119,7 +3323,7 @@ static PyObject *__pyx_pf_8MLE_core_minimize_NLL(CYTHON_UNUSED PyObject *__pyx_s
   __pyx_t_5 = (__pyx_v_N - 1);
   __pyx_v_x_sq_h = ((*__Pyx_BufPtrStrided1d(__pyx_t_5numpy_float64_t *, __pyx_pybuffernd_weights.rcbuffer->pybuffer.buf, __pyx_t_6, __pyx_pybuffernd_weights.diminfo[0].strides)) * pow((*__Pyx_BufPtrStrided1d(__pyx_t_5numpy_float64_t *, __pyx_pybuffernd_data.rcbuffer->pybuffer.buf, __pyx_t_5, __pyx_pybuffernd_data.diminfo[0].strides)), 2.0));
 
-  /* "MLE_core.pyx":239
+  /* "MLE.pyx":267
  *     # Global minimums
  *     cdef np.float64_t l_glob_min, h_glob_min, s_glob_min, NLL_glob_min
  *     NLL_glob_min = INFINITY             # <<<<<<<<<<<<<<
@@ -3128,7 +3332,7 @@ static PyObject *__pyx_pf_8MLE_core_minimize_NLL(CYTHON_UNUSED PyObject *__pyx_s
  */
   __pyx_v_NLL_glob_min = INFINITY;
 
-  /* "MLE_core.pyx":242
+  /* "MLE.pyx":270
  * 
  *     # Traverse extremal chain from l = min(data), h = max(data) to l = h
  *     while v - u >= 1:             # <<<<<<<<<<<<<<
@@ -3139,7 +3343,7 @@ static PyObject *__pyx_pf_8MLE_core_minimize_NLL(CYTHON_UNUSED PyObject *__pyx_s
     __pyx_t_7 = (((__pyx_v_v - __pyx_v_u) >= 1) != 0);
     if (!__pyx_t_7) break;
 
-    /* "MLE_core.pyx":244
+    /* "MLE.pyx":272
  *     while v - u >= 1:
  *         # First, determine coordinates l_next and h_next
  *         if v - u > 1:             # <<<<<<<<<<<<<<
@@ -3149,7 +3353,7 @@ static PyObject *__pyx_pf_8MLE_core_minimize_NLL(CYTHON_UNUSED PyObject *__pyx_s
     __pyx_t_7 = (((__pyx_v_v - __pyx_v_u) > 1) != 0);
     if (__pyx_t_7) {
 
-      /* "MLE_core.pyx":245
+      /* "MLE.pyx":273
  *         # First, determine coordinates l_next and h_next
  *         if v - u > 1:
  *             l_next = min(data[u + 1], (x_l + x_h - r_h * data[v - 1]) / r_l)             # <<<<<<<<<<<<<<
@@ -3167,7 +3371,7 @@ static PyObject *__pyx_pf_8MLE_core_minimize_NLL(CYTHON_UNUSED PyObject *__pyx_s
       }
       __pyx_v_l_next = __pyx_t_9;
 
-      /* "MLE_core.pyx":246
+      /* "MLE.pyx":274
  *         if v - u > 1:
  *             l_next = min(data[u + 1], (x_l + x_h - r_h * data[v - 1]) / r_l)
  *             h_next = max(data[v - 1], (x_l + x_h - r_l * data[u + 1]) / r_h)             # <<<<<<<<<<<<<<
@@ -3185,7 +3389,7 @@ static PyObject *__pyx_pf_8MLE_core_minimize_NLL(CYTHON_UNUSED PyObject *__pyx_s
       }
       __pyx_v_h_next = __pyx_t_8;
 
-      /* "MLE_core.pyx":244
+      /* "MLE.pyx":272
  *     while v - u >= 1:
  *         # First, determine coordinates l_next and h_next
  *         if v - u > 1:             # <<<<<<<<<<<<<<
@@ -3195,7 +3399,7 @@ static PyObject *__pyx_pf_8MLE_core_minimize_NLL(CYTHON_UNUSED PyObject *__pyx_s
       goto __pyx_L5;
     }
 
-    /* "MLE_core.pyx":248
+    /* "MLE.pyx":276
  *             h_next = max(data[v - 1], (x_l + x_h - r_l * data[u + 1]) / r_h)
  *         else:
  *             l_next = (x_l + x_h) / (r_l + r_h)             # <<<<<<<<<<<<<<
@@ -3205,7 +3409,7 @@ static PyObject *__pyx_pf_8MLE_core_minimize_NLL(CYTHON_UNUSED PyObject *__pyx_s
     /*else*/ {
       __pyx_v_l_next = ((__pyx_v_x_l + __pyx_v_x_h) / (__pyx_v_r_l + __pyx_v_r_h));
 
-      /* "MLE_core.pyx":249
+      /* "MLE.pyx":277
  *         else:
  *             l_next = (x_l + x_h) / (r_l + r_h)
  *             h_next = l_next             # <<<<<<<<<<<<<<
@@ -3216,14 +3420,14 @@ static PyObject *__pyx_pf_8MLE_core_minimize_NLL(CYTHON_UNUSED PyObject *__pyx_s
     }
     __pyx_L5:;
 
-    /* "MLE_core.pyx":252
+    /* "MLE.pyx":280
  * 
  *         # Then, find local minimum on current segment
  *         l_loc_min, h_loc_min, s_loc_min, NLL_loc_min = optimize_NLL_on_segment(             # <<<<<<<<<<<<<<
  *             r_sum, r_l, r_h,
  *             x_l, x_h,
  */
-    __pyx_t_10 = __pyx_f_8MLE_core_optimize_NLL_on_segment(__pyx_v_r_sum, __pyx_v_r_l, __pyx_v_r_h, __pyx_v_x_l, __pyx_v_x_h, __pyx_v_x_sq_l, __pyx_v_x_sq_h, __pyx_v_l_cur, __pyx_v_l_next);
+    __pyx_t_10 = __pyx_f_3MLE_optimize_NLL_on_segment(__pyx_v_r_sum, __pyx_v_r_l, __pyx_v_r_h, __pyx_v_x_l, __pyx_v_x_h, __pyx_v_x_sq_l, __pyx_v_x_sq_h, __pyx_v_l_cur, __pyx_v_l_next, __pyx_v_i);
     __pyx_t_8 = __pyx_t_10.f0;
     __pyx_t_9 = __pyx_t_10.f1;
     __pyx_t_4 = __pyx_t_10.f2;
@@ -3233,7 +3437,7 @@ static PyObject *__pyx_pf_8MLE_core_minimize_NLL(CYTHON_UNUSED PyObject *__pyx_s
     __pyx_v_s_loc_min = __pyx_t_4;
     __pyx_v_NLL_loc_min = __pyx_t_11;
 
-    /* "MLE_core.pyx":259
+    /* "MLE.pyx":288
  *         )
  *         # Compare with current global minimum
  *         if NLL_loc_min < NLL_glob_min:             # <<<<<<<<<<<<<<
@@ -3243,7 +3447,7 @@ static PyObject *__pyx_pf_8MLE_core_minimize_NLL(CYTHON_UNUSED PyObject *__pyx_s
     __pyx_t_7 = ((__pyx_v_NLL_loc_min < __pyx_v_NLL_glob_min) != 0);
     if (__pyx_t_7) {
 
-      /* "MLE_core.pyx":260
+      /* "MLE.pyx":289
  *         # Compare with current global minimum
  *         if NLL_loc_min < NLL_glob_min:
  *             l_glob_min = l_loc_min             # <<<<<<<<<<<<<<
@@ -3252,7 +3456,7 @@ static PyObject *__pyx_pf_8MLE_core_minimize_NLL(CYTHON_UNUSED PyObject *__pyx_s
  */
       __pyx_v_l_glob_min = __pyx_v_l_loc_min;
 
-      /* "MLE_core.pyx":261
+      /* "MLE.pyx":290
  *         if NLL_loc_min < NLL_glob_min:
  *             l_glob_min = l_loc_min
  *             h_glob_min = h_loc_min             # <<<<<<<<<<<<<<
@@ -3261,7 +3465,7 @@ static PyObject *__pyx_pf_8MLE_core_minimize_NLL(CYTHON_UNUSED PyObject *__pyx_s
  */
       __pyx_v_h_glob_min = __pyx_v_h_loc_min;
 
-      /* "MLE_core.pyx":262
+      /* "MLE.pyx":291
  *             l_glob_min = l_loc_min
  *             h_glob_min = h_loc_min
  *             s_glob_min = s_loc_min             # <<<<<<<<<<<<<<
@@ -3270,7 +3474,7 @@ static PyObject *__pyx_pf_8MLE_core_minimize_NLL(CYTHON_UNUSED PyObject *__pyx_s
  */
       __pyx_v_s_glob_min = __pyx_v_s_loc_min;
 
-      /* "MLE_core.pyx":263
+      /* "MLE.pyx":292
  *             h_glob_min = h_loc_min
  *             s_glob_min = s_loc_min
  *             NLL_glob_min = NLL_loc_min             # <<<<<<<<<<<<<<
@@ -3279,7 +3483,7 @@ static PyObject *__pyx_pf_8MLE_core_minimize_NLL(CYTHON_UNUSED PyObject *__pyx_s
  */
       __pyx_v_NLL_glob_min = __pyx_v_NLL_loc_min;
 
-      /* "MLE_core.pyx":259
+      /* "MLE.pyx":288
  *         )
  *         # Compare with current global minimum
  *         if NLL_loc_min < NLL_glob_min:             # <<<<<<<<<<<<<<
@@ -3288,7 +3492,7 @@ static PyObject *__pyx_pf_8MLE_core_minimize_NLL(CYTHON_UNUSED PyObject *__pyx_s
  */
     }
 
-    /* "MLE_core.pyx":266
+    /* "MLE.pyx":295
  * 
  *         # Finally, move to the next segment
  *         if l_next == data[u + 1]:             # <<<<<<<<<<<<<<
@@ -3299,7 +3503,7 @@ static PyObject *__pyx_pf_8MLE_core_minimize_NLL(CYTHON_UNUSED PyObject *__pyx_s
     __pyx_t_7 = ((__pyx_v_l_next == (*__Pyx_BufPtrStrided1d(__pyx_t_5numpy_float64_t *, __pyx_pybuffernd_data.rcbuffer->pybuffer.buf, __pyx_t_5, __pyx_pybuffernd_data.diminfo[0].strides))) != 0);
     if (__pyx_t_7) {
 
-      /* "MLE_core.pyx":267
+      /* "MLE.pyx":296
  *         # Finally, move to the next segment
  *         if l_next == data[u + 1]:
  *             r_l += weights[u + 1]             # <<<<<<<<<<<<<<
@@ -3309,7 +3513,7 @@ static PyObject *__pyx_pf_8MLE_core_minimize_NLL(CYTHON_UNUSED PyObject *__pyx_s
       __pyx_t_5 = (__pyx_v_u + 1);
       __pyx_v_r_l = (__pyx_v_r_l + (*__Pyx_BufPtrStrided1d(__pyx_t_5numpy_float64_t *, __pyx_pybuffernd_weights.rcbuffer->pybuffer.buf, __pyx_t_5, __pyx_pybuffernd_weights.diminfo[0].strides)));
 
-      /* "MLE_core.pyx":268
+      /* "MLE.pyx":297
  *         if l_next == data[u + 1]:
  *             r_l += weights[u + 1]
  *             x_l += weights[u + 1] * data[u + 1]             # <<<<<<<<<<<<<<
@@ -3320,7 +3524,7 @@ static PyObject *__pyx_pf_8MLE_core_minimize_NLL(CYTHON_UNUSED PyObject *__pyx_s
       __pyx_t_6 = (__pyx_v_u + 1);
       __pyx_v_x_l = (__pyx_v_x_l + ((*__Pyx_BufPtrStrided1d(__pyx_t_5numpy_float64_t *, __pyx_pybuffernd_weights.rcbuffer->pybuffer.buf, __pyx_t_5, __pyx_pybuffernd_weights.diminfo[0].strides)) * (*__Pyx_BufPtrStrided1d(__pyx_t_5numpy_float64_t *, __pyx_pybuffernd_data.rcbuffer->pybuffer.buf, __pyx_t_6, __pyx_pybuffernd_data.diminfo[0].strides))));
 
-      /* "MLE_core.pyx":269
+      /* "MLE.pyx":298
  *             r_l += weights[u + 1]
  *             x_l += weights[u + 1] * data[u + 1]
  *             x_sq_l += weights[u + 1] * data[u + 1]**2             # <<<<<<<<<<<<<<
@@ -3331,7 +3535,7 @@ static PyObject *__pyx_pf_8MLE_core_minimize_NLL(CYTHON_UNUSED PyObject *__pyx_s
       __pyx_t_5 = (__pyx_v_u + 1);
       __pyx_v_x_sq_l = (__pyx_v_x_sq_l + ((*__Pyx_BufPtrStrided1d(__pyx_t_5numpy_float64_t *, __pyx_pybuffernd_weights.rcbuffer->pybuffer.buf, __pyx_t_6, __pyx_pybuffernd_weights.diminfo[0].strides)) * pow((*__Pyx_BufPtrStrided1d(__pyx_t_5numpy_float64_t *, __pyx_pybuffernd_data.rcbuffer->pybuffer.buf, __pyx_t_5, __pyx_pybuffernd_data.diminfo[0].strides)), 2.0)));
 
-      /* "MLE_core.pyx":270
+      /* "MLE.pyx":299
  *             x_l += weights[u + 1] * data[u + 1]
  *             x_sq_l += weights[u + 1] * data[u + 1]**2
  *             u += 1             # <<<<<<<<<<<<<<
@@ -3340,7 +3544,7 @@ static PyObject *__pyx_pf_8MLE_core_minimize_NLL(CYTHON_UNUSED PyObject *__pyx_s
  */
       __pyx_v_u = (__pyx_v_u + 1);
 
-      /* "MLE_core.pyx":266
+      /* "MLE.pyx":295
  * 
  *         # Finally, move to the next segment
  *         if l_next == data[u + 1]:             # <<<<<<<<<<<<<<
@@ -3350,7 +3554,7 @@ static PyObject *__pyx_pf_8MLE_core_minimize_NLL(CYTHON_UNUSED PyObject *__pyx_s
       goto __pyx_L7;
     }
 
-    /* "MLE_core.pyx":272
+    /* "MLE.pyx":301
  *             u += 1
  *         else:
  *             r_h += weights[v - 1]             # <<<<<<<<<<<<<<
@@ -3361,7 +3565,7 @@ static PyObject *__pyx_pf_8MLE_core_minimize_NLL(CYTHON_UNUSED PyObject *__pyx_s
       __pyx_t_5 = (__pyx_v_v - 1);
       __pyx_v_r_h = (__pyx_v_r_h + (*__Pyx_BufPtrStrided1d(__pyx_t_5numpy_float64_t *, __pyx_pybuffernd_weights.rcbuffer->pybuffer.buf, __pyx_t_5, __pyx_pybuffernd_weights.diminfo[0].strides)));
 
-      /* "MLE_core.pyx":273
+      /* "MLE.pyx":302
  *         else:
  *             r_h += weights[v - 1]
  *             x_h += weights[v - 1] * data[v - 1]             # <<<<<<<<<<<<<<
@@ -3372,7 +3576,7 @@ static PyObject *__pyx_pf_8MLE_core_minimize_NLL(CYTHON_UNUSED PyObject *__pyx_s
       __pyx_t_6 = (__pyx_v_v - 1);
       __pyx_v_x_h = (__pyx_v_x_h + ((*__Pyx_BufPtrStrided1d(__pyx_t_5numpy_float64_t *, __pyx_pybuffernd_weights.rcbuffer->pybuffer.buf, __pyx_t_5, __pyx_pybuffernd_weights.diminfo[0].strides)) * (*__Pyx_BufPtrStrided1d(__pyx_t_5numpy_float64_t *, __pyx_pybuffernd_data.rcbuffer->pybuffer.buf, __pyx_t_6, __pyx_pybuffernd_data.diminfo[0].strides))));
 
-      /* "MLE_core.pyx":274
+      /* "MLE.pyx":303
  *             r_h += weights[v - 1]
  *             x_h += weights[v - 1] * data[v - 1]
  *             x_sq_h += weights[v - 1] * data[v - 1]**2             # <<<<<<<<<<<<<<
@@ -3383,7 +3587,7 @@ static PyObject *__pyx_pf_8MLE_core_minimize_NLL(CYTHON_UNUSED PyObject *__pyx_s
       __pyx_t_5 = (__pyx_v_v - 1);
       __pyx_v_x_sq_h = (__pyx_v_x_sq_h + ((*__Pyx_BufPtrStrided1d(__pyx_t_5numpy_float64_t *, __pyx_pybuffernd_weights.rcbuffer->pybuffer.buf, __pyx_t_6, __pyx_pybuffernd_weights.diminfo[0].strides)) * pow((*__Pyx_BufPtrStrided1d(__pyx_t_5numpy_float64_t *, __pyx_pybuffernd_data.rcbuffer->pybuffer.buf, __pyx_t_5, __pyx_pybuffernd_data.diminfo[0].strides)), 2.0)));
 
-      /* "MLE_core.pyx":275
+      /* "MLE.pyx":304
  *             x_h += weights[v - 1] * data[v - 1]
  *             x_sq_h += weights[v - 1] * data[v - 1]**2
  *             v -= 1             # <<<<<<<<<<<<<<
@@ -3394,7 +3598,7 @@ static PyObject *__pyx_pf_8MLE_core_minimize_NLL(CYTHON_UNUSED PyObject *__pyx_s
     }
     __pyx_L7:;
 
-    /* "MLE_core.pyx":277
+    /* "MLE.pyx":306
  *             v -= 1
  * 
  *         l_cur, h_cur = l_next, h_next             # <<<<<<<<<<<<<<
@@ -3406,7 +3610,7 @@ static PyObject *__pyx_pf_8MLE_core_minimize_NLL(CYTHON_UNUSED PyObject *__pyx_s
     __pyx_v_l_cur = __pyx_t_11;
     __pyx_v_h_cur = __pyx_t_4;
 
-    /* "MLE_core.pyx":278
+    /* "MLE.pyx":307
  * 
  *         l_cur, h_cur = l_next, h_next
  *         i += 1             # <<<<<<<<<<<<<<
@@ -3416,21 +3620,21 @@ static PyObject *__pyx_pf_8MLE_core_minimize_NLL(CYTHON_UNUSED PyObject *__pyx_s
     __pyx_v_i = (__pyx_v_i + 1);
   }
 
-  /* "MLE_core.pyx":280
+  /* "MLE.pyx":309
  *         i += 1
  * 
  *     return (l_glob_min, h_glob_min, s_glob_min, NLL_glob_min)             # <<<<<<<<<<<<<<
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = PyFloat_FromDouble(__pyx_v_l_glob_min); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 280, __pyx_L1_error)
+  __pyx_t_1 = PyFloat_FromDouble(__pyx_v_l_glob_min); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 309, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_3 = PyFloat_FromDouble(__pyx_v_h_glob_min); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 280, __pyx_L1_error)
+  __pyx_t_3 = PyFloat_FromDouble(__pyx_v_h_glob_min); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 309, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_2 = PyFloat_FromDouble(__pyx_v_s_glob_min); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 280, __pyx_L1_error)
+  __pyx_t_2 = PyFloat_FromDouble(__pyx_v_s_glob_min); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 309, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_12 = PyFloat_FromDouble(__pyx_v_NLL_glob_min); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 280, __pyx_L1_error)
+  __pyx_t_12 = PyFloat_FromDouble(__pyx_v_NLL_glob_min); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 309, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_12);
-  __pyx_t_13 = PyTuple_New(4); if (unlikely(!__pyx_t_13)) __PYX_ERR(0, 280, __pyx_L1_error)
+  __pyx_t_13 = PyTuple_New(4); if (unlikely(!__pyx_t_13)) __PYX_ERR(0, 309, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_13);
   __Pyx_GIVEREF(__pyx_t_1);
   PyTuple_SET_ITEM(__pyx_t_13, 0, __pyx_t_1);
@@ -3448,7 +3652,7 @@ static PyObject *__pyx_pf_8MLE_core_minimize_NLL(CYTHON_UNUSED PyObject *__pyx_s
   __pyx_t_13 = 0;
   goto __pyx_L0;
 
-  /* "MLE_core.pyx":193
+  /* "MLE.pyx":221
  * @cython.boundscheck(False)
  * @cython.wraparound(False)
  * def minimize_NLL(             # <<<<<<<<<<<<<<
@@ -3470,7 +3674,7 @@ static PyObject *__pyx_pf_8MLE_core_minimize_NLL(CYTHON_UNUSED PyObject *__pyx_s
     __Pyx_SafeReleaseBuffer(&__pyx_pybuffernd_data.rcbuffer->pybuffer);
     __Pyx_SafeReleaseBuffer(&__pyx_pybuffernd_weights.rcbuffer->pybuffer);
   __Pyx_ErrRestore(__pyx_type, __pyx_value, __pyx_tb);}
-  __Pyx_AddTraceback("MLE_core.minimize_NLL", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("MLE.minimize_NLL", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   goto __pyx_L2;
   __pyx_L0:;
@@ -4014,7 +4218,7 @@ static CYTHON_INLINE int __pyx_f_5numpy_import_array(void) {
  * 
  * cdef inline int import_umath() except -1:
  */
-      __pyx_t_8 = __Pyx_PyObject_Call(__pyx_builtin_ImportError, __pyx_tuple_, NULL); if (unlikely(!__pyx_t_8)) __PYX_ERR(1, 884, __pyx_L5_except_error)
+      __pyx_t_8 = __Pyx_PyObject_Call(__pyx_builtin_ImportError, __pyx_tuple__2, NULL); if (unlikely(!__pyx_t_8)) __PYX_ERR(1, 884, __pyx_L5_except_error)
       __Pyx_GOTREF(__pyx_t_8);
       __Pyx_Raise(__pyx_t_8, 0, 0, 0);
       __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
@@ -4146,7 +4350,7 @@ static CYTHON_INLINE int __pyx_f_5numpy_import_umath(void) {
  * 
  * cdef inline int import_ufunc() except -1:
  */
-      __pyx_t_8 = __Pyx_PyObject_Call(__pyx_builtin_ImportError, __pyx_tuple__2, NULL); if (unlikely(!__pyx_t_8)) __PYX_ERR(1, 890, __pyx_L5_except_error)
+      __pyx_t_8 = __Pyx_PyObject_Call(__pyx_builtin_ImportError, __pyx_tuple__3, NULL); if (unlikely(!__pyx_t_8)) __PYX_ERR(1, 890, __pyx_L5_except_error)
       __Pyx_GOTREF(__pyx_t_8);
       __Pyx_Raise(__pyx_t_8, 0, 0, 0);
       __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
@@ -4278,7 +4482,7 @@ static CYTHON_INLINE int __pyx_f_5numpy_import_ufunc(void) {
  * 
  * cdef extern from *:
  */
-      __pyx_t_8 = __Pyx_PyObject_Call(__pyx_builtin_ImportError, __pyx_tuple__2, NULL); if (unlikely(!__pyx_t_8)) __PYX_ERR(1, 896, __pyx_L5_except_error)
+      __pyx_t_8 = __Pyx_PyObject_Call(__pyx_builtin_ImportError, __pyx_tuple__3, NULL); if (unlikely(!__pyx_t_8)) __PYX_ERR(1, 896, __pyx_L5_except_error)
       __Pyx_GOTREF(__pyx_t_8);
       __Pyx_Raise(__pyx_t_8, 0, 0, 0);
       __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
@@ -4332,17 +4536,17 @@ static PyMethodDef __pyx_methods[] = {
 #if PY_MAJOR_VERSION >= 3
 #if CYTHON_PEP489_MULTI_PHASE_INIT
 static PyObject* __pyx_pymod_create(PyObject *spec, PyModuleDef *def); /*proto*/
-static int __pyx_pymod_exec_MLE_core(PyObject* module); /*proto*/
+static int __pyx_pymod_exec_MLE(PyObject* module); /*proto*/
 static PyModuleDef_Slot __pyx_moduledef_slots[] = {
   {Py_mod_create, (void*)__pyx_pymod_create},
-  {Py_mod_exec, (void*)__pyx_pymod_exec_MLE_core},
+  {Py_mod_exec, (void*)__pyx_pymod_exec_MLE},
   {0, NULL}
 };
 #endif
 
 static struct PyModuleDef __pyx_moduledef = {
     PyModuleDef_HEAD_INIT,
-    "MLE_core",
+    "MLE",
     0, /* m_doc */
   #if CYTHON_PEP489_MULTI_PHASE_INIT
     0, /* m_size */
@@ -4371,14 +4575,17 @@ static struct PyModuleDef __pyx_moduledef = {
 #endif
 
 static __Pyx_StringTabEntry __pyx_string_tab[] = {
+  {&__pyx_kp_s_, __pyx_k_, sizeof(__pyx_k_), 0, 0, 1, 0},
   {&__pyx_n_s_ImportError, __pyx_k_ImportError, sizeof(__pyx_k_ImportError), 0, 0, 1, 1},
-  {&__pyx_n_s_MLE_core, __pyx_k_MLE_core, sizeof(__pyx_k_MLE_core), 0, 0, 1, 1},
-  {&__pyx_kp_s_MLE_core_pyx, __pyx_k_MLE_core_pyx, sizeof(__pyx_k_MLE_core_pyx), 0, 0, 1, 0},
+  {&__pyx_n_s_MLE, __pyx_k_MLE, sizeof(__pyx_k_MLE), 0, 0, 1, 1},
+  {&__pyx_kp_s_MLE_pyx, __pyx_k_MLE_pyx, sizeof(__pyx_k_MLE_pyx), 0, 0, 1, 0},
   {&__pyx_n_s_N, __pyx_k_N, sizeof(__pyx_k_N), 0, 0, 1, 1},
   {&__pyx_n_s_NLL_glob_min, __pyx_k_NLL_glob_min, sizeof(__pyx_k_NLL_glob_min), 0, 0, 1, 1},
   {&__pyx_n_s_NLL_loc_min, __pyx_k_NLL_loc_min, sizeof(__pyx_k_NLL_loc_min), 0, 0, 1, 1},
   {&__pyx_n_s_cline_in_traceback, __pyx_k_cline_in_traceback, sizeof(__pyx_k_cline_in_traceback), 0, 0, 1, 1},
   {&__pyx_n_s_data, __pyx_k_data, sizeof(__pyx_k_data), 0, 0, 1, 1},
+  {&__pyx_n_s_end, __pyx_k_end, sizeof(__pyx_k_end), 0, 0, 1, 1},
+  {&__pyx_n_s_file, __pyx_k_file, sizeof(__pyx_k_file), 0, 0, 1, 1},
   {&__pyx_n_s_h_cur, __pyx_k_h_cur, sizeof(__pyx_k_h_cur), 0, 0, 1, 1},
   {&__pyx_n_s_h_glob_min, __pyx_k_h_glob_min, sizeof(__pyx_k_h_glob_min), 0, 0, 1, 1},
   {&__pyx_n_s_h_loc_min, __pyx_k_h_loc_min, sizeof(__pyx_k_h_loc_min), 0, 0, 1, 1},
@@ -4396,6 +4603,7 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_s_numpy, __pyx_k_numpy, sizeof(__pyx_k_numpy), 0, 0, 1, 1},
   {&__pyx_kp_s_numpy_core_multiarray_failed_to, __pyx_k_numpy_core_multiarray_failed_to, sizeof(__pyx_k_numpy_core_multiarray_failed_to), 0, 0, 1, 0},
   {&__pyx_kp_s_numpy_core_umath_failed_to_impor, __pyx_k_numpy_core_umath_failed_to_impor, sizeof(__pyx_k_numpy_core_umath_failed_to_impor), 0, 0, 1, 0},
+  {&__pyx_n_s_print, __pyx_k_print, sizeof(__pyx_k_print), 0, 0, 1, 1},
   {&__pyx_n_s_r_h, __pyx_k_r_h, sizeof(__pyx_k_r_h), 0, 0, 1, 1},
   {&__pyx_n_s_r_l, __pyx_k_r_l, sizeof(__pyx_k_r_l), 0, 0, 1, 1},
   {&__pyx_n_s_r_sum, __pyx_k_r_sum, sizeof(__pyx_k_r_sum), 0, 0, 1, 1},
@@ -4414,7 +4622,7 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {0, 0, 0, 0, 0, 0, 0}
 };
 static CYTHON_SMALL_CODE int __Pyx_InitCachedBuiltins(void) {
-  __pyx_builtin_range = __Pyx_GetBuiltinName(__pyx_n_s_range); if (!__pyx_builtin_range) __PYX_ERR(0, 159, __pyx_L1_error)
+  __pyx_builtin_range = __Pyx_GetBuiltinName(__pyx_n_s_range); if (!__pyx_builtin_range) __PYX_ERR(0, 170, __pyx_L1_error)
   __pyx_builtin_ImportError = __Pyx_GetBuiltinName(__pyx_n_s_ImportError); if (!__pyx_builtin_ImportError) __PYX_ERR(1, 884, __pyx_L1_error)
   return 0;
   __pyx_L1_error:;
@@ -4432,9 +4640,9 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  * 
  * cdef inline int import_umath() except -1:
  */
-  __pyx_tuple_ = PyTuple_Pack(1, __pyx_kp_s_numpy_core_multiarray_failed_to); if (unlikely(!__pyx_tuple_)) __PYX_ERR(1, 884, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple_);
-  __Pyx_GIVEREF(__pyx_tuple_);
+  __pyx_tuple__2 = PyTuple_Pack(1, __pyx_kp_s_numpy_core_multiarray_failed_to); if (unlikely(!__pyx_tuple__2)) __PYX_ERR(1, 884, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__2);
+  __Pyx_GIVEREF(__pyx_tuple__2);
 
   /* "../../../../../usr/local/lib/python3.6/dist-packages/numpy/__init__.pxd":890
  *         _import_umath()
@@ -4443,21 +4651,21 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  * 
  * cdef inline int import_ufunc() except -1:
  */
-  __pyx_tuple__2 = PyTuple_Pack(1, __pyx_kp_s_numpy_core_umath_failed_to_impor); if (unlikely(!__pyx_tuple__2)) __PYX_ERR(1, 890, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__2);
-  __Pyx_GIVEREF(__pyx_tuple__2);
+  __pyx_tuple__3 = PyTuple_Pack(1, __pyx_kp_s_numpy_core_umath_failed_to_impor); if (unlikely(!__pyx_tuple__3)) __PYX_ERR(1, 890, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__3);
+  __Pyx_GIVEREF(__pyx_tuple__3);
 
-  /* "MLE_core.pyx":193
+  /* "MLE.pyx":221
  * @cython.boundscheck(False)
  * @cython.wraparound(False)
  * def minimize_NLL(             # <<<<<<<<<<<<<<
  *         np.ndarray[np.float64_t, ndim=1] data,
  *         np.ndarray[np.float64_t, ndim=1] weights
  */
-  __pyx_tuple__3 = PyTuple_Pack(25, __pyx_n_s_data, __pyx_n_s_weights, __pyx_n_s_N, __pyx_n_s_r_sum, __pyx_n_s_u, __pyx_n_s_v, __pyx_n_s_i, __pyx_n_s_l_cur, __pyx_n_s_h_cur, __pyx_n_s_l_next, __pyx_n_s_h_next, __pyx_n_s_r_l, __pyx_n_s_r_h, __pyx_n_s_x_l, __pyx_n_s_x_h, __pyx_n_s_x_sq_l, __pyx_n_s_x_sq_h, __pyx_n_s_l_loc_min, __pyx_n_s_h_loc_min, __pyx_n_s_s_loc_min, __pyx_n_s_NLL_loc_min, __pyx_n_s_l_glob_min, __pyx_n_s_h_glob_min, __pyx_n_s_s_glob_min, __pyx_n_s_NLL_glob_min); if (unlikely(!__pyx_tuple__3)) __PYX_ERR(0, 193, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__3);
-  __Pyx_GIVEREF(__pyx_tuple__3);
-  __pyx_codeobj__4 = (PyObject*)__Pyx_PyCode_New(2, 0, 25, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__3, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_MLE_core_pyx, __pyx_n_s_minimize_NLL, 193, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__4)) __PYX_ERR(0, 193, __pyx_L1_error)
+  __pyx_tuple__4 = PyTuple_Pack(25, __pyx_n_s_data, __pyx_n_s_weights, __pyx_n_s_N, __pyx_n_s_r_sum, __pyx_n_s_u, __pyx_n_s_v, __pyx_n_s_i, __pyx_n_s_l_cur, __pyx_n_s_h_cur, __pyx_n_s_l_next, __pyx_n_s_h_next, __pyx_n_s_r_l, __pyx_n_s_r_h, __pyx_n_s_x_l, __pyx_n_s_x_h, __pyx_n_s_x_sq_l, __pyx_n_s_x_sq_h, __pyx_n_s_l_loc_min, __pyx_n_s_h_loc_min, __pyx_n_s_s_loc_min, __pyx_n_s_NLL_loc_min, __pyx_n_s_l_glob_min, __pyx_n_s_h_glob_min, __pyx_n_s_s_glob_min, __pyx_n_s_NLL_glob_min); if (unlikely(!__pyx_tuple__4)) __PYX_ERR(0, 221, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__4);
+  __Pyx_GIVEREF(__pyx_tuple__4);
+  __pyx_codeobj__5 = (PyObject*)__Pyx_PyCode_New(2, 0, 25, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__4, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_MLE_pyx, __pyx_n_s_minimize_NLL, 221, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__5)) __PYX_ERR(0, 221, __pyx_L1_error)
   __Pyx_RefNannyFinishContext();
   return 0;
   __pyx_L1_error:;
@@ -4587,11 +4795,11 @@ static int __Pyx_modinit_function_import_code(void) {
 
 
 #if PY_MAJOR_VERSION < 3
-__Pyx_PyMODINIT_FUNC initMLE_core(void) CYTHON_SMALL_CODE; /*proto*/
-__Pyx_PyMODINIT_FUNC initMLE_core(void)
+__Pyx_PyMODINIT_FUNC initMLE(void) CYTHON_SMALL_CODE; /*proto*/
+__Pyx_PyMODINIT_FUNC initMLE(void)
 #else
-__Pyx_PyMODINIT_FUNC PyInit_MLE_core(void) CYTHON_SMALL_CODE; /*proto*/
-__Pyx_PyMODINIT_FUNC PyInit_MLE_core(void)
+__Pyx_PyMODINIT_FUNC PyInit_MLE(void) CYTHON_SMALL_CODE; /*proto*/
+__Pyx_PyMODINIT_FUNC PyInit_MLE(void)
 #if CYTHON_PEP489_MULTI_PHASE_INIT
 {
   return PyModuleDef_Init(&__pyx_moduledef);
@@ -4658,7 +4866,7 @@ bad:
 }
 
 
-static CYTHON_SMALL_CODE int __pyx_pymod_exec_MLE_core(PyObject *__pyx_pyinit_module)
+static CYTHON_SMALL_CODE int __pyx_pymod_exec_MLE(PyObject *__pyx_pyinit_module)
 #endif
 #endif
 {
@@ -4670,7 +4878,7 @@ static CYTHON_SMALL_CODE int __pyx_pymod_exec_MLE_core(PyObject *__pyx_pyinit_mo
   #if CYTHON_PEP489_MULTI_PHASE_INIT
   if (__pyx_m) {
     if (__pyx_m == __pyx_pyinit_module) return 0;
-    PyErr_SetString(PyExc_RuntimeError, "Module 'MLE_core' has already been imported. Re-initialisation is not supported.");
+    PyErr_SetString(PyExc_RuntimeError, "Module 'MLE' has already been imported. Re-initialisation is not supported.");
     return -1;
   }
   #elif PY_MAJOR_VERSION >= 3
@@ -4685,7 +4893,7 @@ if (!__Pyx_RefNanny) {
       Py_FatalError("failed to import 'refnanny' module");
 }
 #endif
-  __Pyx_RefNannySetupContext("__Pyx_PyMODINIT_FUNC PyInit_MLE_core(void)", 0);
+  __Pyx_RefNannySetupContext("__Pyx_PyMODINIT_FUNC PyInit_MLE(void)", 0);
   if (__Pyx_check_binary_version() < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   #ifdef __Pxy_PyFrame_Initialize_Offsets
   __Pxy_PyFrame_Initialize_Offsets();
@@ -4724,7 +4932,7 @@ if (!__Pyx_RefNanny) {
   Py_INCREF(__pyx_m);
   #else
   #if PY_MAJOR_VERSION < 3
-  __pyx_m = Py_InitModule4("MLE_core", __pyx_methods, 0, 0, PYTHON_API_VERSION); Py_XINCREF(__pyx_m);
+  __pyx_m = Py_InitModule4("MLE", __pyx_methods, 0, 0, PYTHON_API_VERSION); Py_XINCREF(__pyx_m);
   #else
   __pyx_m = PyModule_Create(&__pyx_moduledef);
   #endif
@@ -4742,14 +4950,14 @@ if (!__Pyx_RefNanny) {
   #if PY_MAJOR_VERSION < 3 && (__PYX_DEFAULT_STRING_ENCODING_IS_ASCII || __PYX_DEFAULT_STRING_ENCODING_IS_DEFAULT)
   if (__Pyx_init_sys_getdefaultencoding_params() < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   #endif
-  if (__pyx_module_is_main_MLE_core) {
+  if (__pyx_module_is_main_MLE) {
     if (PyObject_SetAttr(__pyx_m, __pyx_n_s_name, __pyx_n_s_main) < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   }
   #if PY_MAJOR_VERSION >= 3
   {
     PyObject *modules = PyImport_GetModuleDict(); if (unlikely(!modules)) __PYX_ERR(0, 1, __pyx_L1_error)
-    if (!PyDict_GetItemString(modules, "MLE_core")) {
-      if (unlikely(PyDict_SetItemString(modules, "MLE_core", __pyx_m) < 0)) __PYX_ERR(0, 1, __pyx_L1_error)
+    if (!PyDict_GetItemString(modules, "MLE")) {
+      if (unlikely(PyDict_SetItemString(modules, "MLE", __pyx_m) < 0)) __PYX_ERR(0, 1, __pyx_L1_error)
     }
   }
   #endif
@@ -4770,7 +4978,7 @@ if (!__Pyx_RefNanny) {
   if (__Pyx_patch_abc() < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   #endif
 
-  /* "MLE_core.pyx":3
+  /* "MLE.pyx":3
  * cimport cython
  * 
  * import numpy as np             # <<<<<<<<<<<<<<
@@ -4782,19 +4990,19 @@ if (!__Pyx_RefNanny) {
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_np, __pyx_t_1) < 0) __PYX_ERR(0, 3, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "MLE_core.pyx":193
+  /* "MLE.pyx":221
  * @cython.boundscheck(False)
  * @cython.wraparound(False)
  * def minimize_NLL(             # <<<<<<<<<<<<<<
  *         np.ndarray[np.float64_t, ndim=1] data,
  *         np.ndarray[np.float64_t, ndim=1] weights
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_8MLE_core_1minimize_NLL, NULL, __pyx_n_s_MLE_core); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 193, __pyx_L1_error)
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_3MLE_1minimize_NLL, NULL, __pyx_n_s_MLE); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 221, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_minimize_NLL, __pyx_t_1) < 0) __PYX_ERR(0, 193, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_minimize_NLL, __pyx_t_1) < 0) __PYX_ERR(0, 221, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "MLE_core.pyx":1
+  /* "MLE.pyx":1
  * cimport cython             # <<<<<<<<<<<<<<
  * 
  * import numpy as np
@@ -4819,11 +5027,11 @@ if (!__Pyx_RefNanny) {
   __Pyx_XDECREF(__pyx_t_1);
   if (__pyx_m) {
     if (__pyx_d) {
-      __Pyx_AddTraceback("init MLE_core", __pyx_clineno, __pyx_lineno, __pyx_filename);
+      __Pyx_AddTraceback("init MLE", __pyx_clineno, __pyx_lineno, __pyx_filename);
     }
     Py_CLEAR(__pyx_m);
   } else if (!PyErr_Occurred()) {
-    PyErr_SetString(PyExc_ImportError, "init MLE_core");
+    PyErr_SetString(PyExc_ImportError, "init MLE");
   }
   __pyx_L0:;
   __Pyx_RefNannyFinishContext();
@@ -4880,6 +5088,72 @@ static PyObject *__Pyx_GetBuiltinName(PyObject *name) {
 #endif
     }
     return result;
+}
+
+/* PyErrFetchRestore */
+#if CYTHON_FAST_THREAD_STATE
+static CYTHON_INLINE void __Pyx_ErrRestoreInState(PyThreadState *tstate, PyObject *type, PyObject *value, PyObject *tb) {
+    PyObject *tmp_type, *tmp_value, *tmp_tb;
+    tmp_type = tstate->curexc_type;
+    tmp_value = tstate->curexc_value;
+    tmp_tb = tstate->curexc_traceback;
+    tstate->curexc_type = type;
+    tstate->curexc_value = value;
+    tstate->curexc_traceback = tb;
+    Py_XDECREF(tmp_type);
+    Py_XDECREF(tmp_value);
+    Py_XDECREF(tmp_tb);
+}
+static CYTHON_INLINE void __Pyx_ErrFetchInState(PyThreadState *tstate, PyObject **type, PyObject **value, PyObject **tb) {
+    *type = tstate->curexc_type;
+    *value = tstate->curexc_value;
+    *tb = tstate->curexc_traceback;
+    tstate->curexc_type = 0;
+    tstate->curexc_value = 0;
+    tstate->curexc_traceback = 0;
+}
+#endif
+
+/* WriteUnraisableException */
+static void __Pyx_WriteUnraisable(const char *name, CYTHON_UNUSED int clineno,
+                                  CYTHON_UNUSED int lineno, CYTHON_UNUSED const char *filename,
+                                  int full_traceback, CYTHON_UNUSED int nogil) {
+    PyObject *old_exc, *old_val, *old_tb;
+    PyObject *ctx;
+    __Pyx_PyThreadState_declare
+#ifdef WITH_THREAD
+    PyGILState_STATE state;
+    if (nogil)
+        state = PyGILState_Ensure();
+#ifdef _MSC_VER
+    else state = (PyGILState_STATE)-1;
+#endif
+#endif
+    __Pyx_PyThreadState_assign
+    __Pyx_ErrFetch(&old_exc, &old_val, &old_tb);
+    if (full_traceback) {
+        Py_XINCREF(old_exc);
+        Py_XINCREF(old_val);
+        Py_XINCREF(old_tb);
+        __Pyx_ErrRestore(old_exc, old_val, old_tb);
+        PyErr_PrintEx(1);
+    }
+    #if PY_MAJOR_VERSION < 3
+    ctx = PyString_FromString(name);
+    #else
+    ctx = PyUnicode_FromString(name);
+    #endif
+    __Pyx_ErrRestore(old_exc, old_val, old_tb);
+    if (!ctx) {
+        PyErr_WriteUnraisable(Py_None);
+    } else {
+        PyErr_WriteUnraisable(ctx);
+        Py_DECREF(ctx);
+    }
+#ifdef WITH_THREAD
+    if (nogil)
+        PyGILState_Release(state);
+#endif
 }
 
 /* RaiseArgTupleInvalid */
@@ -5917,30 +6191,6 @@ static CYTHON_INLINE PyObject* __Pyx_PyObject_CallOneArg(PyObject *func, PyObjec
 }
 #endif
 
-/* PyErrFetchRestore */
-  #if CYTHON_FAST_THREAD_STATE
-static CYTHON_INLINE void __Pyx_ErrRestoreInState(PyThreadState *tstate, PyObject *type, PyObject *value, PyObject *tb) {
-    PyObject *tmp_type, *tmp_value, *tmp_tb;
-    tmp_type = tstate->curexc_type;
-    tmp_value = tstate->curexc_value;
-    tmp_tb = tstate->curexc_traceback;
-    tstate->curexc_type = type;
-    tstate->curexc_value = value;
-    tstate->curexc_traceback = tb;
-    Py_XDECREF(tmp_type);
-    Py_XDECREF(tmp_value);
-    Py_XDECREF(tmp_tb);
-}
-static CYTHON_INLINE void __Pyx_ErrFetchInState(PyThreadState *tstate, PyObject **type, PyObject **value, PyObject **tb) {
-    *type = tstate->curexc_type;
-    *value = tstate->curexc_value;
-    *tb = tstate->curexc_traceback;
-    tstate->curexc_type = 0;
-    tstate->curexc_value = 0;
-    tstate->curexc_traceback = 0;
-}
-#endif
-
 /* GetTopmostException */
   #if CYTHON_USE_EXC_INFO_STACK
 static _PyErr_StackItem *
@@ -6784,6 +7034,112 @@ static void __Pyx_ReleaseBuffer(Py_buffer *view) {
         return (target_type) value;\
     }
 
+/* Print */
+  #if !CYTHON_COMPILING_IN_PYPY && PY_MAJOR_VERSION < 3
+static PyObject *__Pyx_GetStdout(void) {
+    PyObject *f = PySys_GetObject((char *)"stdout");
+    if (!f) {
+        PyErr_SetString(PyExc_RuntimeError, "lost sys.stdout");
+    }
+    return f;
+}
+static int __Pyx_Print(PyObject* f, PyObject *arg_tuple, int newline) {
+    int i;
+    if (!f) {
+        if (!(f = __Pyx_GetStdout()))
+            return -1;
+    }
+    Py_INCREF(f);
+    for (i=0; i < PyTuple_GET_SIZE(arg_tuple); i++) {
+        PyObject* v;
+        if (PyFile_SoftSpace(f, 1)) {
+            if (PyFile_WriteString(" ", f) < 0)
+                goto error;
+        }
+        v = PyTuple_GET_ITEM(arg_tuple, i);
+        if (PyFile_WriteObject(v, f, Py_PRINT_RAW) < 0)
+            goto error;
+        if (PyString_Check(v)) {
+            char *s = PyString_AsString(v);
+            Py_ssize_t len = PyString_Size(v);
+            if (len > 0) {
+                switch (s[len-1]) {
+                    case ' ': break;
+                    case '\f': case '\r': case '\n': case '\t': case '\v':
+                        PyFile_SoftSpace(f, 0);
+                        break;
+                    default:  break;
+                }
+            }
+        }
+    }
+    if (newline) {
+        if (PyFile_WriteString("\n", f) < 0)
+            goto error;
+        PyFile_SoftSpace(f, 0);
+    }
+    Py_DECREF(f);
+    return 0;
+error:
+    Py_DECREF(f);
+    return -1;
+}
+#else
+static int __Pyx_Print(PyObject* stream, PyObject *arg_tuple, int newline) {
+    PyObject* kwargs = 0;
+    PyObject* result = 0;
+    PyObject* end_string;
+    if (unlikely(!__pyx_print)) {
+        __pyx_print = PyObject_GetAttr(__pyx_b, __pyx_n_s_print);
+        if (!__pyx_print)
+            return -1;
+    }
+    if (stream) {
+        kwargs = PyDict_New();
+        if (unlikely(!kwargs))
+            return -1;
+        if (unlikely(PyDict_SetItem(kwargs, __pyx_n_s_file, stream) < 0))
+            goto bad;
+        if (!newline) {
+            end_string = PyUnicode_FromStringAndSize(" ", 1);
+            if (unlikely(!end_string))
+                goto bad;
+            if (PyDict_SetItem(kwargs, __pyx_n_s_end, end_string) < 0) {
+                Py_DECREF(end_string);
+                goto bad;
+            }
+            Py_DECREF(end_string);
+        }
+    } else if (!newline) {
+        if (unlikely(!__pyx_print_kwargs)) {
+            __pyx_print_kwargs = PyDict_New();
+            if (unlikely(!__pyx_print_kwargs))
+                return -1;
+            end_string = PyUnicode_FromStringAndSize(" ", 1);
+            if (unlikely(!end_string))
+                return -1;
+            if (PyDict_SetItem(__pyx_print_kwargs, __pyx_n_s_end, end_string) < 0) {
+                Py_DECREF(end_string);
+                return -1;
+            }
+            Py_DECREF(end_string);
+        }
+        kwargs = __pyx_print_kwargs;
+    }
+    result = PyObject_Call(__pyx_print, arg_tuple, kwargs);
+    if (unlikely(kwargs) && (kwargs != __pyx_print_kwargs))
+        Py_DECREF(kwargs);
+    if (!result)
+        return -1;
+    Py_DECREF(result);
+    return 0;
+bad:
+    if (kwargs != __pyx_print_kwargs)
+        Py_XDECREF(kwargs);
+    return -1;
+}
+#endif
+
 /* Declarations */
   #if CYTHON_CCOMPLEX
   #ifdef __cplusplus
@@ -7126,6 +7482,43 @@ raise_neg_overflow:
         "can't convert negative value to int");
     return (int) -1;
 }
+
+/* PrintOne */
+  #if !CYTHON_COMPILING_IN_PYPY && PY_MAJOR_VERSION < 3
+static int __Pyx_PrintOne(PyObject* f, PyObject *o) {
+    if (!f) {
+        if (!(f = __Pyx_GetStdout()))
+            return -1;
+    }
+    Py_INCREF(f);
+    if (PyFile_SoftSpace(f, 0)) {
+        if (PyFile_WriteString(" ", f) < 0)
+            goto error;
+    }
+    if (PyFile_WriteObject(o, f, Py_PRINT_RAW) < 0)
+        goto error;
+    if (PyFile_WriteString("\n", f) < 0)
+        goto error;
+    Py_DECREF(f);
+    return 0;
+error:
+    Py_DECREF(f);
+    return -1;
+    /* the line below is just to avoid C compiler
+     * warnings about unused functions */
+    return __Pyx_Print(f, NULL, 0);
+}
+#else
+static int __Pyx_PrintOne(PyObject* stream, PyObject *o) {
+    int res;
+    PyObject* arg_tuple = PyTuple_Pack(1, o);
+    if (unlikely(!arg_tuple))
+        return -1;
+    res = __Pyx_Print(stream, arg_tuple, 1);
+    Py_DECREF(arg_tuple);
+    return res;
+}
+#endif
 
 /* CIntToPy */
   static CYTHON_INLINE PyObject* __Pyx_PyInt_From_long(long value) {

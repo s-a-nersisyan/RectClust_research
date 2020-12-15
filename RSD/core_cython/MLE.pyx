@@ -132,7 +132,8 @@ cdef (np.float64_t, np.float64_t, np.float64_t, np.float64_t) optimize_NLL_on_se
     np.float64_t r_sum, np.float64_t r_l, np.float64_t r_h,
     np.float64_t x_l, np.float64_t x_h,
     np.float64_t x_sq_l, np.float64_t x_sq_h,
-    np.float64_t l_cur, np.float64_t l_next
+    np.float64_t l_cur, np.float64_t l_next,
+    long int iternum
 ):
     '''
     Minimize negative log-likelihood on a given segment
@@ -141,11 +142,21 @@ cdef (np.float64_t, np.float64_t, np.float64_t, np.float64_t) optimize_NLL_on_se
     cdef np.float64_t b = x_h / r_h - x_l / r_l
     cdef np.float64_t c = x_sq_l + x_sq_h - x_l**2 / r_l - x_h**2 / r_h
     
+    # TODO: think about this!
+    # a1 = r_l * r_h * a
+    #cdef np.float64_t a1 = r_l + r_h
+    # b1 = (r_l * r_h)**2 * b
+    #cdef np.float64_t b1 = r_l*r_h * (r_l*x_h - r_h*x_l)
+    # c1 = r_l * r_h * c
+    #cdef np.float64_t c1 = r_l * (r_h * x_sq_h - x_h**2) + r_h * (r_l * x_sq_l - x_l**2)
+    #r0, r1, r2, r3 = solve_quartic_equation(r_sum * a1**2, -2 * M_PI * b1, 2 * c1 * (r_sum * a1 - M_PI*r_l*r_h), 0, r_sum * c1**2)
+
     cdef np.float64_t t_cur = r_l * l_cur - x_l
     cdef np.float64_t t_next = r_l * l_next - x_l
 
     cdef np.complex128_t r0, r1, r2, r3
     r0, r1, r2, r3 = solve_quartic_equation(r_sum * a**2, -2 * M_PI * b, 2 * c * (r_sum * a - M_PI), 0, r_sum * c**2)
+    
     cdef np.complex128_t critical_t[6]
     # Boundary + roots of the derivative
     critical_t[:] = [t_cur, t_next, r0, r1, r2, r3]
@@ -166,15 +177,23 @@ cdef (np.float64_t, np.float64_t, np.float64_t, np.float64_t) optimize_NLL_on_se
         if t < t_cur or t > t_next:
             continue
         
-        if abs(t) < 1e-8:
+        if iternum == 0 and i == 0:
             s = 0
+            NLL = r_sum * log(b)
         else:
-            s = (a * t**2 + c) / (sqrt(2*M_PI) * t)
-        
-        if abs(s) < 1e-8:
-            NLL = r_sum * log(-a*t + b)
-        else:
-            NLL = r_sum * log(sqrt(2*M_PI) * s - a*t + b) + (a * t**2 + c) / (2 * s**2)
+            s = cubic_equation_real_root(
+                sqrt(2*M_PI) * r_sum, 
+                0, 
+                -sqrt(2*M_PI) * (a*t**2  + c),
+                (a*t - b) * (a*t**2 + c)
+            ).real
+
+            if s < 0:
+                NLL = INFINITY
+            else:
+                if s < 1e-6:
+                    s = 1e-6
+                NLL = r_sum * log(sqrt(2*M_PI) * s - a*t + b) + (a * t**2 + c) / (2 * s**2)
 
         if NLL < NLL_loc_min:
             t_loc_min = t
@@ -183,6 +202,15 @@ cdef (np.float64_t, np.float64_t, np.float64_t, np.float64_t) optimize_NLL_on_se
 
     cdef np.float64_t l_loc_min = (t_loc_min + x_l) / r_l
     cdef np.float64_t h_loc_min = (x_l + x_h - r_l * l_loc_min) / r_h
+    if l_loc_min == -8.285968798588563 and h_loc_min == -9.930992198979034:
+        print("##########################")
+        print(t_loc_min, s_loc_min)
+        print(sqrt(2*M_PI) * s_loc_min)
+        print(a * t_loc_min)
+        print(b)
+        print(sqrt(2*M_PI) * s_loc_min - a*t_loc_min + b)
+        print("##########################")
+       
 
     return (l_loc_min, h_loc_min, s_loc_min, NLL_loc_min)
 
@@ -253,7 +281,8 @@ def minimize_NLL(
             r_sum, r_l, r_h,
             x_l, x_h,
             x_sq_l, x_sq_h,
-            l_cur, l_next
+            l_cur, l_next,
+            i
         )
         # Compare with current global minimum
         if NLL_loc_min < NLL_glob_min:

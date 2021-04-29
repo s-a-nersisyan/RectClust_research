@@ -3,7 +3,7 @@ cimport cython
 import numpy as np
 cimport numpy as np
 
-from libc.math cimport abs, sqrt, log, M_PI, INFINITY
+from libc.math cimport abs, sqrt, log, isnan, M_PI, INFINITY
 
 # Import math functions to work with complex numbers
 cdef extern from "complex.h":
@@ -11,6 +11,9 @@ cdef extern from "complex.h":
     np.complex128_t ccos(np.complex128_t)
     np.complex128_t cacos(np.complex128_t)
     np.complex128_t cpow(np.complex128_t, np.complex128_t)
+
+# Tolerance for comparing numbers with zeros
+cdef np.float64_t tol = 1e-8
 
 
 @cython.cdivision(True)
@@ -133,68 +136,78 @@ cdef (np.float64_t, np.float64_t, np.float64_t, np.float64_t) optimize_NLL_on_se
     np.float64_t x_l, np.float64_t x_h,
     np.float64_t x_sq_l, np.float64_t x_sq_h,
     np.float64_t l_cur, np.float64_t l_next,
-    long int iternum
+    long int iternum,
+    np.float64_t n0, np.float64_t s0
 ):
     '''
     Minimize negative log-likelihood on a given segment
     '''
-    cdef np.float64_t a = 1 / r_l + 1 / r_h
-    cdef np.float64_t b = x_h / r_h - x_l / r_l
-    cdef np.float64_t c = x_sq_l + x_sq_h - x_l**2 / r_l - x_h**2 / r_h
-    
-    # TODO: think about this!
-    # a1 = r_l * r_h * a
-    #cdef np.float64_t a1 = r_l + r_h
-    # b1 = (r_l * r_h)**2 * b
-    #cdef np.float64_t b1 = r_l*r_h * (r_l*x_h - r_h*x_l)
-    # c1 = r_l * r_h * c
-    #cdef np.float64_t c1 = r_l * (r_h * x_sq_h - x_h**2) + r_h * (r_l * x_sq_l - x_l**2)
-    #r0, r1, r2, r3 = solve_quartic_equation(r_sum * a1**2, -2 * M_PI * b1, 2 * c1 * (r_sum * a1 - M_PI*r_l*r_h), 0, r_sum * c1**2)
-
     cdef np.float64_t t_cur = r_l * l_cur - x_l
     cdef np.float64_t t_next = r_l * l_next - x_l
-
-    cdef np.complex128_t r0, r1, r2, r3
-    r0, r1, r2, r3 = solve_quartic_equation(r_sum * a**2, -2 * M_PI * b, 2 * c * (r_sum * a - M_PI), 0, r_sum * c**2)
     
-    cdef np.complex128_t critical_t[6]
-    # Boundary + roots of the derivative
-    critical_t[:] = [t_cur, t_next, r0, r1, r2, r3]
-    
-    cdef int i = 0
     # Temporary variables
-    cdef np.float64_t t, s, NLL
+    cdef np.float64_t t, l, h, s, NLL
+    cdef np.float64_t at, a_inv
+    cdef np.float64_t b1, b0
+    cdef np.float64_t a3, a2, a0
+    cdef np.complex128_t r0, r1, r2, r3
+    
     # Local minimum variables
     cdef np.float64_t t_loc_min, s_loc_min, NLL_loc_min
     NLL_loc_min = INFINITY
+
+    # Auxiliarly constants
+    cdef np.float64_t min_r_l_h = min(r_l, r_h)
+    cdef np.float64_t max_r_l_h = max(r_l, r_h)
+    cdef np.float64_t b = x_h / r_h - x_l / r_l
+    cdef np.float64_t c = x_sq_l + x_sq_h - x_l**2 / r_l - x_h**2 / r_h
+    
+    # First, solve the quartic equation for critical values of t
+    a_inv = min_r_l_h / (1 + min_r_l_h/max_r_l_h)
+    a3 = -2 * M_PI * b * a_inv**2 / (r_sum + n0 + 2)
+    a2 = 2 * (c + n0*s0**2) * a_inv * (1 - M_PI * a_inv / (r_sum + n0 + 2))
+    a0 = ((c + n0*s0**2) * a_inv)**2
+    r0, r1, r2, r3 = solve_quartic_equation(1, a3, a2, 0, a0)
+    
+    # Critical points = boundary + roots of the derivative
+    cdef np.complex128_t critical_t[6]
+    critical_t[:] = [t_cur, t_next, r0, r1, r2, r3]
+    
+    cdef int i = 0
     for i in range(6):
         # We do not want complex roots
-        if abs(critical_t[i].imag) > 1e-8:
+        if abs(critical_t[i].imag) > tol:
             continue
-
         t = critical_t[i].real
-        # Roots should lie within [t_cur, t_next] interval
-        if t < t_cur or t > t_next:
+
+        # We do not want t = nan
+        if isnan(t):
             continue
         
-        if iternum == 0 and i == 0:
-            s = 0
-            NLL = r_sum * log(b)
+        # Roots should lie within [t_cur, t_next] interval
+        if i > 1 and (t < t_cur or t > t_next):
+            continue
+        
+        l = (t + x_l) / r_l
+        h = (x_l + x_h - r_l*l) / r_h
+        at = (1 + min_r_l_h/max_r_l_h) * (r_l / min_r_l_h * l - x_l / min_r_l_h)
+        
+        if i == 0 or i == 1 or abs(t) <= tol:
+            # Solve the cubic equation for s
+            b1 = -(at*t + c + n0*s0**2) / (r_sum + n0 + 2)
+            b0 = (h - l) / sqrt(2*M_PI) * b1
+            s = cubic_equation_real_root(1, 0, b1, b0).real
         else:
-            s = cubic_equation_real_root(
-                sqrt(2*M_PI) * r_sum, 
-                0, 
-                -sqrt(2*M_PI) * (a*t**2  + c),
-                (a*t - b) * (a*t**2 + c)
-            ).real
-
-            if s < 0:
-                NLL = INFINITY
-            else:
-                if s < 1e-6:
-                    s = 1e-6
-                NLL = r_sum * log(sqrt(2*M_PI) * s - a*t + b) + (a * t**2 + c) / (2 * s**2)
-
+            s = (at*t + c + n0*s0**2) / sqrt(2*M_PI) / t
+        
+        if iternum == 0 and i == 0 and (n0 == 0 or s0 == 0):
+            s = 0
+            NLL = (r_sum + n0 + 2) * log(b)
+        elif s < 0 or isnan(s):
+            NLL = INFINITY
+        else:
+            NLL = (r_sum + n0 + 2) * log(sqrt(2*M_PI) * s - at + b) + (at*t + c + n0*s0**2) / (2 * s**2)
+        
         if NLL < NLL_loc_min:
             t_loc_min = t
             s_loc_min = s
@@ -202,26 +215,18 @@ cdef (np.float64_t, np.float64_t, np.float64_t, np.float64_t) optimize_NLL_on_se
 
     cdef np.float64_t l_loc_min = (t_loc_min + x_l) / r_l
     cdef np.float64_t h_loc_min = (x_l + x_h - r_l * l_loc_min) / r_h
-    if l_loc_min == -8.285968798588563 and h_loc_min == -9.930992198979034:
-        print("##########################")
-        print(t_loc_min, s_loc_min)
-        print(sqrt(2*M_PI) * s_loc_min)
-        print(a * t_loc_min)
-        print(b)
-        print(sqrt(2*M_PI) * s_loc_min - a*t_loc_min + b)
-        print("##########################")
-       
 
     return (l_loc_min, h_loc_min, s_loc_min, NLL_loc_min)
 
-    
+
 @cython.cdivision(True)
 @cython.boundscheck(False)
 @cython.wraparound(False)
-def minimize_NLL(
+cpdef (np.float64_t, np.float64_t, np.float64_t, np.float64_t) minimize_NLL(
         np.ndarray[np.float64_t, ndim=1] data, 
-        np.ndarray[np.float64_t, ndim=1] weights
-    ):
+        np.ndarray[np.float64_t, ndim=1] weights,
+        np.float64_t n0, np.float64_t s0
+):
     '''
     Fast minimization of RSD negative log-likelihood.
     Briefly:
@@ -232,39 +237,67 @@ def minimize_NLL(
     '''
     # Total number of points
     cdef long int N = data.shape[0]
-    # Summary weight
+    # Total weight
     cdef np.float64_t r_sum = np.sum(weights)
     
+    # Global minimums (the results)
+    cdef np.float64_t l_glob_min, h_glob_min, s_glob_min, NLL_glob_min
+    NLL_glob_min = INFINITY
+    
+    # Ignore first and last entries with near-zero weights
     # Region indexers (u is a number of l axis, v is a number of h axis)
     cdef long int u = 0
     cdef long int v = N - 1
+
+    while u < v:
+        if abs(weights[u]) > tol and abs(weights[v]) > tol:
+            break
+
+        if abs(weights[u]) <= tol:
+            u += 1
+        
+        if abs(weights[v]) <= tol:
+            v -= 1
+    
+    N = v - u + 1
+
+    # Solve the easy case: N = 0 or N = 1
+    if N == 0 or N == 1:
+        if N == 0:
+            l_glob_min, h_glob_min = 0, 0
+        else:
+            l_glob_min, h_glob_min = data[u], data[u]
+
+        s_glob_min = sqrt(n0 / (r_sum + n0 + 2)) * s0
+        NLL_glob_min = (r_sum + n0 + 2) * log(sqrt(2*M_PI)*s_glob_min)
+        NLL_glob_min += n0 * (s0/s_glob_min)**2 / 2
+        
+        return (l_glob_min, h_glob_min, s_glob_min, NLL_glob_min)
+    
     # Global counter
     cdef long int i = 0
     
     # Coordinates of current segment's left-top point
-    cdef np.float64_t l_cur = data[0]
-    cdef np.float64_t h_cur = data[0]
+    cdef np.float64_t l_cur = data[u]
+    cdef np.float64_t h_cur = data[v]
     # Coordinates of current segment's bottom-right point (or left-top coordinates for the next segment)
     cdef np.float64_t l_next
     cdef np.float64_t h_next
     
     # Sum of weights for l and h
-    cdef np.float64_t r_l = weights[0]
-    cdef np.float64_t r_h = weights[N - 1]
+    cdef np.float64_t r_l = weights[u]
+    cdef np.float64_t r_h = weights[v]
     
     # Weighted sum of x's for l and h
-    cdef np.float64_t x_l = weights[0] * data[0]
-    cdef np.float64_t x_h = weights[N - 1] * data[N - 1]
+    cdef np.float64_t x_l = weights[u] * data[u]
+    cdef np.float64_t x_h = weights[v] * data[v]
     
     # Weighted sum of x squares for l and h
-    cdef np.float64_t x_sq_l = weights[0] * data[0]**2
-    cdef np.float64_t x_sq_h = weights[N - 1] * data[N - 1]**2
+    cdef np.float64_t x_sq_l = weights[u] * data[u]**2
+    cdef np.float64_t x_sq_h = weights[v] * data[v]**2
     
     # Local minimums
     cdef np.float64_t l_loc_min, h_loc_min, s_loc_min, NLL_loc_min
-    # Global minimums
-    cdef np.float64_t l_glob_min, h_glob_min, s_glob_min, NLL_glob_min
-    NLL_glob_min = INFINITY
     
     # Traverse extremal chain from l = min(data), h = max(data) to l = h
     while v - u >= 1:
@@ -282,10 +315,12 @@ def minimize_NLL(
             x_l, x_h,
             x_sq_l, x_sq_h,
             l_cur, l_next,
-            i
+            i,
+            n0, s0
         )
+        
         # Compare with current global minimum
-        if NLL_loc_min < NLL_glob_min:
+        if NLL_loc_min <= NLL_glob_min:
             l_glob_min = l_loc_min
             h_glob_min = h_loc_min
             s_glob_min = s_loc_min
@@ -305,5 +340,94 @@ def minimize_NLL(
 
         l_cur, h_cur = l_next, h_next
         i += 1
-
+    
     return (l_glob_min, h_glob_min, s_glob_min, NLL_glob_min)
+
+
+@cython.cdivision(True)
+@cython.boundscheck(False)
+@cython.wraparound(False)
+def minimize_NLL_matrix(
+        np.ndarray[np.float64_t, ndim=2] X_sorted,
+        np.ndarray[np.int64_t, ndim=2] X_argsort,
+        np.ndarray[np.float64_t, ndim=2] r,
+        np.float64_t n0, np.float64_t s0
+):
+    # Array sizes
+    cdef long int n_samples = X_sorted.shape[0]
+    cdef int n_features = X_sorted.shape[1]
+    cdef int n_clusters = r.shape[1]
+    
+    # Results
+    cdef np.ndarray[np.float64_t, ndim=2] low = np.empty((n_clusters, n_features))
+    cdef np.ndarray[np.float64_t, ndim=2] high = np.empty((n_clusters, n_features))
+    cdef np.ndarray[np.float64_t, ndim=2] scale = np.empty((n_clusters, n_features))
+    cdef np.float64_t prior = 0
+
+    # Temporary variables
+    cdef np.ndarray[np.float64_t, ndim=1] data = np.empty(n_samples)
+    cdef np.ndarray[np.float64_t, ndim=1] weights = np.empty(n_samples)
+    cdef np.float64_t low_MLE, high_MLE, scale_MLE, NLL_min
+
+    for j in range(n_features):
+        for k in range(n_clusters):
+            # Sort weights according to the j-th component of X
+            for i in range(n_samples):
+                data[i] = X_sorted[i, j]
+                weights[i] = r[X_argsort[i, j], k]
+
+            low_MLE, high_MLE, scale_MLE, NLL_min = minimize_NLL(data, weights, n0, s0)
+            low[k, j] = low_MLE
+            high[k, j] = high_MLE
+            scale[k, j] = scale_MLE
+            
+            if scale_MLE != 0 and sqrt(2*M_PI)*scale_MLE + high_MLE - low_MLE > 0:
+                prior += (n0 + 2) * log(sqrt(2*M_PI)*scale_MLE + high_MLE - low_MLE) + n0 * (s0 / scale_MLE)**2 / 2
+            else:
+                prior = INFINITY
+
+    return (low, high, scale, prior)
+
+
+@cython.cdivision(True)
+@cython.boundscheck(False)
+@cython.wraparound(False)
+def log_p_matrix(
+    np.ndarray[np.float64_t, ndim=2] X,
+    np.ndarray[np.float64_t, ndim=2] low,
+    np.ndarray[np.float64_t, ndim=2] high,
+    np.ndarray[np.float64_t, ndim=2] scale
+):
+    '''
+    Compute and return probability matrix ( log p_k(x_i) )
+    '''
+    cdef long int n_samples = X.shape[0]
+    cdef int n_features = X.shape[1]
+    cdef int n_clusters = low.shape[0]
+
+    cdef np.ndarray[np.float64_t, ndim=2] result = np.empty((n_samples, n_clusters))
+    cdef long int i
+    cdef int k
+    cdef np.float64_t log_p, C
+
+    for i in range(n_samples):
+        for k in range(n_clusters):
+            log_p = 0
+
+            for j in range(n_features):
+                if abs(scale[k, j]) < tol:
+                    if low[k, j] <= X[i, j] and X[i, j] <= high[k, j]:
+                        log_p += -log(high[k, j] - low[k, j])
+                    else:
+                        log_p = -INFINITY
+                        break
+                else:
+                    log_p += -log(sqrt(2 * M_PI) * scale[k, j] + high[k, j] - low[k, j])
+                    if X[i, j] < low[k, j]:
+                        log_p += -(X[i, j] - low[k, j]) * (X[i, j] - low[k, j]) / scale[k, j] / scale[k, j] / 2
+                    elif X[i, j] > high[k, j]:
+                        log_p += -(X[i, j] - high[k, j]) * (X[i, j] - high[k, j]) / scale[k, j] / scale[k, j] / 2
+            
+            result[i, k] = log_p
+
+    return result

@@ -1,17 +1,53 @@
 import numpy as np
 from scipy.special import logsumexp
 
+from sklearn.utils.extmath import row_norms
+from sklearn.utils import check_random_state
+from sklearn.cluster import kmeans_plusplus
+
 from MixtureEM import MixtureEM
-from RSD import RSD
-from core_cython.EM_utils import log_p_matrix as log_p_matrix_cython
+
+from core_cython.MLE import log_p_matrix as log_p_matrix_cython
+from core_cython.MLE import minimize_NLL_matrix
 
 
 class RSDMixtureEM(MixtureEM):
+    def __init__(self, n_clusters=2, n_init=10, max_iter=300, tol=1e-4, n0=1e-4, s0=1):
+        """Initialize class for RSD mixture model.
+        
+        Parameters
+        ----------
+        n_clusters : int
+            Number of clusters.
+        n_init : int
+            Number of initializations of EM-algorithm.
+        max_iter : inr
+            Maximum number of iterations for a single run of EM-algorithm.
+        tol : float
+            The convergence threshold for EM-algorithm.
+        n0: float
+            Bayesian regularizatin strength (must be positive)
+        s0: float
+            Desired rectangle width (for prior distribution)
+        
+        Returns
+        -------
+        None
+        """
+        super().__init__(n_clusters, n_init, max_iter, tol)
+        self.n0 = n0
+        self.s0 = s0
+
     def fit(self, X):
         '''
         Fit mixture model via EM algorithm given matrix X.
         This is a wrapper around MixtureEM.fit()
         '''
+
+        # Argsort X by each feature independently
+        self.X_argsort = np.argsort(X, axis=0)
+        self.X_sorted = np.take_along_axis(X, self.X_argsort, axis=0)
+
         NLL_global_arg_min, NLL_global_min = super().fit(X)
 
         self.low = NLL_global_arg_min["low"]
@@ -26,8 +62,11 @@ class RSDMixtureEM(MixtureEM):
         n_samples, n_features = X.shape
         
         log_pi = np.log(np.full((1, self.n_clusters), 1 / self.n_clusters))
-        #np.random.seed(3)
-        low = np.random.sample((self.n_clusters, n_features))
+        low = np.random.sample((self.n_clusters, n_features)) + 5
+        
+        #x_squared_norms = row_norms(X, squared=True)
+        low, _ = kmeans_plusplus(X, self.n_clusters)
+        
         high = low
         scale = np.ones((self.n_clusters, n_features))
 
@@ -48,73 +87,9 @@ class RSDMixtureEM(MixtureEM):
 
         # First, pi
         log_pi = np.log(r_sum / n_samples)
-        
-        low = np.empty((self.n_clusters, n_features))
-        high = np.empty((self.n_clusters, n_features))
-        scale = np.empty((self.n_clusters, n_features))
-        
-        # TODO: cythonize me, please
-        for k in range(self.n_clusters):
-            for j in range(n_features):
-                low_MLE, high_MLE, scale_MLE, NLL_min = RSD.fit(X[:, j], weights=r[:, k])
-                low[k, j] = low_MLE
-                high[k, j] = high_MLE
-                scale[k, j] = scale_MLE
-                
-                #if scale_MLE < 0:
-                #    print(k, j)
-                #    print(low_MLE, high_MLE, scale_MLE)
-                #    print(NLL_min)
-                #    print(RSD.NLL(X[:, j], low=low_MLE, high=high_MLE, scale=scale_MLE, weights=r[:, k]))
-                #
-                #if k == 0 and j == 0:
-                #    print("***")
-                #    print(low_MLE, high_MLE, scale_MLE)
-                #    print(NLL_min)
-                #    #low_MLE, high_MLE, scale_MLE = -8.143519790713134, 5.090250373797931, 0.04477668846863345
-                #    print(RSD.NLL(X[:, j], low=low_MLE, high=high_MLE, scale=scale_MLE, weights=r[:, k]))
-                #    print("***")
+        low, high, scale, prior = minimize_NLL_matrix(self.X_sorted, self.X_argsort, r, self.n0, self.s0)
         
         arg_min = {"log_pi": log_pi, "low": low, "high": high, "scale": scale}
-        NLL = -np.sum(logsumexp(self.log_p_matrix(X, arg_min) + arg_min["log_pi"], axis=1))
-
+        NLL = -np.sum(logsumexp(self.log_p_matrix(X, arg_min) + arg_min["log_pi"], axis=1)) + prior
+        
         return arg_min, NLL
-
-
-if __name__ == "__main__":
-    rs = 17
-    X1 = RSD.rvs(low=-4, high=0, scale=0.1, size=500, random_state=rs)[:, None]
-    Y1 = RSD.rvs(low=0, high=2, scale=0.1, size=500, random_state=rs + 1)[:, None]
-    S1 = np.concatenate([X1, Y1], axis=1)
-    
-    X2 = RSD.rvs(low=4, high=5, scale=0.1, size=1000, random_state=rs + 2)[:, None]
-    Y2 = RSD.rvs(low=-2, high=0, scale=0.1, size=1000, random_state=rs + 3)[:, None]
-    S2 = np.concatenate([X2, Y2], axis=1)
-    
-    X3 = RSD.rvs(low=-3, high=-2, scale=0.1, size=1500, random_state=rs + 4)[:, None]
-    Y3 = RSD.rvs(low=-1, high=1, scale=0.1, size=1500, random_state=rs + 5)[:, None]
-    S3 = np.concatenate([X3, Y3], axis=1)
-
-    X = np.concatenate([S1, S2, S3], axis=0)
-
-    import pandas as pd
-    import seaborn as sns
-    import matplotlib.pyplot as plt
-
-    df = pd.DataFrame(X, columns=["x", "y"])
-    df["Cluster"] = ["0"]*500 + ["1"]*1000 + ["2"] * 1500
-    sns.scatterplot(x="x", y="y", hue="Cluster", data=df)
-
-    model = RSDMixtureEM(n_clusters=3, n_init=100)
-    model.fit(X)
-
-    for k in range(3):
-        print("[{:.1f}, {:.1f}] x [{:.1f}, {:.1f}] ({}, {})".format(
-            model.low[k, 0], model.high[k, 0], model.low[k, 1], model.high[k, 1], model.scale[k, 0], model.scale[k, 1])
-        )
-        plt.plot(
-            [model.low[k, 0], model.low[k, 0], model.high[k, 0], model.high[k, 0], model.low[k, 0]], 
-            [model.low[k, 1], model.high[k, 1], model.high[k, 1], model.low[k, 1], model.low[k, 1]]
-        )
-    plt.tight_layout()
-    plt.savefig("test.pdf")

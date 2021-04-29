@@ -45,16 +45,13 @@ class MixtureEM:
             r = self.E_step(X, arg_old)
             arg_new, NLL_new_min = self.M_step(X, r)
 
-            if NLL_old_min is not None and NLL_old_min < NLL_new_min:
-                print(iter_idx)
-                print(NLL_old_min, NLL_new_min)
-                print(arg_old)
-                print(arg_new)
-                print("NLL is not decreasing...")
-                #break
-
             if NLL_old_min is not None and abs(NLL_new_min - NLL_old_min) / abs(NLL_old_min) < self.tol:
                 break
+            
+            if NLL_old_min is not None and NLL_old_min < NLL_new_min:
+                print("NLL is not decreasing...")
+                print(iter_idx, NLL_old_min, NLL_new_min)
+                quit()
 
             arg_old = arg_new
             NLL_old_min = NLL_new_min

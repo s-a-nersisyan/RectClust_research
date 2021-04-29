@@ -1,40 +1,53 @@
+import pandas as pd
 import numpy as np
+import seaborn as sns
+import matplotlib.pyplot as plt
 
 from RSD import RSD
+from RSD_mixture import RSDMixtureEM
 
-from scipy.stats import linregress
+import time
 
-import matplotlib.pyplot as plt
-import seaborn as sns
+np.random.seed(17)
 
+# Synthetic test
+N = 10000
+clusters = [
+    ((-4, 0, 0.5), (0, 2, 0.1)),
+    ((4, 5, 0), (-2, 0, 0.3)),
+    ((-3, -2, 0.1), (-1, 1, 0.2))
+]
 
-# Sample parameters
-low, high, scale = 0, 5, 0
+Xs = []
+for i, (x, y) in enumerate(clusters):
+    X = RSD.rvs(low=x[0], high=x[1], scale=x[2], size=N)[:, None]
+    Y = RSD.rvs(low=y[0], high=y[1], scale=y[2], size=N)[:, None]
+    Xs.append(np.concatenate([X, Y], axis=1))
 
-# First, test that MLE error decreases with sqrt(N) rate
-low_err, high_err, scale_err = [], [], []
-Ns = np.logspace(10, 20, 1000, base=2)
-for N in Ns:
-    sample = RSD.rvs(low=low, high=high, scale=scale, size=int(N), random_state=int(N))
-    low_MLE, high_MLE, scale_MLE, NNL_min = RSD.fit(sample)
-    low_err.append(abs(low_MLE - low))
-    high_err.append(abs(high_MLE - high))
-    scale_err.append(abs(scale_MLE - scale))
+X = np.concatenate(Xs, axis=0)
+df = pd.DataFrame(X, columns=["x", "y"])
+df["Cluster"] = ["Cluster #1"]*N + ["Cluster #2"]*N + ["Cluster #3"] * N
+ax = sns.scatterplot(x="x", y="y", hue="Cluster", data=df)
+plt.xlabel("")
+plt.ylabel("")
+handles, labels = ax.get_legend_handles_labels()
+ax.legend(handles=handles[0:], labels=labels[0:])
 
-low_err = np.array(low_err)
-high_err = np.array(high_err)
-scale_err = np.array(scale_err)
+model = RSDMixtureEM(n_clusters=len(clusters), n_init=100)
 
-sns.scatterplot(x=np.log2(Ns), y=np.log2(low_err))
-plt.savefig("N_vs_low_err_{}_{}_{}.pdf".format(low, high, scale))
-plt.close()
-sns.scatterplot(x=np.log2(Ns), y=np.log2(high_err))
-plt.savefig("N_vs_high_err_{}_{}_{}.pdf".format(low, high, scale))
-plt.close()
-sns.scatterplot(x=np.log2(Ns), y=np.log2(scale_err))
-plt.savefig("N_vs_scale_err_{}_{}_{}.pdf".format(low, high, scale))
-plt.close()
+start = time.time()
+model.fit(X)
+end = time.time()
+print("{:.1f}".format(end - start))
 
-print("N vs low_err: ", linregress(np.log2(Ns), np.log2(low_err)))
-print("N vs high_err: ", linregress(np.log2(Ns), np.log2(high_err)))
-print("N vs scale_err: ", linregress(np.log2(Ns), np.log2(scale_err)))
+for k in [2, 1, 0]:
+    print("[{:.1f}, {:.1f}] x [{:.1f}, {:.1f}] ({}, {})".format(
+        model.low[k, 0], model.high[k, 0], model.low[k, 1], model.high[k, 1], model.scale[k, 0], model.scale[k, 1])
+    )
+    plt.plot(
+        [model.low[k, 0], model.low[k, 0], model.high[k, 0], model.high[k, 0], model.low[k, 0]], 
+        [model.low[k, 1], model.high[k, 1], model.high[k, 1], model.low[k, 1], model.low[k, 1]],
+        linewidth=4
+    )
+plt.tight_layout()
+plt.savefig("synthetic.png", dpi=300)

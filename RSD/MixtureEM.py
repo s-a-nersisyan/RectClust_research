@@ -27,6 +27,8 @@ class MixtureEM:
 
         self.NLL_global_arg_min = NLL_global_arg_min
         self.NLL_global_min = NLL_global_min
+        self.labels_ = np.argmax(self.E_step(X, NLL_global_arg_min), axis=1)
+
         return NLL_global_arg_min, NLL_global_min
 
     def predict_proba(self, X):
@@ -34,6 +36,13 @@ class MixtureEM:
         Predict posterior probability of each component given the data
         '''
         return self.E_step(X, self.NLL_global_arg_min)
+
+    def predict(self, X):
+        '''
+        Predict cluster label for each data point
+        '''
+        return np.argmax(self.predict_proba(X), axis=1)
+        
 
     def run_EM(self, X, arg_init):
         '''

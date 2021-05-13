@@ -82,18 +82,3 @@ class RSD:
             weights = weights[order]
         
         return minimize_NLL(data, weights, n0, s0)
-
-    #@staticmethod
-    #def NLL(data, low=-1, high=1, scale=1, weights=None, n0=-2, s0=0):
-    #    N = len(data)
-    #    if weights is None:
-    #        weights = np.ones(N)
-    #    r_sum = np.sum(weights)
-
-    #    if np.isclose(scale, 0):
-    #        # FIXME
-    #        return (r_sum + n0 + 2) * np.log(high - low)
-    #    else:
-    #        result = (r_sum + n0 + 2) * np.log(np.sqrt(2*np.pi) * scale + high - low)
-    #        result += (np.sum(weights * (np.maximum(0, data - high) - np.maximum(0, low - data))**2) + n0*s0**2) / (2 * scale**2)
-    #        return result

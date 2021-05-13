@@ -1,18 +1,17 @@
 import numpy as np
 from scipy.special import logsumexp
 
-from sklearn.utils.extmath import row_norms
-from sklearn.utils import check_random_state
 from sklearn.cluster import kmeans_plusplus
 
 from MixtureEM import MixtureEM
+from RSD import RSD
 
 from core_cython.MLE import log_p_matrix as log_p_matrix_cython
 from core_cython.MLE import minimize_NLL_matrix
 
 
 class RSDMixtureEM(MixtureEM):
-    def __init__(self, n_clusters=2, n_init=10, max_iter=300, tol=1e-4, n0=1e-4, s0=1):
+    def __init__(self, n_clusters=2, n_init=10, max_iter=300, tol=1e-4, n0=1e-6, s0=1):
         """Initialize class for RSD mixture model.
         
         Parameters
@@ -62,13 +61,10 @@ class RSDMixtureEM(MixtureEM):
         n_samples, n_features = X.shape
         
         log_pi = np.log(np.full((1, self.n_clusters), 1 / self.n_clusters))
-        low = np.random.sample((self.n_clusters, n_features)) + 5
         
-        #x_squared_norms = row_norms(X, squared=True)
         low, _ = kmeans_plusplus(X, self.n_clusters)
-        
         high = low
-        scale = np.ones((self.n_clusters, n_features))
+        scale = np.ones((self.n_clusters, n_features)) / self.n_clusters
 
         return {"log_pi": log_pi, "low": low, "high": high, "scale": scale}
     
@@ -93,3 +89,30 @@ class RSDMixtureEM(MixtureEM):
         NLL = -np.sum(logsumexp(self.log_p_matrix(X, arg_min) + arg_min["log_pi"], axis=1)) + prior
         
         return arg_min, NLL
+    
+    def pdf_on_component(self, x, k):
+        '''
+        Return density of k-th component at point x 
+        after fitting the mixture model
+        '''
+        result = 1
+        for j in range(self.low.shape[1]):
+            result *= RSD.pdf(
+                x[j],
+                low=self.low[k, j],
+                high=self.high[k, j],
+                scale=self.scale[k, j]
+            )
+
+        return result
+    
+    def pdf(self, x):
+        '''
+        Return density at point x after mixture
+        model is fitted
+        '''
+        result = 0
+        for k in range(self.low.shape[0]):
+            result += self.weights[0, k] * self.pdf_on_component(x, k)
+
+        return result
